@@ -23,10 +23,10 @@ jobs:
       os: linux
       script:
         - julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
-        - julia --project=docs/ docs/make.jl
+        - julia --project=docs/ --code-coverage=user docs/make.jl
       name: "HTML"
     - script:
         - julia --project=docs/pdf/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
-        - julia --project=docs/pdf/ docs/pdf/make.jl
+        - julia --project=docs/pdf/ --code-coverage=user docs/pdf/make.jl
       name: "PDF"
       services: docker
