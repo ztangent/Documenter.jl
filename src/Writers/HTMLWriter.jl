@@ -204,7 +204,13 @@ function SearchRecord(ctx::HTMLContext, navnode, node::Markdown.Header)
 end
 
 function SearchRecord(ctx, navnode, node)
-    SearchRecord(ctx, navnode; text=mdflatten(node))
+    text = try
+        mdflatten(node)
+    catch e
+        @error "mdflatten in SearchRecord(ctx, navnode, node) terminated" ctx navnode node e
+        rethrow(e)
+    end
+    SearchRecord(ctx, navnode; text=text)
 end
 
 function JSON.lower(rec::SearchRecord)
@@ -806,11 +812,17 @@ function domify(ctx, navnode, node::Documents.DocsNode)
     @tags a code div section span
 
     # push to search index
+    text = try
+        mdflatten(node.docstr)
+    catch e
+        @error "mdflatten in domify(ctx, navnode, ::Documents.DocsNode) terminated" ctx navnode node e
+        rethrow(e)
+    end
     rec = SearchRecord(ctx, navnode;
         loc=node.anchor.id,
         title=string(node.object.binding),
         category=Utilities.doccat(node.object),
-        text = mdflatten(node.docstr))
+        text = text)
 
     push!(ctx.search_index, rec)
 
