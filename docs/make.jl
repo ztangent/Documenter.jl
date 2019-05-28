@@ -1,7 +1,8 @@
 using Documenter, DocumenterTools
+include("DocumenterShowcase.jl")
 
 makedocs(
-    modules = [Documenter, DocumenterTools],
+    modules = [Documenter, DocumenterTools, DocumenterShowcase],
     format = Documenter.HTML(
         # Use clean URLs, unless built as a "local" build
         prettyurls = !("local" in ARGS),
@@ -26,6 +27,7 @@ makedocs(
             ]),
             "man/other-formats.md",
         ],
+        "showcase.md",
         "Library" => Any[
             "Public" => "lib/public.md",
             hide("Internals" => "lib/internals.md", Any[
