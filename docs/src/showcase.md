@@ -1,5 +1,12 @@
 # Showcase
 
+A table of contents can be generated with an [`@contents` block](@ref).
+This one is for just this page.
+
+```@contents
+Pages = ["showcase.md"]
+```
+
 ## The simple stuff
 
 You can use all the usual markdown syntax, such as **bold text** and _italic text_.
