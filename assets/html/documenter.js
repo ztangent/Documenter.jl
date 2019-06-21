@@ -1,132 +1,130 @@
-/*
- * Part of Documenter.jl
- *     https://github.com/JuliaDocs/Documenter.jl
- *
- * License: MIT
- */
-
 requirejs.config({
     paths: {
-        'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min',
-        'jqueryui': 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min',
-        'headroom': 'https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min',
-        'mathjax': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML',
-        'highlight': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min',
-        'highlight-julia': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia.min',
-        'highlight-julia-repl': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia-repl.min',
+      'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min',
+      'jqueryui': 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min',
+      'katex': 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min',
+      'katex-auto-render': 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/contrib/auto-render.min',
+      //'webfontloader': 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader',
+      'bootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min',
+      'headroom': 'https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min',
+      'headroom-jquery': 'https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min',
     },
     shim: {
-        'mathjax' : {
-            exports: "MathJax"
-        },
-        'highlight-julia': ['highlight'],
-        'highlight-julia-repl': ['highlight'],
+      'katex': {
+        //deps: ['webfontloader'],
+      },
+      'katex-auto-render': {
+        deps: ['katex'],
+        //export: 'renderMathInElement',
+      },
+      'headroom': {
+        export: 'Headroom',
+      },
+      'headroom-jquery': {
+        deps: ['headroom', 'jquery'],
+      },
     }
 });
 
-// Load MathJax
-require(['mathjax'], function(MathJax) {
-    MathJax.Hub.Config({
-      "tex2jax": {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        processEscapes: true
+requirejs(["jquery", "katex", "katex-auto-render"], function($, katex, renderMathInElement) {
+  $(document).ready(function() {
+    renderMathInElement(
+      document.body,
+      {
+        delimiters: [
+          {left: "$", right: "$", display: false},
+          {left: "\\[", right: "\\]", display: true},
+          {left: "$$", right: "$$", display: true},
+        ],
       }
-    });
-    MathJax.Hub.Config({
-      config: ["MMLorHTML.js"],
-      jax: [
-        "input/TeX",
-        "output/HTML-CSS",
-        "output/NativeMML"
-      ],
-      extensions: [
-        "MathMenu.js",
-        "MathZoom.js",
-        "TeX/AMSmath.js",
-        "TeX/AMSsymbols.js",
-        "TeX/autobold.js",
-        "TeX/autoload-all.js"
-      ]
-    });
-    MathJax.Hub.Config({
-      TeX: { equationNumbers: { autoNumber: "AMS" } }
-    });
-})
+    );
+  })
+  // window.WebFontConfig = {
+  //   custom: {
+  //     families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+  //       'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+  //       'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+  //       'KaTeX_Size4', 'KaTeX_Typewriter'],
+  //   },
+  // };
+  console.log("KaTeX loaded?")
+});
 
-require(['jquery', 'highlight', 'highlight-julia', 'highlight-julia-repl'], function($, hljs) {
-    $(document).ready(function() {
-        hljs.initHighlighting();
-    })
+requirejs(['jquery'], function($) {
+  // Resizes the package name / sitename in the sidebar if it is too wide.
+  // Inspired by: https://github.com/davatron5000/FitText.js
+  $(document).ready(function() {
+    e = $("#documenter .docs-autofit");
+    // console.log($("#pagetitle-overflow-box"));
+    // console.log($("#pagetitle-overflow-box").width());
+    // window.fitText($("#pagetitle-overflow-box"));
+    function resize() {
+      var L = parseInt(e.css('max-width'), 10);
+      var L0 = e.width();
+      if(L0 > L) {
+        var h0 = parseInt(e.css('font-size'), 10);
+        e.css('font-size', L * h0 / L0);
+        // TODO: make sure it survives resizes?
+      }
+    }
 
-})
+    // call once and then register events
+    resize();
+    $(window).resize(resize);
+    $(window).on('orientationchange', resize);
+  });
+});
 
-// update the version selector with info from the siteinfo.js and ../versions.js files
+
 require(['jquery'], function($) {
     $(document).ready(function() {
-        var version_selector = $("#version-selector");
-
-        // add the current version to the selector based on siteinfo.js, but only if the selector is empty
-        if (typeof DOCUMENTER_CURRENT_VERSION !== 'undefined' && $('#version-selector > option').length == 0) {
-            var option = $("<option value='#' selected='selected'>" + DOCUMENTER_CURRENT_VERSION + "</option>");
-            version_selector.append(option);
-        }
-
-        if (typeof DOC_VERSIONS !== 'undefined') {
-            var existing_versions = $('#version-selector > option');
-            var existing_versions_texts = existing_versions.map(function(i,x){return x.text});
-            DOC_VERSIONS.forEach(function(each) {
-                var version_url = documenterBaseURL + "/../" + each;
-                var existing_id = $.inArray(each, existing_versions_texts);
-                // if not already in the version selector, add it as a new option,
-                // otherwise update the old option with the URL and enable it
-                if (existing_id == -1) {
-                    var option = $("<option value='" + version_url + "'>" + each + "</option>");
-                    version_selector.append(option);
-                } else {
-                    var option = existing_versions[existing_id];
-                    option.value = version_url;
-                    option.disabled = false;
-                }
-            });
-        }
-
-        // only show the version selector if the selector has been populated
-        if ($('#version-selector > option').length > 0) {
-            version_selector.css("visibility", "visible");
-        }
-
-        // Scroll the navigation bar to the currently selected menu item
-        $("nav.toc > ul").get(0).scrollTop = $(".current").get(0).offsetTop - $("nav.toc > ul").get(0).offsetTop;
-    })
-
-})
-
-// mobile
-require(['jquery', 'headroom'], function($, Headroom) {
-    $(document).ready(function() {
-        var navtoc = $("nav.toc");
-        $("nav.toc li.current a.toctext").click(function() {
-            navtoc.toggleClass('show');
-        });
-        $("article > header div#topbar a.fa-bars").click(function(ev) {
+        // TODO: this needs to be reviewed
+        var sidebar = $("#documenter > .docs-sidebar");
+        // var uimask = $("#main > .ui-mask");
+        // $("nav.toc li.current a.toctext").click(function() {
+        //     sidebar.toggleClass('show');
+        // });
+        $("#sidebar-button").click(function(ev) {
             ev.preventDefault();
-            navtoc.toggleClass('show');
-            if (navtoc.hasClass('show')) {
+            sidebar.toggleClass('visible');
+            // uimask.toggleClass('visible');
+            if (sidebar.hasClass('visible')) {
                 var title = $("article > header div#topbar span").text();
                 $("nav.toc ul li a:contains('" + title + "')").focus();
             }
         });
-        $("article#docs").bind('click', function(ev) {
-            if ($(ev.target).is('div#topbar a.fa-bars')) {
+        $("#main").bind('click', function(ev) {
+            if ($(ev.target).is('#sidebar-button')) {
                 return;
             }
-            if (navtoc.hasClass('show')) {
-                navtoc.removeClass('show');
+            if (sidebar.hasClass('visible')) {
+                sidebar.removeClass('visible');
             }
+            // if (uimask.hasClass('visible')) {
+            //     uimask.removeClass('visible');
+            // }
         });
-        if ($("article > header div#topbar").css('display') == 'block') {
-            var headroom = new Headroom(document.querySelector("article > header div#topbar"), {"tolerance": {"up": 10, "down": 10}});
-            headroom.init();
-        }
     })
 })
+
+require(['jquery', 'headroom', 'headroom-jquery'], function($, Headroom) {
+    window.Headroom = Headroom; // work around buggy module loading?
+    $(document).ready(function() {
+        $('#documenter .docs-navbar').headroom({
+          "tolerance": {"up": 10, "down": 10},
+          scroller: $("#documenter .docs-main").get(0),
+        });
+    })
+})
+
+requirejs(['jquery', 'devtools'], function($, dev) {
+  $(document).ready(function() {
+    var devbox = dev.appendWidget($('body'));
+    devbox.registerThemeLink(document.getElementById('themecss'));
+  });
+  $(document).keypress(function(ev) {
+    if(ev.ctrlKey && ev.charCode == 25) {
+      $('jldebug-devtools').toggle();
+    }
+  });
+});

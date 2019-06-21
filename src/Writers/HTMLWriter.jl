@@ -248,6 +248,7 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     ctx.search_js = copy_asset("search.js", doc)
 
     push!(ctx.local_assets, copy_asset("documenter.css", doc))
+    push!(ctx.local_assets, copy_asset("devtools.js", doc))
     append!(ctx.local_assets, settings.assets)
 
     for navnode in doc.internal.navlist
@@ -301,7 +302,7 @@ end
 Constructs and writes the page referred to by the `navnode` to `.build`.
 """
 function render_page(ctx, navnode)
-    @tags html body
+    @tags html div body
 
     page = getpage(ctx, navnode)
 
@@ -312,7 +313,7 @@ function render_page(ctx, navnode)
     htmldoc = DOM.HTMLDocument(
         html[:lang=>"en"](
             head,
-            body(navmenu, article)
+            body(div["#documenter"](navmenu, article))
         )
     )
 
@@ -437,48 +438,62 @@ end
 # ------------------------------------------------------------------------------
 
 function render_navmenu(ctx, navnode)
-    @tags a form h1 img input nav div select option
-
+    @tags a form img input nav div select option span
     src = get_url(ctx, navnode)
+    navmenu = nav[".docs-sidebar"]
 
-    navmenu = nav[".toc"]
+    # Logo and title
     if !isempty(ctx.logo)
+        # the logo will point to the first page in the navigation menu
+        href = navhref(ctx, first(ctx.doc.internal.navlist), navnode)
+        alt = isempty(ctx.doc.user.sitename) ? "Logo" : "$(ctx.doc.user.sitename) logo"
+        src = relhref(src, ctx.logo)
         push!(navmenu.nodes,
-            # the logo will point to the first page in the navigation menu
-            a[:href => navhref(ctx, first(ctx.doc.internal.navlist), navnode)](
-                img[
-                    ".logo",
-                    :src => relhref(src, ctx.logo),
-                    :alt => "$(ctx.doc.user.sitename) logo"
-                ]
-            )
+            a[".docs-logo", :href => href](img[:src => src, :alt => alt])
         )
     end
-    push!(navmenu.nodes, h1(ctx.doc.user.sitename))
-    let version_selector = select["#version-selector", :onChange => "window.location.href=this.value"]()
-        if isempty(ctx.doc.user.version)
-            push!(version_selector.attributes, :style => "visibility: hidden")
-        else
-            push!(version_selector.nodes,
-                option[
-                    :value => "#",
-                    :selected => "selected",
-                ](ctx.doc.user.version)
-            )
-        end
-        push!(navmenu.nodes, version_selector)
-    end
+    push!(navmenu.nodes, div[".docs-package-name"](
+        span[".docs-autofit"](ctx.doc.user.sitename)
+    ))
+
+    # Search box
     push!(navmenu.nodes,
-        form[".search#search-form", :action => navhref(ctx, ctx.search_navnode, navnode)](
+        form[".docs-search", :action => navhref(ctx, ctx.search_navnode, navnode)](
             input[
-                "#search-query",
+                ".docs-search-query",
                 :name => "q",
                 :type => "text",
                 :placeholder => "Search docs",
             ],
         )
     )
-    push!(navmenu.nodes, navitem(ctx, navnode))
+
+    # The menu itself
+    menu = navitem(ctx, navnode)
+    push!(menu.attributes, :class => "docs-menu")
+    push!(navmenu.nodes, menu)
+
+    # Version selector
+    let
+        # vs_class = ".docs-version-selector"
+        vs_class = ".docs-version-selector.field.has-addons.visible"
+        vs_label = span[".docs-label.button.is-static.is-size-7"]("Version")
+        vs_label = div[".control"](vs_label)
+        vs_select = select["#documenter-version-selector"]
+        if !isempty(ctx.doc.user.version)
+            vs_class = "$(vs_class).visible"
+            opt = option[:value => "#", :selected => "selected", ](ctx.doc.user.version)
+            vs_select = vs_select(opt)
+        end
+        vs_select = div[".select.is-fullwidth.is-size-7"](vs_select)
+        vs_select = div[".docs-selector.control.is-expanded"](vs_select)
+        push!(navmenu.nodes,
+            div[
+                vs_class,
+                :onChange => "window.location.href=this.value"
+            ](vs_label, vs_select)
+        )
+    end
     navmenu
 end
 
@@ -537,7 +552,7 @@ end
 # ------------------------------------------------------------------------------
 
 function render_article(ctx, navnode)
-    @tags article header footer nav ul li hr span a
+    @tags article header footer nav ul li hr span a div
 
     header_links = map(Documents.navpath(navnode)) do nn
         title = mdconvert(pagetitle(ctx, nn); droplinks=true)
@@ -598,7 +613,7 @@ function render_article(ctx, navnode)
     end
 
     pagenodes = domify(ctx, navnode)
-    article["#docs"](art_header, pagenodes, art_footer)
+    div[".dashboard-main"](art_header, article["#docs"](pagenodes), art_footer)
 end
 
 function render_topbar(ctx, navnode)
