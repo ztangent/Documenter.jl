@@ -1075,11 +1075,11 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   width: 0.01em !important; }
 
 @media screen and (max-width: 768px) {
-  .is-hidden-mobile, #documenter .docs-main header.docs-navbar .right .edit-page .edit-page-text {
+  .is-hidden-mobile {
     display: none !important; } }
 
 @media screen and (min-width: 769px), print {
-  .is-hidden-tablet, #documenter .docs-main header.docs-navbar .right .sidebar-button {
+  .is-hidden-tablet {
     display: none !important; } }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
@@ -7156,17 +7156,17 @@ label.panel-block {
   margin-bottom: 1em; }
 
 /* */
-h1 .heading-anchor, h2 .heading-anchor, h3 .heading-anchor, h4 .heading-anchor, h5 .heading-anchor, h6 .heading-anchor {
+h1 .docs-heading-anchor, h2 .docs-heading-anchor, h3 .docs-heading-anchor, h4 .docs-heading-anchor, h5 .docs-heading-anchor, h6 .docs-heading-anchor {
   visibility: hidden;
   vertical-align: middle;
   margin-left: 0.5em;
   font-size: 0.8rem; }
-  h1 .heading-anchor::before, h2 .heading-anchor::before, h3 .heading-anchor::before, h4 .heading-anchor::before, h5 .heading-anchor::before, h6 .heading-anchor::before {
+  h1 .docs-heading-anchor::before, h2 .docs-heading-anchor::before, h3 .docs-heading-anchor::before, h4 .docs-heading-anchor::before, h5 .docs-heading-anchor::before, h6 .docs-heading-anchor::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f0c1"; }
 
-h1:hover .heading-anchor, h2:hover .heading-anchor, h3:hover .heading-anchor, h4:hover .heading-anchor, h5:hover .heading-anchor, h6:hover .heading-anchor {
+h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-heading-anchor, h4:hover .docs-heading-anchor, h5:hover .docs-heading-anchor, h6:hover .docs-heading-anchor {
   visibility: visible; }
 
 .docstring {
@@ -7300,6 +7300,15 @@ h1:hover .heading-anchor, h2:hover .heading-anchor, h3:hover .heading-anchor, h4
   color: #cd0930;
   background-color: #ffe6eb; }
 
+.content code {
+  font-weight: inherit; }
+
+.breadcrumb a.is-disabled {
+  cursor: default;
+  pointer-events: none; }
+  .breadcrumb a.is-disabled, .breadcrumb a.is-disabled:hover {
+    color: #363636; }
+
 /* This file contain the overall layout.
  *
  * The main container is <div> that is identified by id #documenter.
@@ -7336,7 +7345,8 @@ h1:hover .heading-anchor, h2:hover .heading-anchor, h3:hover .heading-anchor, h4
   #documenter .docs-sidebar .docs-logo {
     padding: 0 1rem; }
     #documenter .docs-sidebar .docs-logo > img {
-      max-height: 6rem; }
+      max-height: 6rem;
+      margin: auto; }
   #documenter .docs-sidebar .docs-package-name {
     font-size: 1.5rem;
     font-weight: 700;
@@ -7422,16 +7432,15 @@ h1:hover .heading-anchor, h2:hover .heading-anchor, h3:hover .heading-anchor, h4
     display: flex; }
     #documenter .docs-main header.docs-navbar .breadcrumb {
       flex-grow: 1; }
-    #documenter .docs-main header.docs-navbar .right {
-      display: flex; }
-      #documenter .docs-main header.docs-navbar .right > * {
+    #documenter .docs-main header.docs-navbar .docs-right {
+      display: flex;
+      white-space: nowrap; }
+      #documenter .docs-main header.docs-navbar .docs-right .docs-icon, #documenter .docs-main header.docs-navbar .docs-right .docs-label, #documenter .docs-main header.docs-navbar .docs-right .docs-sidebar-button {
         display: inline-block; }
-      #documenter .docs-main header.docs-navbar .right .edit-page {
-        white-space: nowrap;
-        margin: auto 0; }
-        #documenter .docs-main header.docs-navbar .right .edit-page .edit-page-text {
-          padding: 0; }
-      #documenter .docs-main header.docs-navbar .right .sidebar-button {
+      #documenter .docs-main header.docs-navbar .docs-right .docs-label {
+        padding: 0;
+        margin-left: 0.3em; }
+      #documenter .docs-main header.docs-navbar .docs-right .docs-sidebar-button {
         font-size: 1.5rem;
         margin: auto 0 auto 1rem; }
     #documenter .docs-main header.docs-navbar > * {
@@ -7458,6 +7467,8 @@ h1:hover .heading-anchor, h2:hover .heading-anchor, h3:hover .heading-anchor, h4
           transition-duration: 0.7s;
           -webkit-transition-duration: 0.7s;
           /* Safari */ } }
+  #documenter .docs-main section.footnotes {
+    border-top: 1px solid #dbdbdb; }
 
 html {
   overflow-x: hidden;

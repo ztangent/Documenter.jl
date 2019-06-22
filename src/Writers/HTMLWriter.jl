@@ -147,7 +147,11 @@ end
 const requirejs_cdn = "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"
 const normalize_css = "https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"
 const google_fonts = "https://fonts.googleapis.com/css?family=Lato|Roboto+Mono"
-const fontawesome_css = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"
+const fontawesome_css = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/solid.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/brands.min.css",
+]
 const highlightjs_css = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"
 
 struct SearchRecord
@@ -175,9 +179,10 @@ mutable struct HTMLContext
     search_index_js :: String
     search_navnode :: Documents.NavNode
     local_assets :: Vector{String}
+    footnotes :: Vector{Markdown.Footnote}
 end
 
-HTMLContext(doc, settings=HTML()) = HTMLContext(doc, settings, "", [], "", "", [], "", Documents.NavNode("search", "Search", nothing), [])
+HTMLContext(doc, settings=HTML()) = HTMLContext(doc, settings, "", [], "", "", [], "", Documents.NavNode("search", "Search", nothing), [], [])
 
 function SearchRecord(ctx::HTMLContext, navnode; loc="", title=nothing, category="page", text="")
     page_title = mdflatten(pagetitle(ctx, navnode))
@@ -279,7 +284,7 @@ function copy_asset(file, doc)
     isfile(src) || error("Asset '$file' not found at $(abspath(src))")
 
     # Since user's alternative assets are already copied over in a previous build
-    # step and they should override documenter's original assets, we only actually
+    # step and they should override Documenter's original assets, we only actually
     # perform the copy if <source>/assets/<file> does not exist. Note that checking
     # the existence of <build>/assets/<file> is not sufficient since the <build>
     # directory might be dirty from a previous build.
@@ -330,7 +335,7 @@ function render_head(ctx, navnode)
     css_links = [
         normalize_css,
         google_fonts,
-        fontawesome_css,
+        fontawesome_css...,
         highlightjs_css,
     ]
     head(
@@ -414,7 +419,7 @@ function render_search(ctx)
         header(
             nav(ul(li("Search"))),
             hr(),
-            render_topbar(ctx, ctx.search_navnode),
+            #render_topbar(ctx, ctx.search_navnode),
         ),
         h1("Search"),
         p["#search-info"]("Number of results: ", span["#search-results-number"]("loading...")),
@@ -523,12 +528,12 @@ function navitem(ctx, current, nn::Documents.NavNode)
 
     # construct this item
     title = mdconvert(pagetitle(ctx, nn); droplinks=true)
-    link = if nn.page === nothing
-        span[".toctext"](title)
+    currentclass = (nn === current) ? ".is-active" : ""
+    item = if nn.page === nothing
+        li(span[".tocitem$(currentclass)"](title))
     else
-        a[".toctext", :href => navhref(ctx, nn, current)](title)
+        li(a[".tocitem$(currentclass)", :href => navhref(ctx, nn, current)](title))
     end
-    item = (nn === current) ? li[".current"](link) : li(link)
 
     # add the subsections (2nd level headings) from the page
     if (nn === current) && current.page !== nothing
@@ -536,7 +541,7 @@ function navitem(ctx, current, nn::Documents.NavNode)
         internal_links = map(subs) do s
             istoplevel, anchor, text = s
             _li = istoplevel ? li[".toplevel"] : li[]
-            _li(a[".toctext", :href => anchor](mdconvert(text; droplinks=true)))
+            _li(a[".tocitem", :href => anchor](mdconvert(text; droplinks=true)))
         end
         push!(item.nodes, ul[".internal"](internal_links))
     end
@@ -552,14 +557,22 @@ end
 # ------------------------------------------------------------------------------
 
 function render_article(ctx, navnode)
-    @tags article header footer nav ul li hr span a div
+    @tags article header section footer nav ul li hr span a div
+    main = div[".docs-main"]
 
-    header_links = map(Documents.navpath(navnode)) do nn
+    navpath = Documents.navpath(navnode)
+    header_links = map(navpath) do nn
         title = mdconvert(pagetitle(ctx, nn); droplinks=true)
-        nn.page === nothing ? li(title) : li(a[:href => navhref(ctx, nn, navnode)](title))
+        nn.page === nothing ? li(a[".is-disabled"](title)) : li(a[:href => navhref(ctx, nn, navnode)](title))
     end
+    header_links[end] = header_links[end][".is-active"]
 
-    topnav = nav(ul(header_links))
+    art_header = header[".docs-navbar"](
+        nav[".breadcrumb"](
+            ul[".is-hidden-mobile"](header_links),
+            ul[".is-hidden-tablet"](header_links[end])
+        )
+    )
 
     # Set the logo and name for the "Edit on.." button.
     host_type = Utilities.repo_host_from_url(ctx.doc.user.repo)
@@ -578,25 +591,61 @@ function render_article(ctx, navnode)
     end
     hoststring = isempty(host) ? " source" : " on $(host)"
 
+    navbar_right = div[".docs-right"]
     if !ctx.settings.disable_git
         pageurl = get(getpage(ctx, navnode).globals.meta, :EditURL, getpage(ctx, navnode).source)
-        if Utilities.isabsurl(pageurl)
-            url = pageurl
+        url = if Utilities.isabsurl(pageurl)
+            pageurl
         else
             if !(pageurl == getpage(ctx, navnode).source)
                 # need to set users path relative the page itself
                 pageurl = joinpath(first(splitdir(getpage(ctx, navnode).source)), pageurl)
             end
-            url = Utilities.url(ctx.doc.user.repo, pageurl, commit=ctx.settings.edit_branch)
+            Utilities.url(ctx.doc.user.repo, pageurl, commit=ctx.settings.edit_branch)
         end
         if url !== nothing
             edit_verb = (ctx.settings.edit_branch === nothing) ? "View" : "Edit"
-            push!(topnav.nodes, a[".edit-page", :href => url](span[".fa"](logo), " $(edit_verb)$hoststring"))
+            title = "$(edit_verb)$hoststring"
+            push!(navbar_right.nodes,
+                a[".docs-edit-link", :href => url, :title => title](
+                    span[".docs-icon.fab"](logo),
+                    span[".docs-label.is-hidden-mobile"](title)
+                )
+            )
         end
     end
-    art_header = header(topnav, hr(), render_topbar(ctx, navnode))
 
-    # build the footer with nav links
+    # Hamburger on mobile
+    push!(navbar_right.nodes, a[
+        "#documenter-sidebar-button.docs-sidebar-button.fa.fa-bars.is-hidden-tablet",
+        :href => "#"
+    ])
+    push!(art_header.nodes, navbar_right)
+    push!(main.nodes, art_header)
+
+    # Build the page itself (and collect any footnotes)
+    art_body = article["#documenter-page.content"](domify(ctx, navnode))
+    # Footnotes, if there are any
+    if !isempty(ctx.footnotes)
+        fnotes = map(ctx.footnotes) do f
+            fid = "footnote-$(f.id)"
+            if length(f.text) == 1 && first(f.text) isa Markdown.Paragraph
+                li["#$(fid).footnote", :href => "#$(fid)"](
+                    a[".tag"](f.id), # FIXME: one line footnotes
+                    mdconvert(f.text[1].content),
+                )
+            else
+                li["#$(fid).footnote", :href => "#$(fid)"](
+                    a[".tag.is-block"](f.id), # FIXME: one line footnotes
+                    mdconvert(f.text),
+                )
+            end
+        end
+        push!(art_body.nodes, section[".footnotes.is-size-7"](ul(fnotes)))
+    end
+    push!(main.nodes, art_body)
+
+    # build the footer with nav links FIXME
     art_footer = footer(hr())
     if navnode.prev !== nothing
         direction = span[".direction"]("Previous")
@@ -604,23 +653,22 @@ function render_article(ctx, navnode)
         link = a[".previous", :href => navhref(ctx, navnode.prev, navnode)](direction, title)
         push!(art_footer.nodes, link)
     end
-
     if navnode.next !== nothing
         direction = span[".direction"]("Next")
         title = span[".title"](mdconvert(pagetitle(ctx, navnode.next); droplinks=true))
         link = a[".next", :href => navhref(ctx, navnode.next, navnode)](direction, title)
         push!(art_footer.nodes, link)
     end
+    push!(main.nodes, art_footer)
 
-    pagenodes = domify(ctx, navnode)
-    div[".dashboard-main"](art_header, article["#docs"](pagenodes), art_footer)
+    return main
 end
 
-function render_topbar(ctx, navnode)
-    @tags a div span
-    page_title = string(mdflatten(pagetitle(ctx, navnode)))
-    return div["#topbar"](span(page_title), a[".fa .fa-bars", :href => "#"])
-end
+# function render_topbar(ctx, navnode)
+#     @tags a div span
+#     page_title = string(mdflatten(pagetitle(ctx, navnode)))
+#     return div["#topbar"](span(page_title), a[".fa .fa-bars", :href => "#"])
+# end
 
 # expand the versions argument from the user
 # and return entries and needed symlinks
@@ -741,7 +789,7 @@ end
 
 function domify(ctx, navnode, node)
     fixlinks!(ctx, navnode, node)
-    mdconvert(node, Markdown.MD())
+    mdconvert(node, Markdown.MD(); footnotes=ctx.footnotes)
 end
 
 function domify(ctx, navnode, anchor::Anchors.Anchor)
@@ -750,8 +798,9 @@ function domify(ctx, navnode, anchor::Anchors.Anchor)
     if isa(anchor.object, Markdown.Header)
         h = anchor.object
         fixlinks!(ctx, navnode, h)
-        DOM.Tag(Symbol("h$(Utilities.header_level(h))"))(
-            a[".nav-anchor", :id => aid, :href => "#$aid"](mdconvert(h.text, h))
+        DOM.Tag(Symbol("h$(Utilities.header_level(h))"))[:id => aid](
+            mdconvert(h.text, h),
+            a[".docs-heading-anchor", :href => "#$aid", :title => "Permalink"]
         )
     else
         a[".nav-anchor", :id => aid, :href => "#$aid"](domify(ctx, navnode, anchor.object))
@@ -818,7 +867,7 @@ function domify(ctx, navnode, docs::Documents.DocsNodes)
 end
 
 function domify(ctx, navnode, node::Documents.DocsNode)
-    @tags a code div section span
+    @tags a code article header span
 
     # push to search index
     rec = SearchRecord(ctx, navnode;
@@ -829,8 +878,8 @@ function domify(ctx, navnode, node::Documents.DocsNode)
 
     push!(ctx.search_index, rec)
 
-    section[".docstring"](
-        div[".docstring-header"](
+    article[".docstring"](
+        header(
             a[".docstring-binding", :id=>node.anchor.id, :href=>"#$(node.anchor.id)"](code("$(node.object.binding)")),
             " — ", # &mdash;
             span[".docstring-category"]("$(Utilities.doccat(node.object))"),
@@ -841,27 +890,29 @@ function domify(ctx, navnode, node::Documents.DocsNode)
 end
 
 function domify_doc(ctx, navnode, md::Markdown.MD)
-    @tags a
+    @tags a section footer
     if haskey(md.meta, :results)
         # The `:results` field contains a vector of `Docs.DocStr` objects associated with
         # each markdown object. The `DocStr` contains data such as file and line info that
         # we need for generating correct source links.
         map(zip(md.content, md.meta[:results])) do md
             markdown, result = md
-            ret = Any[domify(ctx, navnode, Writers.MarkdownWriter.dropheaders(markdown))]
+            ret = section(domify(ctx, navnode, Writers.MarkdownWriter.dropheaders(markdown)))
             # When a source link is available then print the link.
             if !ctx.settings.disable_git
                 url = Utilities.url(ctx.doc.internal.remote, ctx.doc.user.repo, result)
                 if url !== nothing
-                    push!(ret, a[".source-link", :target=>"_blank", :href=>url]("source"))
+                    push!(ret.nodes, footer(
+                        a[".docstring-source-link", :target=>"_blank", :href=>url]("source")
+                    ))
                 end
             end
-            ret
+            return ret
         end
     else
         # Docstrings with no `:results` metadata won't contain source locations so we don't
         # try to print them out. Just print the basic docstring.
-        domify(ctx, navnode, Writers.MarkdownWriter.dropheaders(md))
+        section(domify(ctx, navnode, Writers.MarkdownWriter.dropheaders(md)))
     end
 end
 
@@ -1007,9 +1058,12 @@ end
 # mdconvert
 # ------------------------------------------------------------------------------
 
-const md_block_nodes = [Markdown.MD, Markdown.BlockQuote]
-push!(md_block_nodes, Markdown.List)
-push!(md_block_nodes, Markdown.Admonition)
+const md_block_nodes = [
+    Markdown.MD,
+    Markdown.BlockQuote,
+    Markdown.List,
+    Markdown.Admonition,
+]
 
 """
 [`MDBlockContext`](@ref) is a union of all the Markdown nodes whose children should
@@ -1105,20 +1159,26 @@ end
 
 mdconvert(expr::Union{Expr,Symbol}, parent; kwargs...) = string(expr)
 
-mdconvert(f::Markdown.Footnote, parent; kwargs...) = footnote(f.id, f.text, parent; kwargs...)
-footnote(id, text::Nothing, parent; kwargs...) = Tag(:a)[:href => "#footnote-$(id)"]("[$id]")
-function footnote(id, text, parent; kwargs...)
-    Tag(:div)[".footnote#footnote-$(id)"](
-        Tag(:a)[:href => "#footnote-$(id)"](Tag(:strong)("[$id]")),
-        mdconvert(text, parent; kwargs...),
-    )
+function mdconvert(f::Markdown.Footnote, parent; footnotes = nothing, kwargs...)
+    @tags sup a
+    if isnothing(f.text) # => Footnote link
+        return sup[".footnote-reference"](a[:href => "#footnote-$(f.id)"]("[$(f.id)]"))
+    elseif !isnothing(footnotes) # Footnote definition
+        push!(footnotes, f)
+    else # => Footnote definition, but nowhere to put it
+        @error "Bad footnote definition."
+    end
+    return []
 end
 
 function mdconvert(a::Markdown.Admonition, parent; kwargs...)
-    @tags div
-    div[".admonition.$(a.category)"](
-        div[".admonition-title"](a.title),
-        div[".admonition-text"](mdconvert(a.content, a; kwargs...))
+    @tags header div
+    colorclass = (a.category == "warning") ? "is-danger" :
+        (a.category == "info") ? "is-info" :
+        (a.category == "tip") ? "is-tip" : ""
+    div[".admonition.message.$(colorclass)"](
+        header[".message-header"](a.title),
+        div[".message-body"](mdconvert(a.content, a; kwargs...))
     )
 end
 
