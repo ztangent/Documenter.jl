@@ -7348,6 +7348,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
       max-height: 6rem;
       margin: auto; }
   #documenter .docs-sidebar .docs-package-name {
+    flex-shrink: 0;
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
