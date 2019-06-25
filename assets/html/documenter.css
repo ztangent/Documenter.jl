@@ -7470,6 +7470,19 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
           /* Safari */ } }
   #documenter .docs-main section.footnotes {
     border-top: 1px solid #dbdbdb; }
+  #documenter .docs-main footer.footer {
+    margin-top: 2rem; }
+
+#documenter .docs-main #documenter-search-info {
+  margin-bottom: 1rem; }
+
+#documenter .docs-main #documenter-search-results {
+  list-style-type: circle;
+  list-style-position: outside; }
+  #documenter .docs-main #documenter-search-results li {
+    margin-left: 2rem; }
+  #documenter .docs-main #documenter-search-results .docs-highlight {
+    background-color: yellow; }
 
 html {
   overflow-x: hidden;

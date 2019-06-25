@@ -146,7 +146,6 @@ struct HTML <: Documenter.Plugin
 end
 
 const requirejs_cdn = "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"
-const normalize_css = "https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"
 const google_fonts = "https://fonts.googleapis.com/css?family=Lato|Roboto+Mono"
 const fontawesome_css = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css",
@@ -305,28 +304,63 @@ end
 # Page
 # ------------------------------------------------------------------------------
 
+## Standard page
 """
 Constructs and writes the page referred to by the `navnode` to `.build`.
 """
 function render_page(ctx, navnode)
     @tags html div body
-
     page = getpage(ctx, navnode)
-
     head = render_head(ctx, navnode)
-    navmenu = render_navmenu(ctx, navnode)
+    sidebar = render_navmenu(ctx, navnode)
+    navbar = render_navbar(ctx, navnode, true)
     article = render_article(ctx, navnode)
-
-    htmldoc = DOM.HTMLDocument(
-        html[:lang=>"en"](
-            head,
-            body(div["#documenter"](navmenu, article))
-        )
-    )
-
+    footer = render_footer(ctx, navnode)
+    htmldoc = render_html(ctx, navnode, head, sidebar, navbar, article, footer)
     open_output(ctx, navnode) do io
         print(io, htmldoc)
     end
+end
+
+## Search page
+function render_search(ctx)
+    @tags article body h1 header hr html li nav p span ul script
+
+    src = get_url(ctx, ctx.search_navnode)
+
+    head = render_head(ctx, ctx.search_navnode)
+    sidebar = render_navmenu(ctx, ctx.search_navnode)
+    navbar = render_navbar(ctx, ctx.search_navnode, false)
+    article = article(
+        p["#documenter-search-info"]("Loading search..."),
+        ul["#documenter-search-results"]
+    )
+    footer = render_footer(ctx, ctx.search_navnode)
+    scripts = [
+        script[:src => relhref(src, ctx.search_index_js)],
+        script[:src => relhref(src, ctx.search_js)],
+    ]
+    htmldoc = render_html(ctx, ctx.search_navnode, head, sidebar, navbar, article, footer, scripts)
+    open_output(ctx, ctx.search_navnode) do io
+        print(io, htmldoc)
+    end
+end
+
+## Rendering HTML elements
+# ------------------------------------------------------------------------------
+
+"""
+Renders the main `<html>` tag.
+"""
+function render_html(ctx, navnode, head, sidebar, navbar, article, footer, scripts::Vector{DOM.Node}=DOM.Node[])
+    @tags html body div
+    DOM.HTMLDocument(
+        html[:lang=>"en"](
+            head,
+            body(div["#documenter"](sidebar, div[".docs-main"](navbar, article, footer))),
+            scripts...
+        )
+    )
 end
 
 function render_head(ctx, navnode)
@@ -335,7 +369,6 @@ function render_head(ctx, navnode)
 
     page_title = "$(mdflatten(pagetitle(ctx, navnode))) · $(ctx.doc.user.sitename)"
     css_links = [
-        normalize_css,
         google_fonts,
         fontawesome_css...,
         highlightjs_css,
@@ -408,40 +441,6 @@ function canonical_link_element(canonical_link, src)
    end
 end
 
-## Search page
-# ------------
-
-function render_search(ctx)
-    @tags article body h1 header hr html li nav p span ul script
-
-    src = get_url(ctx, ctx.search_navnode)
-
-    head = render_head(ctx, ctx.search_navnode)
-    navmenu = render_navmenu(ctx, ctx.search_navnode)
-    article = article(
-        header(
-            nav(ul(li("Search"))),
-            hr(),
-            #render_topbar(ctx, ctx.search_navnode),
-        ),
-        h1("Search"),
-        p["#search-info"]("Number of results: ", span["#search-results-number"]("loading...")),
-        ul["#search-results"]
-    )
-
-    htmldoc = DOM.HTMLDocument(
-        html[:lang=>"en"](
-            head,
-            body(navmenu, article),
-            script[:src => relhref(src, ctx.search_index_js)],
-            script[:src => relhref(src, ctx.search_js)],
-        )
-    )
-    open_output(ctx, ctx.search_navnode) do io
-        print(io, htmldoc)
-    end
-end
-
 # Navigation menu
 # ------------------------------------------------------------------------------
 
@@ -468,7 +467,7 @@ function render_navmenu(ctx, navnode)
     push!(navmenu.nodes,
         form[".docs-search", :action => navhref(ctx, ctx.search_navnode, navnode)](
             input[
-                ".docs-search-query",
+                "#documenter-search-query.docs-search-query",
                 :name => "q",
                 :type => "text",
                 :placeholder => "Search docs",
@@ -550,47 +549,42 @@ function navitem(ctx, current, nn::Documents.NavNode)
     item
 end
 
+function render_navbar(ctx, navnode, edit_page_link::Bool)
+    @tags div header nav ul li a span
 
-# Article (page contents)
-# ------------------------------------------------------------------------------
-
-function render_article(ctx, navnode)
-    @tags article header section footer nav ul li hr span a div p
-    main = div[".docs-main"]
-
+    # The breadcrumb (navigation links on top)
     navpath = Documents.navpath(navnode)
     header_links = map(navpath) do nn
         title = mdconvert(pagetitle(ctx, nn); droplinks=true)
         nn.page === nothing ? li(a[".is-disabled"](title)) : li(a[:href => navhref(ctx, nn, navnode)](title))
     end
     header_links[end] = header_links[end][".is-active"]
-
-    art_header = header[".docs-navbar"](
-        nav[".breadcrumb"](
-            ul[".is-hidden-mobile"](header_links),
-            ul[".is-hidden-tablet"](header_links[end])
-        )
+    breadcrumb = nav[".breadcrumb"](
+        ul[".is-hidden-mobile"](header_links),
+        ul[".is-hidden-tablet"](header_links[end]) # when on mobile, we only show the page title, basically
     )
 
-    # Set the logo and name for the "Edit on.." button.
-    host_type = Utilities.repo_host_from_url(ctx.doc.user.repo)
-    if host_type == Utilities.RepoGitlab
-        host = "GitLab"
-        logo = "\uf296"
-    elseif host_type == Utilities.RepoGithub
-        host = "GitHub"
-        logo = "\uf09b"
-    elseif host_type == Utilities.RepoBitbucket
-        host = "BitBucket"
-        logo = "\uf171"
-    else
-        host = ""
-        logo = "\uf15c"
-    end
-    hoststring = isempty(host) ? " source" : " on $(host)"
-
+    # The "Edit on GitHub" links and the hamburger to open the sidebar (on mobile) float right
     navbar_right = div[".docs-right"]
-    if !ctx.settings.disable_git
+
+    # Set the logo and name for the "Edit on.." button.
+    if edit_page_link && !ctx.settings.disable_git
+        host_type = Utilities.repo_host_from_url(ctx.doc.user.repo)
+        if host_type == Utilities.RepoGitlab
+            host = "GitLab"
+            logo = "\uf296"
+        elseif host_type == Utilities.RepoGithub
+            host = "GitHub"
+            logo = "\uf09b"
+        elseif host_type == Utilities.RepoBitbucket
+            host = "BitBucket"
+            logo = "\uf171"
+        else
+            host = ""
+            logo = "\uf15c"
+        end
+        hoststring = isempty(host) ? " source" : " on $(host)"
+
         pageurl = get(getpage(ctx, navnode).globals.meta, :EditURL, getpage(ctx, navnode).source)
         url = if Utilities.isabsurl(pageurl)
             pageurl
@@ -618,32 +612,13 @@ function render_article(ctx, navnode)
         "#documenter-sidebar-button.docs-sidebar-button.fa.fa-bars.is-hidden-tablet",
         :href => "#"
     ])
-    push!(art_header.nodes, navbar_right)
-    push!(main.nodes, art_header)
 
-    # Build the page itself (and collect any footnotes)
-    empty!(ctx.footnotes)
-    art_body = article["#documenter-page.content"](domify(ctx, navnode))
-    # Footnotes, if there are any
-    if !isempty(ctx.footnotes)
-        fnotes = map(ctx.footnotes) do f
-            fid = "footnote-$(f.id)"
-            if length(f.text) == 1 && first(f.text) isa Markdown.Paragraph
-                li["#$(fid).footnote", :href => "#$(fid)"](
-                    a[".tag"](f.id), # FIXME: one line footnotes
-                    mdconvert(f.text[1].content),
-                )
-            else
-                li["#$(fid).footnote", :href => "#$(fid)"](
-                    a[".tag.is-block"](f.id), # FIXME: one line footnotes
-                    mdconvert(f.text),
-                )
-            end
-        end
-        push!(art_body.nodes, section[".footnotes.is-size-7"](ul(fnotes)))
-    end
-    push!(main.nodes, art_body)
+    # Construct the main <header> node that should be the first element in div.docs-main
+    header[".docs-navbar"](breadcrumb, navbar_right)
+end
 
+function render_footer(ctx, navnode)
+    @tags footer a span p div nav
     # Build the footer
     art_footer = footer[".footer"]
     # Navigation links (previous/next page), if there are any
@@ -669,16 +644,38 @@ function render_article(ctx, navnode)
             span[".colophon-date", :title => now_full](now_short),
         )
     ))
-    push!(main.nodes, art_footer)
-
-    return main
+    return art_footer
 end
 
-# function render_topbar(ctx, navnode)
-#     @tags a div span
-#     page_title = string(mdflatten(pagetitle(ctx, navnode)))
-#     return div["#topbar"](span(page_title), a[".fa .fa-bars", :href => "#"])
-# end
+# Article (page contents)
+# ------------------------------------------------------------------------------
+
+function render_article(ctx, navnode)
+    @tags article section ul li hr span a div p
+
+    # Build the page itself (and collect any footnotes)
+    empty!(ctx.footnotes)
+    art_body = article["#documenter-page.content"](domify(ctx, navnode))
+    # Footnotes, if there are any
+    if !isempty(ctx.footnotes)
+        fnotes = map(ctx.footnotes) do f
+            fid = "footnote-$(f.id)"
+            if length(f.text) == 1 && first(f.text) isa Markdown.Paragraph
+                li["#$(fid).footnote", :href => "#$(fid)"](
+                    a[".tag"](f.id), # FIXME: one line footnotes
+                    mdconvert(f.text[1].content),
+                )
+            else
+                li["#$(fid).footnote", :href => "#$(fid)"](
+                    a[".tag.is-block"](f.id), # FIXME: one line footnotes
+                    mdconvert(f.text),
+                )
+            end
+        end
+        push!(art_body.nodes, section[".footnotes.is-size-7"](ul(fnotes)))
+    end
+    return art_body
+end
 
 # expand the versions argument from the user
 # and return entries and needed symlinks
