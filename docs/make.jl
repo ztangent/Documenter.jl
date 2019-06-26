@@ -49,7 +49,9 @@ makedocs(
         ],
         "contributing.md",
     ],
-    strict = true,
+    # DOCUMENTER_NOTSTRICT can be used to set strict=false on Travis. This
+    # can be used to force-deploy failing manual builds.
+    strict = !haskey(ENV, "DOCUMENTER_NOTSTRICT"),
 )
 
 deploydocs(
