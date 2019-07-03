@@ -1,0 +1,111 @@
+//
+.content {
+  .card:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  kbd {
+    @extend .tag;
+    @extend .is-dark;
+  }
+}
+
+/* */
+h1, h2, h3, h4, h5, h6 {
+  .docs-heading-anchor {
+    visibility: hidden;
+    vertical-align: middle;
+    margin-left: 0.5em;
+    font-size: 0.8rem;
+
+    &::before {
+      @include font-awesome;
+      content: "\f0c1";
+    }
+  }
+
+  &:hover .docs-heading-anchor {
+    visibility: visible;
+  }
+}
+
+.docstring {
+  @extend .card;
+  margin-bottom: 1em;
+
+  > header {
+    @extend .card-header;
+
+    // background-color: $background;
+
+    // Same as .card-header-title, sans font-weight:
+    // align-items: center;
+    color: $card-header-color;
+    display: flex;
+    flex-grow: 1;
+    padding: $card-header-padding;
+    // padding: $card-header-padding $card-content-padding;
+  }
+
+  > section {
+    @extend .card-content;
+    border-bottom: 1px solid $border;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // TODO: FIX!
+    footer {
+      margin-top: 0.5rem;
+      text-align: right;
+      // float: right;
+      // position: relative;
+      // right: 0.7*$card-content-padding;
+      // top: 0.7*$card-content-padding;
+      // visibility: hidden;
+      > a {
+        @extend .tag;
+        @extend .is-light;
+        @extend .is-size-7;
+      }
+    }
+    &:hover > footer {
+      visibility: visible;
+    }
+  }
+}
+
+// .ui-mask {
+//   transition: opacity 0.3s;
+//   opacity: 0;
+//   // display: none;
+//   background-color: black;
+//
+//   visibility: hidden;
+//   position: absolute;
+//   min-width: 100vw;
+//   min-height: 100vh;
+//   z-index: 4;
+//
+//   &.visible {
+//     opacity: 0.3;
+//     // display: block;
+//     visibility: visible;
+//   }
+// }
+
+// There appears to be a rendering bug in Chrome, where elements with `position: absolute` in
+// an overflow container affect whether the outer container is overflowing / needs
+// scrollbars.
+//
+// In this particular case, KaTeX applies `position: absolute` on the the MathML
+// accessibility span. This breaks the dashboard layout of the equation is somewhere far
+// down in the container.
+//
+// Moving all of these accessbility "pixels" to the top-right seems to take care of the
+// issue. An alternative is also to use `position: fixed`, which does not cause the outer
+// container to scroll.
+.katex .katex-mathml {
+  top: 0;
+  right: 0;
+}

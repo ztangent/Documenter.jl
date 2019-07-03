@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@import "darkly/variables";
+
+// $sidebar-background: #0C2B4C;
+// $sidebar-background: $primary;
+$sidebar-background: $grey-darker;
+$shadow: $grey-darker;
+// $sidebar-menu-active-background: adjust-color($sidebar-background, $saturation: 20%);
+$sidebar-color: $text;
+$lightness-unit: -8%;
+
+$docstring-pre-background: adjust-color($background, $lightness: 5);
+
+@import "documenter/utilities";
+@import "documenter/variables";
+
+@import "bulma/utilities/_all";
+@import "bulma/base/_all";
+
+@import "documenter/overrides";
+
+@import "bulma/elements/_all";
+@import "bulma/form/_all";
+@import "bulma/components/_all";
+@import "bulma/grid/_all";
+@import "bulma/layout/_all";
+@import "bulma-dashboard";
+
+@import "darkly/overrides";
+
+@import "documenter/components";
+@import "documenter/patches";
+@import "documenter/layout";
+
+.docstring > section {
+  pre {
+    background-color: $docstring-pre-background;
+  }
+}

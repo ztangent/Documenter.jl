@@ -1,0 +1,50 @@
+// Since we want to have Markdown-generated HTML in the admonition bodies that are within
+// the main article body (.content), we need to make sure that the colors are reasonable. By
+// default, the global colors take precedence over any .message overrides.
+//
+// So here we use the same scheme as in the message component implementation to override
+// some of the colors for general HTML tags in a .message.
+@each $name, $pair in $message-colors {
+  $color: nth($pair, 1);
+  $color-invert: nth($pair, 2);
+  $color-luminance: colorLuminance($color);
+  $darken-percentage: $color-luminance * 70%;
+  $desaturate-percentage: $color-luminance * 30%;
+  $text-color: desaturate(darken($color, $darken-percentage), $desaturate-percentage);
+
+  $color-lightning: max(100% - lightness($color) - 5%, 0%);
+  $background: lighten($color, $color-lightning);
+  .content .message.is-#{$name} {
+    .message-header {
+      code {
+        color: $text-color;
+        background-color: $background;
+      }
+    }
+    .message-body{
+      h1, h2, h3, h4, h5, h6 {
+        color: $text-color;
+      }
+      pre {
+        color: $text-color;
+        background-color: $background;
+      }
+    }
+  }
+}
+
+// Bold code spans
+.content {
+  code {
+    font-weight: inherit;
+  }
+}
+
+// We want to be able to disable certain breadcrumb components
+.breadcrumb a.is-disabled {
+  cursor: default;
+  pointer-events: none;
+  &, &:hover{
+    color: $breadcrumb-item-disabled-color;
+  }
+}
