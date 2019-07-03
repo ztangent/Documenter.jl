@@ -1177,9 +1177,9 @@ mdconvert(expr::Union{Expr,Symbol}, parent; kwargs...) = string(expr)
 
 function mdconvert(f::Markdown.Footnote, parent; footnotes = nothing, kwargs...)
     @tags sup a
-    if isnothing(f.text) # => Footnote link
+    if f.text === nothing # => Footnote link
         return sup[".footnote-reference"](a[:href => "#footnote-$(f.id)"]("[$(f.id)]"))
-    elseif !isnothing(footnotes) # Footnote definition
+    elseif footnotes !== nothing # Footnote definition
         push!(footnotes, f)
     else # => Footnote definition, but nowhere to put it
         @error "Bad footnote definition."
