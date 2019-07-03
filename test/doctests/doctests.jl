@@ -15,6 +15,7 @@ using Documenter.Utilities.TextDiff: Diff, Words
 
 include("src/FooWorking.jl")
 include("src/FooBroken.jl")
+include("src/NoMeta.jl")
 
 const builds_directory = joinpath(@__DIR__, "builds")
 ispath(builds_directory) && rm(builds_directory, recursive=true)
@@ -41,7 +42,15 @@ function run_makedocs(f, mdfiles, modules=Module[]; kwargs...)
     ------------------------------------ output ------------------------------------
     $(output)
     --------------------------------------------------------------------------------
-    """ result backtrace builddir
+    """ result stacktrace(backtrace) dir
+
+    write(joinpath(dir, "output"), output)
+    write(joinpath(dir, "output.onormalize"), onormalize(output))
+    open(joinpath(dir, "result"), "w") do io
+        show(io, "text/plain", result)
+        println(io, "-"^80)
+        show(io, "text/plain", stacktrace(backtrace))
+    end
 
     f(result, success, backtrace, output)
 end
@@ -62,6 +71,9 @@ function onormalize(s)
     # Remove filesystem paths in doctests failures
     s = replace(s, r"(doctest failure in )(.*)$"m => s"\1{PATH}")
     s = replace(s, r"(@ Documenter.DocTests )(.*)$"m => s"\1{PATH}")
+
+    # Remove stacktraces
+    s = replace(s, r"(│\s+Stacktrace:)(\n(│\s+)\[[0-9]+\].*)*" => s"\1\\n\3{STACKTRACE}")
 
     return s
 end
@@ -103,7 +115,7 @@ end
 
 rfile(filename) = joinpath(@__DIR__, "stdouts", filename)
 
-@testset "doctests" begin
+@testset "doctesting" begin
     # So, we have 4 doctests: 2 in a docstring, 2 in an .md file. One of either pair is
     # OK, other is broken. Here we first test all possible combinations of these doctest
     # with strict = true to make sure that the doctests are indeed failing.
@@ -111,54 +123,93 @@ rfile(filename) = joinpath(@__DIR__, "stdouts", filename)
     # Some tests are broken due to https://github.com/JuliaDocs/Documenter.jl/issues/974
     run_makedocs(["working.md"]; strict=true) do result, success, backtrace, output
         @test success
-        @test is_same_as_file(output, rfile("stdout.1"))
+        @test is_same_as_file(output, rfile("1.stdout"))
     end
 
     run_makedocs(["broken.md"]; strict=true) do result, success, backtrace, output
         @test !success
-        @test is_same_as_file(output, rfile("stdout.2"))
+        @test is_same_as_file(output, rfile("2.stdout"))
     end
 
     run_makedocs(["working.md", "fooworking.md"]; modules=[FooWorking], strict=true) do result, success, backtrace, output
         @test success
-        @test is_same_as_file(output, rfile("stdout.3"))
+        @test is_same_as_file(output, rfile("3.stdout"))
     end
 
     run_makedocs(["working.md", "foobroken.md"]; modules=[FooBroken], strict=true) do result, success, backtrace, output
         @test !success
-        @test is_same_as_file(output, rfile("stdout.4"))
+        @test is_same_as_file(output, rfile("4.stdout"))
     end
 
     run_makedocs(["broken.md", "fooworking.md"]; modules=[FooWorking], strict=true) do result, success, backtrace, output
         @test !success
-        @test is_same_as_file(output, rfile("stdout.5"))
+        @test is_same_as_file(output, rfile("5.stdout"))
     end
 
     run_makedocs(["broken.md", "foobroken.md"]; modules=[FooBroken], strict=true) do result, success, backtrace, output
         @test !success
-        @test_broken is_same_as_file(output, rfile("stdout.6"))
+        @test is_same_as_file(output, rfile("6.stdout"))
     end
 
     run_makedocs(["fooworking.md"]; modules=[FooWorking], strict=true) do result, success, backtrace, output
         @test success
-        @test is_same_as_file(output, rfile("stdout.7"))
+        @test is_same_as_file(output, rfile("7.stdout"))
     end
 
     run_makedocs(["foobroken.md"]; modules=[FooBroken], strict=true) do result, success, backtrace, output
-        @test_broken !success
-        @test_broken is_same_as_file(output, rfile("stdout.8"))
+        @test !success
+        @test is_same_as_file(output, rfile("8.stdout"))
     end
 
     # Here we try the default (strict = false) -- output should say that doctest failed, but
     # success should still be true.
     run_makedocs(["working.md"]) do result, success, backtrace, output
         @test success
-        @test is_same_as_file(output, rfile("stdout.11"))
+        @test is_same_as_file(output, rfile("11.stdout"))
     end
 
     run_makedocs(["broken.md"]) do result, success, backtrace, output
         @test success
-        @test is_same_as_file(output, rfile("stdout.12"))
+        @test is_same_as_file(output, rfile("12.stdout"))
+    end
+
+    # Tests for doctest = :only. The outout should reflect that the docs themselves do not
+    # get built.
+    run_makedocs(["working.md"]; modules=[FooWorking], doctest = :only) do result, success, backtrace, output
+        @test success
+        @test is_same_as_file(output, rfile("21.stdout"))
+    end
+
+    run_makedocs(["working.md"]; modules=[FooBroken], doctest = :only) do result, success, backtrace, output
+        @test !success
+        @test is_same_as_file(output, rfile("22.stdout"))
+    end
+
+    run_makedocs(["broken.md"]; modules=[FooWorking], doctest = :only) do result, success, backtrace, output
+        @test !success
+        @test is_same_as_file(output, rfile("23.stdout"))
+    end
+
+    run_makedocs(["broken.md"]; modules=[FooBroken], doctest = :only) do result, success, backtrace, output
+        @test !success
+        @test is_same_as_file(output, rfile("24.stdout"))
+    end
+    # strict gets ignored with doctest = :only
+    run_makedocs(["broken.md"]; modules=[FooBroken], doctest = :only, strict=false) do result, success, backtrace, output
+        @test !success
+        @test is_same_as_file(output, rfile("25.stdout"))
+    end
+
+    # DocTestSetup in modules
+    run_makedocs([]; modules=[NoMeta], doctest = :only) do result, success, backtrace, output
+        @test !success
+        @test is_same_as_file(output, rfile("31.stdout"))
+    end
+    # Now, let's use Documenter's APIs to add the necessary meta information
+    DocMeta.setdocmeta!(NoMeta, :DocTestSetup, :(baz(x) = 2x))
+    run_makedocs([]; modules=[NoMeta], doctest = :only) do result, success, backtrace, output
+        @test success
+        @test is_same_as_file(output, rfile("32.stdout"))
     end
 end
 

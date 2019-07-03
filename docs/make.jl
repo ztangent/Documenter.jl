@@ -1,5 +1,14 @@
 using Documenter, DocumenterTools
 
+# The DOCSARGS environment variable can be used to pass additional arguments to make.jl.
+# This is useful on CI, if you need to change the behavior of the build slightly but you
+# can not change the .travis.yml or make.jl scripts any more (e.g. for a tag build).
+if haskey(ENV, "DOCSARGS")
+    for arg in split(ENV["DOCSARGS"])
+        push!(ARGS, arg)
+    end
+end
+
 makedocs(
     modules = [Documenter, DocumenterTools],
     format = Documenter.HTML(
@@ -7,7 +16,7 @@ makedocs(
         prettyurls = !("local" in ARGS),
         canonical = "https://juliadocs.github.io/Documenter.jl/stable/",
         assets = ["assets/favicon.ico"],
-        analytics = "UA-89508993-1",
+        analytics = "UA-136089579-2",
     ),
     clean = false,
     sitename = "Documenter.jl",
@@ -33,6 +42,7 @@ makedocs(
                 "lib/internals/builder.md",
                 "lib/internals/cross-references.md",
                 "lib/internals/docchecks.md",
+                "lib/internals/docmeta.md",
                 "lib/internals/docsystem.md",
                 "lib/internals/doctests.md",
                 "lib/internals/documenter.md",
@@ -40,6 +50,7 @@ makedocs(
                 "lib/internals/documents.md",
                 "lib/internals/dom.md",
                 "lib/internals/expanders.md",
+                "lib/internals/markdown2.md",
                 "lib/internals/mdflatten.md",
                 "lib/internals/selectors.md",
                 "lib/internals/textdiff.md",
@@ -49,7 +60,8 @@ makedocs(
         ],
         "contributing.md",
     ],
-    strict = true,
+    strict = !("strict=false" in ARGS),
+    doctest = ("doctest=only" in ARGS) ? :only : true,
 )
 
 deploydocs(
