@@ -262,7 +262,7 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     ctx.documenter_js = copy_asset("documenter.js", doc)
     ctx.search_js = copy_asset("search.js", doc)
 
-    push!(ctx.local_assets, copy_asset("themes/documenter.css", doc))
+    # push!(ctx.local_assets, copy_asset("themes/documenter.css", doc))
     copy_asset("devtools.js", doc)
     append!(ctx.local_assets, settings.assets)
 
@@ -410,7 +410,13 @@ function render_head(ctx, navnode)
         script[:src => relhref(src, "../versions.js")],
 
         # Custom user-provided assets.
-        asset_links(src, ctx.local_assets)
+        asset_links(src, ctx.local_assets),
+        link[
+            :id => "documenter-theme-link",
+            :rel => "stylesheet", :type => "text/css",
+            :href => relhref(src, "assets/themes/documenter.css"),
+            Symbol("data-href-root") => relhref(src, "assets/themes"),
+        ],
     )
 end
 
@@ -630,7 +636,7 @@ function render_navbar(ctx, navnode, edit_page_link::Bool)
 end
 
 function render_footer(ctx, navnode)
-    @tags footer a span p div nav
+    @tags footer a span p div nav select option
     # Build the footer
     art_footer = footer[".footer"]
     # Navigation links (previous/next page), if there are any
@@ -654,6 +660,10 @@ function render_footer(ctx, navnode)
             a[:href => "https://github.com/JuliaDocs/Documenter.jl"]("Documenter.jl"),
             " on ",
             span[".colophon-date", :title => now_full](now_short),
+        ),
+        # version selector
+        div[".select"](
+            select["#documenter-themepicker"](option[:value=>theme](theme) for theme in THEMES)
         )
     ))
     return art_footer

@@ -188,3 +188,33 @@ requirejs(['jquery', 'devtools'], function($, dev) {
     }
   });
 });
+
+// Theme selector
+require(['jquery'], function($) {
+    $(document).ready(function() {
+      var linktag = $('#documenter-theme-link');
+      function themepick_callback(ev){
+        var transition_style = $('<style>');
+        transition_style.html(`
+          * {
+            transition: all .3s;
+          }
+        `);
+        console.log(transition_style);
+        var transition_style_element = $('head').append(transition_style);
+        var themefile = $('#documenter-themepicker option:selected').attr('value') + ".css"
+        var themehref = linktag.attr('data-href-root') + "/" + themefile;
+        console.log("Click!", themehref, themefile, ev, ev.target);
+        linktag.attr('href', themehref);
+        console.log(linktag);
+        //transition_style_element.remove(transition_style);
+        // TODO: the transition needs to be more sophisticated. Let's instead append a new
+        // <link> for the new theme to <head>, wait for the transition and then remove the
+        // old theme <link> and the transition style.
+        setTimeout(function() {
+          transition_style.remove();
+        }, 2000);
+      }
+      $('#documenter-themepicker').change(themepick_callback);
+    })
+})
