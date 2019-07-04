@@ -1,4 +1,5 @@
 using Documenter, DocumenterTools
+include("DocumenterShowcase.jl")
 
 # The DOCSARGS environment variable can be used to pass additional arguments to make.jl.
 # This is useful on CI, if you need to change the behavior of the build slightly but you
@@ -10,7 +11,7 @@ if haskey(ENV, "DOCSARGS")
 end
 
 makedocs(
-    modules = [Documenter, DocumenterTools],
+    modules = [Documenter, DocumenterTools, DocumenterShowcase],
     format = Documenter.HTML(
         # Use clean URLs, unless built as a "local" build
         prettyurls = !("local" in ARGS),
@@ -35,6 +36,7 @@ makedocs(
             ]),
             "man/other-formats.md",
         ],
+        "showcase.md",
         "Library" => Any[
             "Public" => "lib/public.md",
             hide("Internals" => "lib/internals.md", Any[
