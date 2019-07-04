@@ -8,6 +8,9 @@ requirejs.config({
     'bootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min',
     'headroom': 'https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min',
     'headroom-jquery': 'https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min',
+    'highlight': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min',
+    'highlight-julia': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/languages/julia.min',
+    'highlight-julia-repl': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/languages/julia-repl.min',
   },
   shim: {
     'katex': {
@@ -23,8 +26,17 @@ requirejs.config({
     'headroom-jquery': {
       deps: ['headroom', 'jquery'],
     },
+    'highlight-julia': ['highlight'],
+    'highlight-julia-repl': ['highlight'],
   }
 });
+
+// Initialize the highlight.js highlighter
+require(['jquery', 'highlight', 'highlight-julia', 'highlight-julia-repl'], function($, hljs) {
+    $(document).ready(function() {
+        hljs.initHighlighting();
+    })
+})
 
 require(['jquery'], function($) {
   console.log("Version selector:")
