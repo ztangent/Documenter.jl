@@ -133,6 +133,10 @@
         }
       }
 
+      > li:first-child .tocitem.is-active {
+        border-top: none;
+      }
+
       ul.internal {
         background-color: $sidebar-menu-internal-background;
         border-top: 1px solid $sidebar-menu-internal-border;

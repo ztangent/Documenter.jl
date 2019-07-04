@@ -33,10 +33,18 @@
   }
 }
 
-// Bold code spans
+// We need to override some .content behavior
 .content {
+  // Bold code spans
   code {
     font-weight: inherit;
+  }
+  // Don't make tables full-width and make sure that overflowing tables are scrollable
+  table {
+    display: block;
+    width: initial;
+    max-width: 100%;
+    overflow-x: auto;
   }
 }
 
@@ -47,4 +55,10 @@
   &, &:hover{
     color: $breadcrumb-item-disabled-color;
   }
+}
+
+// highlight.js background color fix
+.hljs {
+  background: initial;
+  padding: initial;
 }

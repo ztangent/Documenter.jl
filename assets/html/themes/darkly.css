@@ -7592,11 +7592,21 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
 .content code {
   font-weight: inherit; }
 
+.content table {
+  display: block;
+  width: initial;
+  max-width: 100%;
+  overflow-x: auto; }
+
 .breadcrumb a.is-disabled {
   cursor: default;
   pointer-events: none; }
   .breadcrumb a.is-disabled, .breadcrumb a.is-disabled:hover {
     color: #f2f2f2; }
+
+.hljs {
+  background: initial;
+  padding: initial; }
 
 /* This file contain the overall layout.
  *
@@ -7681,6 +7691,8 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
         background-color: #1f2424;
         color: #fff;
         font-weight: 700; }
+    #documenter .docs-sidebar .docs-menu > li:first-child .tocitem.is-active {
+      border-top: none; }
     #documenter .docs-sidebar .docs-menu ul.internal {
       background-color: #3b4445;
       border-top: 1px solid #718385;
