@@ -684,12 +684,12 @@ function render_article(ctx, navnode)
             fid = "footnote-$(f.id)"
             if length(f.text) == 1 && first(f.text) isa Markdown.Paragraph
                 li["#$(fid).footnote", :href => "#$(fid)"](
-                    a[".tag"](f.id), # FIXME: one line footnotes
+                    a[".tag.is-link"](f.id), # FIXME: one line footnotes
                     mdconvert(f.text[1].content),
                 )
             else
                 li["#$(fid).footnote", :href => "#$(fid)"](
-                    a[".tag.is-block"](f.id), # FIXME: one line footnotes
+                    a[".tag.is-link.is-block"](f.id), # FIXME: one line footnotes
                     mdconvert(f.text),
                 )
             end
@@ -1202,9 +1202,12 @@ end
 
 function mdconvert(a::Markdown.Admonition, parent; kwargs...)
     @tags header div
-    colorclass = (a.category == "warning") ? "is-danger" :
-        (a.category == "info") ? "is-info" :
-        (a.category == "tip") ? "is-tip" : ""
+    colorclass =
+        (a.category == "danger")  ? "is-danger"  :
+        (a.category == "warning") ? "is-warning" :
+        (a.category == "note")    ? "is-info"    :
+        (a.category == "info")    ? "is-info"    :
+        (a.category == "tip")     ? "is-success" : ""
     div[".admonition.message.$(colorclass)"](
         header[".message-header"](a.title),
         div[".message-body"](mdconvert(a.content, a; kwargs...))

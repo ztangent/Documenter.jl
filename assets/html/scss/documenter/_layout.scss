@@ -50,6 +50,7 @@
     // The top bar of the sidebar bar contains:
     // 1. Logo (optional)
     .docs-logo {
+      margin-top: 1rem;
       padding: 0 1rem;
       > img {
         @extend .image;
@@ -137,12 +138,15 @@
         border-top: none;
       }
 
+      // In-page headings
       ul.internal {
         background-color: $sidebar-menu-internal-background;
         border-top: 1px solid $sidebar-menu-internal-border;
-        border-bottom: 1px solid $sidebar-menu-internal-border;
         & .tocitem:hover {
           background-color: $sidebar-menu-internal-hover-background;
+        }
+        > li:last-child {
+          border-bottom: 1px solid $sidebar-menu-internal-border;
         }
       }
 
@@ -262,10 +266,31 @@
 
     section.footnotes {
       border-top: 1px solid $border;
+      li {
+        .tag:first-child {
+          margin-right: 1em;
+        }
+        .tag.is-block:first-child {
+          margin-right: 0;
+          margin-bottom: 1em;
+        }
+      }
     }
 
     footer.footer {
-      margin-top: 2rem;
+      @include tablet {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      nav.columns {
+        margin-left: 0;
+        margin-right: 0;
+        .column {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
     }
   }
 }

@@ -7441,9 +7441,6 @@ body > .navbar {
 .hero.is-danger .navbar .navbar-dropdown .navbar-item:hover {
   background-color: transparent; }
 
-.content .card:not(:last-child), .content .docstring:not(:last-child) {
-  margin-bottom: 1em; }
-
 /* */
 h1 .docs-heading-anchor, h2 .docs-heading-anchor, h3 .docs-heading-anchor, h4 .docs-heading-anchor, h5 .docs-heading-anchor, h6 .docs-heading-anchor {
   visibility: hidden;
@@ -7474,10 +7471,6 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
       text-align: right; }
     .docstring > section:hover > footer {
       visibility: visible; }
-
-.katex .katex-mathml {
-  top: 0;
-  right: 0; }
 
 .content .message.is-white .message-header code {
   color: #4d4d4d;
@@ -7589,6 +7582,9 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
   color: #a82a1d;
   background-color: #fceae8; }
 
+.content pre {
+  border: 1px solid #5e6d6f; }
+
 .content code {
   font-weight: inherit; }
 
@@ -7607,6 +7603,10 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
 .hljs {
   background: initial;
   padding: initial; }
+
+.katex .katex-mathml {
+  top: 0;
+  right: 0; }
 
 /* This file contain the overall layout.
  *
@@ -7642,6 +7642,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
       position: relative;
       left: 0; } }
   #documenter .docs-sidebar .docs-logo {
+    margin-top: 1rem;
     padding: 0 1rem; }
     #documenter .docs-sidebar .docs-logo > img {
       max-height: 6rem;
@@ -7771,8 +7772,11 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
           /* Safari */ } }
   #documenter .docs-main section.footnotes {
     border-top: 1px solid #5e6d6f; }
-  #documenter .docs-main footer.footer {
-    margin-top: 2rem; }
+    #documenter .docs-main section.footnotes li .tag:first-child, #documenter .docs-main section.footnotes li .content kbd:first-child, .content #documenter .docs-main section.footnotes li kbd:first-child, #documenter .docs-main section.footnotes li .docstring > section footer > a:first-child, .docstring > section #documenter .docs-main section.footnotes li footer > a:first-child {
+      margin-right: 1em; }
+    #documenter .docs-main section.footnotes li .tag.is-block:first-child, #documenter .docs-main section.footnotes li .content kbd.is-block:first-child, .content #documenter .docs-main section.footnotes li kbd.is-block:first-child, #documenter .docs-main section.footnotes li .docstring > section footer > a.is-block:first-child, .docstring > section #documenter .docs-main section.footnotes li footer > a.is-block:first-child {
+      margin-right: 0;
+      margin-bottom: 1em; }
 
 #documenter .docs-main #documenter-search-info {
   margin-bottom: 1rem; }

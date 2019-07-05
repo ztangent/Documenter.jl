@@ -71,6 +71,9 @@ Finally, admonitions for notes, warnings and such:
 !!! danger "'danger' admonition"
     This is a `!!! danger`-type admonition.
 
+!!! ukw "Unknown admonition class"
+    Admonition with an unknown admonition class.
+
 ### Tables
 
 | object | implemented |      value |
