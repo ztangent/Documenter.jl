@@ -29,6 +29,6 @@ $lightness-unit: 8% !default;
   @return adjust-color($color, $lightness: $factor*$lightness-unit);
 }
 
-// @import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Mono");
-// $family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Mono");
+$family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
 // $family-monospace: 'Roboto Mono', Monaco, courier, monospace !default;
