@@ -6,7 +6,7 @@ include("DocumenterShowcase.jl")
 # can not change the .travis.yml or make.jl scripts any more (e.g. for a tag build).
 if haskey(ENV, "DOCSARGS")
     for arg in split(ENV["DOCSARGS"])
-        push!(ARGS, arg)
+        (arg in ARGS) || push!(ARGS, arg)
     end
 end
 
