@@ -1,0 +1,166 @@
+/* This file contain the overall layout.
+ *
+ * The main container is <div> that is identified by id #documenter.
+ *
+ * The layout is currently done using the bulma-dashboard extension.
+ *
+ * But we don't want to make this immutable, hence we use the @extend rules.
+ *
+ * It contain two panels: .docs-sidebar, which extends .dashboard-panel
+ * and
+ *
+ */
+#documenter {
+  @extend .dashboard;
+
+  .docs-main {
+    @extend .dashboard-main;
+    @extend .is-scrollable;
+
+    transition: all 0.3s;
+
+    @include tablet {
+      padding: 0 1rem;
+      padding-left: 1.3rem;
+    }
+    // We need to... FIXME
+    > * {
+      max-width: $documenter-max-width;
+    }
+
+    @include mobile {
+      > .content, > footer {
+        padding: 0 1rem;
+      }
+    }
+
+    // FIXME
+    // #navbar is the top bar of the page that contains the breadcrumb,
+    // the "Edit on GitHub" link and the sidebar burger (when on mobile).
+    header.docs-navbar {
+      background-color: $body-background-color;
+      border-bottom: 1px solid $border;
+      z-index: 2;
+
+      min-height: 4rem;
+      margin-bottom: 1rem;
+
+      display: flex;
+      .breadcrumb {
+        flex-grow: 1;
+      }
+
+      .docs-right {
+        display: flex;
+        .docs-icon, .docs-label, .docs-sidebar-button {
+          display: inline-block;
+        }
+        white-space: nowrap;
+        .docs-label {
+          padding: 0;
+          margin-left: 0.3em;
+        }
+        .docs-sidebar-button {
+          font-size: 1.5rem;
+          margin: auto 0 auto 1rem;
+        }
+      }
+
+      // ensure vertical middle alignment of everything in the navbar
+      > * {
+        margin: auto 0;
+      }
+
+      @include mobile {
+        // background-color: $background;
+        // box-shadow: 0.2rem 0rem 0.4rem #bbb;
+        position: sticky;
+        top: 0;
+        padding: 0 1rem;
+
+        /* For Headroom.js */
+        transition-property: top, box-shadow;
+        -webkit-transition-property: top, box-shadow; /* Safari */
+        transition-duration: 0.3s;
+        -webkit-transition-duration: 0.3s; /* Safari */
+        &.headroom--not-top {
+          box-shadow: $shadow-size 0rem $shadow-blur $shadow;
+          transition-duration: 0.7s;
+          -webkit-transition-duration: 0.7s; /* Safari */
+        }
+        &.headroom--unpinned.headroom--not-top.headroom--not-bottom {
+          top: -4.5rem;
+          transition-duration: 0.7s;
+          -webkit-transition-duration: 0.7s; /* Safari */
+        }
+      }
+    }
+
+    section.footnotes {
+      border-top: 1px solid $border;
+      li {
+        .tag:first-child {
+          margin-right: 1em;
+        }
+        .tag.is-block:first-child {
+          margin-right: 0;
+          margin-bottom: 1em;
+        }
+      }
+    }
+
+    footer.footer {
+      @include tablet {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      nav.columns {
+        margin-left: 0;
+        margin-right: 0;
+        .column {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// Styling for the search page
+#documenter .docs-main {
+  #documenter-search-info {
+    margin-bottom: 1rem;
+  }
+
+  #documenter-search-results {
+    // border: 1px solid $border;
+    // padding: 1rem;
+    list-style-type: circle;
+    list-style-position: outside;
+    // padding-left: 1rem;
+
+    li {
+      margin-left: 2rem;
+      // &::before {
+      //   @include font-awesome;
+      //   content: "";
+      // }
+      > header {
+      }
+    }
+    .docs-highlight {
+      background-color: yellow;
+    }
+  }
+}
+
+@import "sidebar";
+
+// Bulma always adds a vertical scrollbar to the whole page. But since we're using the
+// dashboard with the panes being scrollable individually, we need to explicitly remove the
+// scrollbars from the html element.
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}

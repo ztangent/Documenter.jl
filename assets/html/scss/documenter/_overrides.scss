@@ -35,7 +35,8 @@ $sidebar-menu-active-color: $sidebar-color !default;
 $sidebar-menu-active-font-weight: $weight-bold !default;
 
 $sidebar-menu-internal-background: darken-color($sidebar-background, 1) !default;
-$sidebar-menu-internal-hover-background: darken-color($sidebar-background, 1.5) !default;
+$sidebar-menu-internal-hover-background: darken-color($sidebar-background, 4) !default;
+$sidebar-menu-internal-hover-color: invert($sidebar-menu-internal-hover-background) !default;
 $sidebar-menu-internal-border: darken-color($border, 1) !default;
 
 $breadcrumb-item-disabled-color: $text-strong !default;

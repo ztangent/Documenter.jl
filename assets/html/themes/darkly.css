@@ -7100,7 +7100,7 @@ label.panel-block {
   background-color: #282f2f;
   padding: 1.5rem; }
 
-.is-scrollable, #documenter .docs-sidebar .docs-menu, #documenter .docs-main {
+.is-scrollable, #documenter .docs-main, #documenter .docs-sidebar ul.docs-menu {
   overflow-y: auto; }
 
 .dashboard, #documenter {
@@ -7586,7 +7586,8 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
   border: 1px solid #5e6d6f; }
 
 .content code {
-  font-weight: inherit; }
+  font-weight: inherit;
+  word-break: break-word; }
 
 .content table {
   display: block;
@@ -7620,101 +7621,6 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
  * and
  *
  */
-#documenter .docs-sidebar {
-  color: #fff;
-  background-color: #282f2f;
-  border-right: 1px solid #5e6d6f;
-  padding: 0;
-  flex: 0 0 18rem;
-  z-index: 5;
-  position: absolute;
-  left: -18rem;
-  width: 18rem;
-  transition: left 0.3s; }
-  #documenter .docs-sidebar.visible {
-    left: 0;
-    box-shadow: 0.4rem 0rem 0.8rem #282f2f; }
-    @media screen and (min-width: 769px), print {
-      #documenter .docs-sidebar.visible {
-        box-shadow: none; } }
-  @media screen and (min-width: 769px), print {
-    #documenter .docs-sidebar {
-      position: relative;
-      left: 0; } }
-  #documenter .docs-sidebar .docs-logo {
-    margin-top: 1rem;
-    padding: 0 1rem; }
-    #documenter .docs-sidebar .docs-logo > img {
-      max-height: 6rem;
-      margin: auto; }
-  #documenter .docs-sidebar .docs-package-name {
-    flex-shrink: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 0.5rem 0; }
-    #documenter .docs-sidebar .docs-package-name .docs-autofit {
-      max-width: 16.2rem; }
-  #documenter .docs-sidebar .docs-version-selector {
-    border-top: 1px solid #5e6d6f;
-    display: none;
-    padding: 0.5rem; }
-    #documenter .docs-sidebar .docs-version-selector.visible {
-      display: inherit; }
-  #documenter .docs-sidebar .docs-menu {
-    flex-grow: 1;
-    font-size: 15px;
-    border-top: 1px solid #5e6d6f;
-    /* Setting up a nicer theme style for the scrollbar */
-    overflow-y: auto;
-    -webkit-overflow-scroll: touch; }
-    #documenter .docs-sidebar .docs-menu > li > .tocitem {
-      padding-left: 1rem; }
-    #documenter .docs-sidebar .docs-menu ul > li > .tocitem {
-      padding-left: 2rem; }
-    #documenter .docs-sidebar .docs-menu ul ul > li > .tocitem {
-      padding-left: 3rem; }
-    #documenter .docs-sidebar .docs-menu ul ul ul li > .tocitem {
-      padding-left: 4rem; }
-    #documenter .docs-sidebar .docs-menu .tocitem {
-      display: block;
-      padding-top: 0.4em;
-      padding-bottom: 0.4em; }
-      #documenter .docs-sidebar .docs-menu .tocitem, #documenter .docs-sidebar .docs-menu .tocitem:hover {
-        color: #fff; }
-    #documenter .docs-sidebar .docs-menu a.tocitem:hover {
-      background-color: #32393a; }
-    #documenter .docs-sidebar .docs-menu .tocitem.is-active {
-      border-top: 1px solid #718385; }
-      #documenter .docs-sidebar .docs-menu .tocitem.is-active, #documenter .docs-sidebar .docs-menu .tocitem.is-active:hover {
-        background-color: #1f2424;
-        color: #fff;
-        font-weight: 700; }
-    #documenter .docs-sidebar .docs-menu > li:first-child .tocitem.is-active {
-      border-top: none; }
-    #documenter .docs-sidebar .docs-menu ul.internal {
-      background-color: #3b4445;
-      border-top: 1px solid #718385;
-      border-bottom: 1px solid #718385; }
-      #documenter .docs-sidebar .docs-menu ul.internal .tocitem:hover {
-        background-color: #454f51; }
-    #documenter .docs-sidebar .docs-menu::-webkit-scrollbar {
-      width: .3rem;
-      background: none; }
-    #documenter .docs-sidebar .docs-menu::-webkit-scrollbar-thumb {
-      border-radius: 5px 0px 0px 5px;
-      background: #3b4445; }
-    #documenter .docs-sidebar .docs-menu::-webkit-scrollbar-thumb:hover {
-      background: #4e5a5c; }
-  #documenter .docs-sidebar form.docs-search {
-    margin: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; }
-    #documenter .docs-sidebar form.docs-search > input {
-      width: 14.4rem; }
-
 #documenter .docs-main {
   transition: all 0.3s; }
   @media screen and (min-width: 769px), print {
@@ -7777,6 +7683,16 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     #documenter .docs-main section.footnotes li .tag.is-block:first-child, #documenter .docs-main section.footnotes li .content kbd.is-block:first-child, .content #documenter .docs-main section.footnotes li kbd.is-block:first-child, #documenter .docs-main section.footnotes li .docstring > section footer > a.is-block:first-child, .docstring > section #documenter .docs-main section.footnotes li footer > a.is-block:first-child {
       margin-right: 0;
       margin-bottom: 1em; }
+  @media screen and (min-width: 769px), print {
+    #documenter .docs-main footer.footer {
+      padding-left: 0;
+      padding-right: 0; } }
+  #documenter .docs-main footer.footer nav.columns {
+    margin-left: 0;
+    margin-right: 0; }
+    #documenter .docs-main footer.footer nav.columns .column {
+      padding-left: 0;
+      padding-right: 0; }
 
 #documenter .docs-main #documenter-search-info {
   margin-bottom: 1rem; }
@@ -7788,6 +7704,131 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     margin-left: 2rem; }
   #documenter .docs-main #documenter-search-results .docs-highlight {
     background-color: yellow; }
+
+#documenter .docs-sidebar {
+  color: #fff;
+  background-color: #282f2f;
+  border-right: 1px solid #5e6d6f;
+  padding: 0;
+  flex: 0 0 18rem;
+  z-index: 5;
+  position: absolute;
+  left: -18rem;
+  width: 18rem;
+  transition: left 0.3s; }
+  #documenter .docs-sidebar.visible {
+    left: 0;
+    box-shadow: 0.4rem 0rem 0.8rem #282f2f; }
+    @media screen and (min-width: 769px), print {
+      #documenter .docs-sidebar.visible {
+        box-shadow: none; } }
+  @media screen and (min-width: 769px), print {
+    #documenter .docs-sidebar {
+      position: relative;
+      left: 0; } }
+  #documenter .docs-sidebar .docs-logo {
+    margin-top: 1rem;
+    padding: 0 1rem; }
+    #documenter .docs-sidebar .docs-logo > img {
+      max-height: 6rem;
+      margin: auto; }
+  #documenter .docs-sidebar .docs-package-name {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0.5rem 0; }
+    #documenter .docs-sidebar .docs-package-name .docs-autofit {
+      max-width: 16.2rem; }
+  #documenter .docs-sidebar .docs-version-selector {
+    border-top: 1px solid #5e6d6f;
+    display: none;
+    padding: 0.5rem; }
+    #documenter .docs-sidebar .docs-version-selector.visible {
+      display: inherit; }
+  #documenter .docs-sidebar ul.docs-menu {
+    flex-grow: 1;
+    user-select: none;
+    font-size: 15px;
+    border-top: 1px solid #5e6d6f;
+    /* Managing collapsible submenus */
+    /* Setting up a nicer theme style for the scrollbar */
+    overflow-y: auto;
+    -webkit-overflow-scroll: touch; }
+    #documenter .docs-sidebar ul.docs-menu > li > .tocitem {
+      font-weight: bold; }
+    #documenter .docs-sidebar ul.docs-menu > li li {
+      font-size: 14.25px;
+      margin-left: 1em;
+      border-left: 1px solid #5e6d6f; }
+    #documenter .docs-sidebar ul.docs-menu input.collapse-toggle {
+      display: none; }
+    #documenter .docs-sidebar ul.docs-menu ul.collapsed {
+      display: none; }
+    #documenter .docs-sidebar ul.docs-menu input:checked ~ ul.collapsed {
+      display: block; }
+    #documenter .docs-sidebar ul.docs-menu label.tocitem {
+      cursor: pointer; }
+    #documenter .docs-sidebar ul.docs-menu label.tocitem::before {
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f054";
+      font-size: 11.25px;
+      vertical-align: text-bottom;
+      margin-left: 0.25em;
+      margin-right: 0.25em;
+      width: 1em; }
+    #documenter .docs-sidebar ul.docs-menu input:checked ~ label.tocitem::before {
+      content: "\f078"; }
+    #documenter .docs-sidebar ul.docs-menu .tocitem {
+      display: block;
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+      padding-left: 0.5em; }
+      #documenter .docs-sidebar ul.docs-menu .tocitem, #documenter .docs-sidebar ul.docs-menu .tocitem:hover {
+        color: #fff; }
+    #documenter .docs-sidebar ul.docs-menu a.tocitem:hover, #documenter .docs-sidebar ul.docs-menu label.tocitem:hover {
+      background-color: #32393a; }
+    #documenter .docs-sidebar ul.docs-menu li.is-active {
+      border-top: 1px solid #718385;
+      border-bottom: 1px solid #5e6d6f;
+      background-color: #1f2424; }
+      #documenter .docs-sidebar ul.docs-menu li.is-active > .tocitem, #documenter .docs-sidebar ul.docs-menu li.is-active > .tocitem:hover {
+        background-color: #1f2424;
+        color: #fff; }
+    #documenter .docs-sidebar ul.docs-menu > li.is-active:first-child {
+      border-top: none; }
+    #documenter .docs-sidebar ul.docs-menu ul.internal {
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      background-color: #3b4445;
+      border-top: 1px solid #5e6d6f; }
+      #documenter .docs-sidebar ul.docs-menu ul.internal li {
+        font-size: 12.75px;
+        margin-left: 0;
+        border-left: none; }
+      #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem {
+        padding-left: 0.8rem; }
+      #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem:hover {
+        background-color: #748588;
+        color: #8b7a77; }
+    #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar {
+      width: .3rem;
+      background: none; }
+    #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb {
+      border-radius: 5px 0px 0px 5px;
+      background: #3b4445; }
+    #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb:hover {
+      background: #4e5a5c; }
+  #documenter .docs-sidebar form.docs-search {
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; }
+    #documenter .docs-sidebar form.docs-search > input {
+      width: 14.4rem; }
 
 html {
   overflow-x: hidden;

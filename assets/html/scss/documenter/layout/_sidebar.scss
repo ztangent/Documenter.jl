@@ -1,0 +1,232 @@
+#documenter .docs-sidebar {
+  @extend .dashboard-panel;
+
+  color: $sidebar-color;
+  background-color: $sidebar-background;
+  border-right: 1px solid $border;
+  padding: 0;
+  flex: 0 0 $sidebar-width;
+  z-index: 5; // make sure it's on top of the main body and top bar
+
+  // This is mobile-first, so our default state is that the sidebar is hidden away left
+  // of the screen.
+  position: absolute;
+  left: -$sidebar-width;
+  width: $sidebar-width;
+  transition: left 0.3s;
+  // Clicking on the hamburger on mobile toggles the .visible class on the sidebar
+  // If enabled, we'll move the sidebar into view. As it is now floating above the
+  // main body content, we apply a shadow.
+  &.visible {
+    left: 0;
+    box-shadow: 2*$shadow-size 0rem 2*$shadow-blur $shadow;
+    @include tablet {
+      // We make sure that the shadow is gone if we've ended up in non-mobile layout
+      // but the .visible class is still toggled.
+      box-shadow: none;
+    }
+  }
+  // In the non-mobile layout, we show the sidebar as a left panel of the dashboard.
+  @include tablet {
+    position: relative;
+    left: 0;
+  }
+
+  // The top bar of the sidebar bar contains:
+  // 1. Logo (optional)
+  .docs-logo {
+    margin-top: 1rem;
+    padding: 0 1rem;
+    > img {
+      @extend .image;
+      max-height: 6rem;
+      margin: auto;
+    }
+  }
+  // 2. The site name, from the sitename keyword (optional)
+  .docs-package-name {
+    flex-shrink: 0;
+    font-size: $sidebar-title-font-size;
+    font-weight: $weight-bold;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    // The padding works around the problem that when you set overflow: hidden, part
+    // of the container gets hidden.
+    padding: 0.5rem 0;
+    // We don't know how wide the text is (the user can provide a _really_ long string to
+    // sitename). So we wrap the name in a <span> which can be dynamically resized with
+    // JS.
+    .docs-autofit {
+      max-width: $sidebar-title-width;
+    }
+  }
+
+  // The version selector (optional). It is hidden by default, but can be toggled by JS
+  // if there actually are some versions to display.
+  .docs-version-selector {
+    border-top: 1px solid $border;
+    display: none;
+    padding: 0.5rem;
+    &.visible {
+      display: inherit;
+    }
+  }
+
+  // Styling, positioning etc. of the menu items
+  ul.docs-menu {
+    @extend .is-scrollable;
+    flex-grow: 1;
+
+    // Heavy-handed approach to disable selecting when you double click on an expandable menu
+    // item
+    user-select: none;
+
+    font-size: $size-normal;
+    border-top: 1px solid $border;
+    // background-color: $background;
+
+    // First level items
+    > li {
+      // padding-left: 0.5em;
+      > .tocitem {
+        font-weight: bold;
+      }
+    }
+
+    // Second and lower
+    > li li {
+      font-size: 0.95*$size-normal;
+      margin-left: 1em;
+      border-left: 1px solid $border;
+
+      &.is-active {
+        // margin-left: 0;
+      }
+    }
+
+    /* Managing collapsible submenus */
+    input.collapse-toggle {
+        display: none;
+    }
+
+    ul.collapsed {
+        display: none;
+    }
+
+    input:checked ~ ul.collapsed {
+        display: block;
+    }
+
+    label.tocitem {
+      cursor: pointer;
+    }
+
+    label.tocitem::before {
+      display: inline-block;
+      @include font-awesome;
+      content: "\f054";
+      font-size: 0.75*$size-normal;
+      vertical-align: text-bottom;
+      margin-left: 0.25em;
+      margin-right: 0.25em;
+      width: 1em;
+    }
+
+    input:checked ~ label.tocitem::before {
+      content: "\f078";
+    }
+
+    .tocitem {
+      display: block;
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+
+      padding-left: 0.5em;
+
+      &, &:hover {
+        color: $sidebar-color;
+      }
+    }
+
+    a, label {
+      &.tocitem:hover {
+        background-color: $sidebar-menu-hover-background;
+        // color: $sidebar-menu-hover-color;
+      }
+    }
+
+    li.is-active {
+      border-top: 1px solid $sidebar-menu-border;
+      border-bottom: 1px solid $border;
+      background-color: $sidebar-menu-active-background;
+
+      > .tocitem {
+        &, &:hover {
+          background-color: $sidebar-menu-active-background;
+          color: $sidebar-menu-active-color;
+          // font-weight: $sidebar-menu-active-font-weight;
+          // color: $primary;
+        }
+      }
+    }
+
+    // The main ul.docs-menu already has a border-top, so we do not want to duplicate it
+    // here with the li border-top.
+    > li.is-active:first-child {
+      border-top: none;
+    }
+
+    // In-page headings
+    ul.internal {
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      background-color: $sidebar-menu-internal-background;
+      border-top: 1px solid $border;
+      li {
+        font-size: 0.85*$size-normal;
+        // border-left: 0.3em solid $sidebar-menu-internal-hover-background;
+        margin-left: 0;
+        border-left: none;
+      }
+
+      .tocitem {
+        padding-left: 0.8rem;
+      }
+
+      .tocitem:hover {
+        background-color: $sidebar-menu-internal-hover-background;
+        color: $sidebar-menu-internal-hover-color;
+      }
+    }
+
+    /* Setting up a nicer theme style for the scrollbar */
+    overflow-y: auto;
+    -webkit-overflow-scroll: touch;
+    &::-webkit-scrollbar {
+        width: .3rem;
+        background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px 0px 0px 5px;
+        background: $sidebar-scrollbar-color;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $sidebar-scrollbar-color-hover;
+    }
+  }
+
+  form.docs-search {
+    > input {
+      @extend .input;
+      @extend .is-rounded;
+      @extend .is-small;
+      width: 0.8 * $sidebar-width;
+    }
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -89,8 +89,9 @@ require(['jquery'], function($) {
 require(['jquery'], function($) {
   // Scroll the navigation bar to the currently selected menu item
   $(document).ready(function() {
-    console.log("FIXME");
-    // $("#documenter .docs-menu > ul").get(0).scrollTop = $("#documenter .docs-menu .is-active").get(0).offsetTop - $("#documenter .docs-menu > ul").get(0).offsetTop;
+    $("#documenter .docs-menu").get(0).scrollTop =
+      $("#documenter .docs-menu .is-active").get(0).offsetTop
+      - $("#documenter .docs-menu").get(0).offsetTop - 15;
   })
 })
 

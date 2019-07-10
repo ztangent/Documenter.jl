@@ -12,23 +12,23 @@ $docstring-pre-background: adjust-color($background, $lightness: 5);
 @import "documenter/utilities";
 @import "documenter/variables";
 
-@import "bulma/utilities/_all";
-@import "bulma/base/_all";
+@import "bulma/utilities/all";
+@import "bulma/base/all";
 
 @import "documenter/overrides";
 
-@import "bulma/elements/_all";
-@import "bulma/form/_all";
-@import "bulma/components/_all";
-@import "bulma/grid/_all";
-@import "bulma/layout/_all";
+@import "bulma/elements/all";
+@import "bulma/form/all";
+@import "bulma/components/all";
+@import "bulma/grid/all";
+@import "bulma/layout/all";
 @import "bulma-dashboard";
 
 @import "darkly/overrides";
 
 @import "documenter/components";
 @import "documenter/patches";
-@import "documenter/layout";
+@import "documenter/layout/all";
 
 .docstring > section {
   pre {

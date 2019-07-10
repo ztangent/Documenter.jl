@@ -136,21 +136,25 @@ The type of the asset (i.e. whether it is going to be included with a `<script>`
 Adding an ICO asset is primarilly useful for setting a custom `favicon`.
 """
 struct HTML <: Documenter.Plugin
-    prettyurls  :: Bool
-    disable_git :: Bool
-    edit_branch :: Union{String, Nothing}
-    canonical   :: Union{String, Nothing}
-    assets      :: Vector{String}
-    analytics   :: String
+    prettyurls    :: Bool
+    disable_git   :: Bool
+    edit_branch   :: Union{String, Nothing}
+    canonical     :: Union{String, Nothing}
+    assets        :: Vector{String}
+    analytics     :: String
+    collapselevel :: Int
 
     function HTML(;
-        prettyurls::Bool = true,
-        disable_git::Bool = false,
-        edit_branch::Union{String, Nothing} = "master",
-        canonical::Union{String, Nothing} = nothing,
-        assets::Vector{String} = String[],
-        analytics::String = "")
-        new(prettyurls, disable_git, edit_branch, canonical, assets, analytics)
+            prettyurls    :: Bool = true,
+            disable_git   :: Bool = false,
+            edit_branch   :: Union{String, Nothing} = "master",
+            canonical     :: Union{String, Nothing} = nothing,
+            assets        :: Vector{String} = String[],
+            analytics     :: String = "",
+            collapselevel :: Integer = 2,
+        )
+        collapselevel >= 1 || thrown(ArgumentError("collapselevel must be >= 1"))
+        new(prettyurls, disable_git, edit_branch, canonical, assets, analytics, collapselevel)
     end
 end
 
@@ -263,6 +267,8 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     ctx.search_js = copy_asset("search.js", doc)
 
     # push!(ctx.local_assets, copy_asset("themes/documenter.css", doc))
+    copy_asset("themes/documenter.css", doc)
+    copy_asset("themes/darkly.css", doc)
     copy_asset("devtools.js", doc)
     append!(ctx.local_assets, settings.assets)
 
@@ -324,7 +330,7 @@ function render_page(ctx, navnode)
     @tags html div body
     page = getpage(ctx, navnode)
     head = render_head(ctx, navnode)
-    sidebar = render_navmenu(ctx, navnode)
+    sidebar = render_sidebar(ctx, navnode)
     navbar = render_navbar(ctx, navnode, true)
     article = render_article(ctx, navnode)
     footer = render_footer(ctx, navnode)
@@ -341,7 +347,7 @@ function render_search(ctx)
     src = get_url(ctx, ctx.search_navnode)
 
     head = render_head(ctx, ctx.search_navnode)
-    sidebar = render_navmenu(ctx, ctx.search_navnode)
+    sidebar = render_sidebar(ctx, ctx.search_navnode)
     navbar = render_navbar(ctx, ctx.search_navnode, false)
     article = article(
         p["#documenter-search-info"]("Loading search..."),
@@ -462,7 +468,14 @@ end
 # Navigation menu
 # ------------------------------------------------------------------------------
 
-function render_navmenu(ctx, navnode)
+struct NavMenuContext
+    htmlctx :: HTMLContext
+    current :: Documents.NavNode
+    idstack :: Vector{Int}
+end
+NavMenuContext(ctx::HTMLContext, current::Documents.NavNode) = NavMenuContext(ctx, current, [])
+
+function render_sidebar(ctx, navnode)
     @tags a form img input nav div select option span
     src = get_url(ctx, navnode)
     navmenu = nav[".docs-sidebar"]
@@ -494,7 +507,7 @@ function render_navmenu(ctx, navnode)
     )
 
     # The menu itself
-    menu = navitem(ctx, navnode)
+    menu = navitem(NavMenuContext(ctx, navnode, ))
     push!(menu.attributes, :class => "docs-menu")
     push!(navmenu.nodes, menu)
 
@@ -524,19 +537,25 @@ It gets called recursively to construct the whole tree.
 It always returns a [`DOM.Node`](@ref). If there's nothing to display (e.g. the node is set
 to be invisible), it returns an empty text node (`DOM.Node("")`).
 """
-navitem(ctx, current) = navitem(ctx, current, ctx.doc.internal.navtree)
-function navitem(ctx, current, nns::Vector)
-    nodes = map(nn -> navitem(ctx, current, nn), nns)
-    filter!(node -> node.name !== DOM.TEXT, nodes)
-    isempty(nodes) ? DOM.Node("") : DOM.Tag(:ul)(nodes)
+navitem(nctx) = navitem(nctx, nctx.htmlctx.doc.internal.navtree)
+function navitem(nctx, nns::Vector)
+    push!(nctx.idstack, 0)
+    nodes = map(nns) do nn
+        nctx.idstack[end] = nctx.idstack[end] + 1
+        navitem(nctx, nn)
+    end
+    pop!(nctx.idstack)
+    filter!(node -> node.name !== DOM.TEXT, nodes) # FIXME: why?
+    ulclass = (length(nctx.idstack) >= nctx.htmlctx.settings.collapselevel) ? ".collapsed" : ""
+    isempty(nodes) ? DOM.Node("") : DOM.Tag(:ul)[ulclass](nodes)
 end
-function navitem(ctx, current, nn::Documents.NavNode)
-    @tags ul li span a
-
+function navitem(nctx, nn::Documents.NavNode)
+    @tags ul li span a input label
+    ctx, current = nctx.htmlctx, nctx.current
     # We'll do the children first, primarily to determine if this node has any that are
     # visible. If it does not and it itself is not visible (including current), then
     # we'll hide this one as well, returning an empty string Node.
-    children = navitem(ctx, current, nn.children)
+    children = navitem(nctx, nn.children)
     if nn !== current && !nn.visible && children.name === DOM.TEXT
         return DOM.Node("")
     end
@@ -544,10 +563,19 @@ function navitem(ctx, current, nn::Documents.NavNode)
     # construct this item
     title = mdconvert(pagetitle(ctx, nn); droplinks=true)
     currentclass = (nn === current) ? ".is-active" : ""
-    item = if nn.page === nothing
-        li(span[".tocitem$(currentclass)"](title))
+    # TODO: generalize the collapse level to an option
+    item = if length(nctx.idstack) >= ctx.settings.collapselevel && children.name !== DOM.TEXT
+        menuid = "menuitem-$(join(nctx.idstack, '-'))"
+        input_attr = ["#$(menuid).collapse-toggle", :type => "checkbox"]
+        nn in Documents.navpath(nctx.current) && push!(input_attr, :checked)
+        li[currentclass](
+            input[input_attr...],
+            label[".tocitem", :for => menuid](title),
+        )
+    elseif nn.page === nothing
+        li[currentclass](span[".tocitem"](title))
     else
-        li(a[".tocitem$(currentclass)", :href => navhref(ctx, nn, current)](title))
+        li[currentclass](a[".tocitem", :href => navhref(ctx, nn, current)](title))
     end
 
     # add the subsections (2nd level headings) from the page
@@ -558,7 +586,8 @@ function navitem(ctx, current, nn::Documents.NavNode)
             _li = istoplevel ? li[".toplevel"] : li[]
             _li(a[".tocitem", :href => anchor](mdconvert(text; droplinks=true)))
         end
-        push!(item.nodes, ul[".internal"](internal_links))
+        # Only create the ul.internal tag if there actually are in-page headers
+        length(internal_links) > 0 && push!(item.nodes, ul[".internal"](internal_links))
     end
 
     # add the visible subsections, if any, as a single list
