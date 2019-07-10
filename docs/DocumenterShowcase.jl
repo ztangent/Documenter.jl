@@ -2,7 +2,7 @@
 This is the [`DocumenterShowcase`](@ref), which contains
 
 * [`DocumenterShowcase.foo`](@ref)
-* [`DocumenterShowcase.hello`](@ref)
+* [`DocumenterShowcase.bar`](@ref)
 """
 module DocumenterShowcase
 
