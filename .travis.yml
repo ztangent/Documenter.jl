@@ -22,7 +22,7 @@ jobs:
   include:
     - stage: "Themes"
       script:
-        - julia --project=test/themes -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+        - julia --project=test/themes -e 'using Pkg; Pkg.instantiate(); Pkg.develop(PackageSpec(path=pwd()))'
         - julia --project=test/themes test/themes/themes.jl
     - stage: "Documentation"
       script:
