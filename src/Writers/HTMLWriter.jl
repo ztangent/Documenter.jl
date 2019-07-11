@@ -550,7 +550,7 @@ function navitem(nctx, nns::Vector)
     isempty(nodes) ? DOM.Node("") : DOM.Tag(:ul)[ulclass](nodes)
 end
 function navitem(nctx, nn::Documents.NavNode)
-    @tags ul li span a input label
+    @tags ul li span a input label i
     ctx, current = nctx.htmlctx, nctx.current
     # We'll do the children first, primarily to determine if this node has any that are
     # visible. If it does not and it itself is not visible (including current), then
@@ -563,14 +563,13 @@ function navitem(nctx, nn::Documents.NavNode)
     # construct this item
     title = mdconvert(pagetitle(ctx, nn); droplinks=true)
     currentclass = (nn === current) ? ".is-active" : ""
-    # TODO: generalize the collapse level to an option
     item = if length(nctx.idstack) >= ctx.settings.collapselevel && children.name !== DOM.TEXT
         menuid = "menuitem-$(join(nctx.idstack, '-'))"
         input_attr = ["#$(menuid).collapse-toggle", :type => "checkbox"]
         nn in Documents.navpath(nctx.current) && push!(input_attr, :checked)
         li[currentclass](
             input[input_attr...],
-            label[".tocitem", :for => menuid](title),
+            label[".tocitem", :for => menuid](span[".docs-label"](title), i[".docs-chevron"]),
         )
     elseif nn.page === nothing
         li[currentclass](span[".tocitem"](title))

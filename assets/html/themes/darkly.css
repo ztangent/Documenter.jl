@@ -1,4 +1,5 @@
 /* Font Awesome 5 mixin. Can be included in any rule that should render Font Awesome icons. */
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Mono");
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 @keyframes spinAround {
   from {
@@ -7753,6 +7754,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     user-select: none;
     font-size: 15px;
     border-top: 1px solid #5e6d6f;
+    padding-bottom: 1.5rem;
     /* Managing collapsible submenus */
     /* Setting up a nicer theme style for the scrollbar */
     overflow-y: auto;
@@ -7770,24 +7772,28 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     #documenter .docs-sidebar ul.docs-menu input:checked ~ ul.collapsed {
       display: block; }
     #documenter .docs-sidebar ul.docs-menu label.tocitem {
-      cursor: pointer; }
-    #documenter .docs-sidebar ul.docs-menu label.tocitem::before {
-      display: inline-block;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: "\f054";
-      font-size: 11.25px;
-      vertical-align: text-bottom;
-      margin-left: 0.25em;
-      margin-right: 0.25em;
-      width: 1em; }
-    #documenter .docs-sidebar ul.docs-menu input:checked ~ label.tocitem::before {
+      display: flex; }
+      #documenter .docs-sidebar ul.docs-menu label.tocitem .docs-label {
+        flex-grow: 2; }
+      #documenter .docs-sidebar ul.docs-menu label.tocitem .docs-chevron {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        font-size: 11.25px;
+        margin-left: 1rem;
+        margin-top: auto;
+        margin-bottom: auto; }
+        #documenter .docs-sidebar ul.docs-menu label.tocitem .docs-chevron::before {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f054"; }
+    #documenter .docs-sidebar ul.docs-menu input:checked ~ label.tocitem .docs-chevron::before {
       content: "\f078"; }
     #documenter .docs-sidebar ul.docs-menu .tocitem {
       display: block;
-      padding-top: 0.3em;
-      padding-bottom: 0.3em;
-      padding-left: 0.5em; }
+      padding: 0.3rem 0.5rem; }
       #documenter .docs-sidebar ul.docs-menu .tocitem, #documenter .docs-sidebar ul.docs-menu .tocitem:hover {
         color: #fff; }
     #documenter .docs-sidebar ul.docs-menu a.tocitem:hover, #documenter .docs-sidebar ul.docs-menu label.tocitem:hover {
@@ -7802,19 +7808,21 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     #documenter .docs-sidebar ul.docs-menu > li.is-active:first-child {
       border-top: none; }
     #documenter .docs-sidebar ul.docs-menu ul.internal {
-      margin-left: 0.5rem;
-      margin-bottom: 0.5rem;
-      background-color: #3b4445;
+      margin: 0 0.5rem 0.5rem;
       border-top: 1px solid #5e6d6f; }
       #documenter .docs-sidebar ul.docs-menu ul.internal li {
         font-size: 12.75px;
         margin-left: 0;
-        border-left: none; }
+        border-left: none;
+        margin-top: 0.3rem; }
       #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem {
-        padding-left: 0.8rem; }
-      #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem:hover {
-        background-color: #748588;
-        color: #8b7a77; }
+        display: flex;
+        width: 100%;
+        color: gray;
+        padding: 0; }
+        #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem::before {
+          content: "#";
+          margin-right: 0.5em; }
     #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar {
       width: .3rem;
       background: none; }

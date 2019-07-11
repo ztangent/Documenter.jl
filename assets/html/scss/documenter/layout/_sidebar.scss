@@ -86,6 +86,8 @@
     border-top: 1px solid $border;
     // background-color: $background;
 
+    padding-bottom: 1.5rem;
+
     // First level items
     > li {
       // padding-left: 0.5em;
@@ -119,30 +121,34 @@
     }
 
     label.tocitem {
-      cursor: pointer;
-    }
+      display: flex;
+      .docs-label {
+        flex-grow: 2;
+      }
+      .docs-chevron {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
 
-    label.tocitem::before {
-      display: inline-block;
-      @include font-awesome;
-      content: "\f054";
-      font-size: 0.75*$size-normal;
-      vertical-align: text-bottom;
-      margin-left: 0.25em;
-      margin-right: 0.25em;
-      width: 1em;
+        font-size: 0.75*$size-normal;
+        margin-left: 1rem;
+        margin-top: auto;
+        margin-bottom: auto;
+        &::before {
+          @include font-awesome;
+          content: "\f054";
+        }
+      }
     }
-
-    input:checked ~ label.tocitem::before {
+    input:checked ~ label.tocitem .docs-chevron::before {
       content: "\f078";
     }
 
     .tocitem {
       display: block;
-      padding-top: 0.3em;
-      padding-bottom: 0.3em;
-
-      padding-left: 0.5em;
+      padding: 0.3rem 0.5rem;
 
       &, &:hover {
         color: $sidebar-color;
@@ -179,24 +185,32 @@
 
     // In-page headings
     ul.internal {
-      margin-left: 0.5rem;
-      margin-bottom: 0.5rem;
-      background-color: $sidebar-menu-internal-background;
+      margin: 0 0.5rem 0.5rem;
+      // background-color: $sidebar-menu-internal-background;
       border-top: 1px solid $border;
       li {
         font-size: 0.85*$size-normal;
         // border-left: 0.3em solid $sidebar-menu-internal-hover-background;
         margin-left: 0;
         border-left: none;
+        margin-top: 0.3rem;
       }
 
       .tocitem {
-        padding-left: 0.8rem;
-      }
+        display: flex;
+        width: 100%;
+        color: gray;
+        padding: 0;
 
-      .tocitem:hover {
-        background-color: $sidebar-menu-internal-hover-background;
-        color: $sidebar-menu-internal-hover-color;
+        &::before {
+          content: "#";
+          margin-right: 0.5em;
+        }
+
+        &:hover {
+          // background-color: $sidebar-menu-internal-hover-background;
+          // color: $sidebar-menu-internal-hover-color;
+        }
       }
     }
 
