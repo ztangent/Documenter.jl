@@ -710,14 +710,15 @@ function render_article(ctx, navnode)
     if !isempty(ctx.footnotes)
         fnotes = map(ctx.footnotes) do f
             fid = "footnote-$(f.id)"
+            citerefid = "citeref-$(f.id)"
             if length(f.text) == 1 && first(f.text) isa Markdown.Paragraph
-                li["#$(fid).footnote", :href => "#$(fid)"](
-                    a[".tag.is-link"](f.id), # FIXME: one line footnotes
+                li["#$(fid).footnote"](
+                    a[".tag.is-link", :href => "#$(citerefid)"](f.id), # FIXME: one line footnotes
                     mdconvert(f.text[1].content),
                 )
             else
-                li["#$(fid).footnote", :href => "#$(fid)"](
-                    a[".tag.is-link.is-block"](f.id), # FIXME: one line footnotes
+                li["#$(fid).footnote"](
+                    a[".tag.is-link.is-block", :href => "#$(citerefid)"](f.id), # FIXME: one line footnotes
                     mdconvert(f.text),
                 )
             end
@@ -1219,7 +1220,7 @@ mdconvert(expr::Union{Expr,Symbol}, parent; kwargs...) = string(expr)
 function mdconvert(f::Markdown.Footnote, parent; footnotes = nothing, kwargs...)
     @tags sup a
     if f.text === nothing # => Footnote link
-        return sup[".footnote-reference"](a[:href => "#footnote-$(f.id)"]("[$(f.id)]"))
+        return sup[".footnote-reference"](a["#citeref-$(f.id)", :href => "#footnote-$(f.id)"]("[$(f.id)]"))
     elseif footnotes !== nothing # Footnote definition
         push!(footnotes, f)
     else # => Footnote definition, but nowhere to put it
