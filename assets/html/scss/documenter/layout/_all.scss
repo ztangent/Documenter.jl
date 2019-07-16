@@ -17,8 +17,6 @@
     @extend .dashboard-main;
     @extend .is-scrollable;
 
-    transition: all 0.3s;
-
     @include tablet {
       padding: 0 1rem;
       padding-left: 1.3rem;
@@ -34,8 +32,7 @@
       }
     }
 
-    // FIXME
-    // #navbar is the top bar of the page that contains the breadcrumb,
+    // Navbar is the top bar of the page that contains the breadcrumb,
     // the "Edit on GitHub" link and the sidebar burger (when on mobile).
     header.docs-navbar {
       background-color: $body-background-color;
@@ -59,6 +56,9 @@
         .docs-label {
           padding: 0;
           margin-left: 0.3em;
+        }
+        .docs-settings-button {
+          margin: auto 0 auto 1rem;
         }
         .docs-sidebar-button {
           font-size: 1.5rem;

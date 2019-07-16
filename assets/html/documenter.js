@@ -177,19 +177,6 @@ require(['jquery', 'headroom', 'headroom-jquery'], function($, Headroom) {
   })
 })
 
-requirejs(['jquery', 'devtools'], function($, dev) {
-  // Manages the "developer tools" widget. Can be opened by pressing Ctrl+y.
-  $(document).ready(function() {
-    var devbox = dev.appendWidget($('body'));
-    devbox.registerThemeLink(document.getElementById('themecss'));
-  });
-  $(document).keypress(function(ev) {
-    if(ev.ctrlKey && ev.charCode == 25) {
-      $('jldebug-devtools').toggle();
-    }
-  });
-});
-
 // Theme selector
 require(['jquery'], function($) {
     $(document).ready(function() {
@@ -219,3 +206,35 @@ require(['jquery'], function($) {
       $('#documenter-themepicker').change(themepick_callback);
     })
 })
+
+// Modal settings dialog
+requirejs(['jquery'], function($, dev) {
+  $(document).ready(function() {
+    var settings = $('#documenter-settings');
+    $('#documenter-settings-button').click(function(){
+      settings.toggleClass('is-active');
+    });
+    // Close the dialog if X is clicked
+    $('#documenter-settings button.delete').click(function(){
+      settings.removeClass('is-active');
+    });
+    // Close dialog if ESC is pressed
+    $(document).keyup(function(e) {
+      if (e.keyCode == 27) settings.removeClass('is-active');
+    });
+  });
+});
+
+
+requirejs(['jquery', 'devtools'], function($, dev) {
+  // Manages the "developer tools" widget. Can be opened by pressing Ctrl+y.
+  $(document).ready(function() {
+    var devbox = dev.appendWidget($('body'));
+    devbox.registerThemeLink(document.getElementById('themecss'));
+  });
+  $(document).keypress(function(ev) {
+    if(ev.ctrlKey && ev.charCode == 25) {
+      $('jldebug-devtools').toggle();
+    }
+  });
+});
