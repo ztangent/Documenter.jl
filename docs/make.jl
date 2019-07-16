@@ -39,7 +39,7 @@ makedocs(
         "showcase.md",
         "Library" => Any[
             "Public" => "lib/public.md",
-            hide("Internals" => "lib/internals.md", Any[
+            "Internals" => Any[
                 "lib/internals/anchors.md",
                 "lib/internals/builder.md",
                 "lib/internals/cross-references.md",
@@ -58,7 +58,7 @@ makedocs(
                 "lib/internals/textdiff.md",
                 "lib/internals/utilities.md",
                 "lib/internals/writers.md",
-            ])
+            ],
         ],
         "contributing.md",
     ],
