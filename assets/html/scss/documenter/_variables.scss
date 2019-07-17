@@ -1,21 +1,4 @@
-$blue-100: #BBDEFB;
-$blue-500: #2196F3;
-
-$indigo-100: #C5CAE9;
-$indigo-500: #3F51B5;
-
-$cyan-100: #B2EBF2;
-$cyan-500: #00BCD4;
-
-$amber-100: #FFECB3;
-$amber-300: #FFD54F;
-$amber-500: #FFC107;
-
-// $primary: #FFC34C !default;
-// $primary: $amber-500 !default;
-// $primary-100: $amber-100 !default;
-// $primary-invert: invert($primary) !default;
-// $primary: $blue-100 !default;
+$family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
 
 $shadow: #bbb !default;
 $shadow-size: 0.2rem !default;
@@ -28,7 +11,3 @@ $lightness-unit: 8% !default;
 @function lighten-color($color, $factor) {
   @return adjust-color($color, $lightness: $factor*$lightness-unit);
 }
-
-@import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Mono");
-$family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
-// $family-monospace: 'Roboto Mono', Monaco, courier, monospace !default;

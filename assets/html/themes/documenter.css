@@ -1,5 +1,4 @@
 /* Font Awesome 5 mixin. Can be included in any rule that should render Font Awesome icons. */
-@import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Mono");
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -7314,8 +7313,8 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     color: #363636; }
 
 .hljs {
-  background: initial;
-  padding: initial; }
+  background: initial !important;
+  padding: initial !important; }
 
 .katex .katex-mathml {
   top: 0;
