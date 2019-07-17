@@ -473,14 +473,24 @@ function render_head(ctx, navnode)
         function set_theme_from_local_storage() {
           if(typeof(window.localStorage) === "undefined") return;
           var theme =  window.localStorage.getItem("documenter-theme");
-          if(typeof(theme) === "undefined") return;
+          if(theme === null) return; // nothing in localStorage
           console.log("Theme from local storage:", theme);
+          var active = null;
+          var disabled = [];
           for (var i = 0; i < document.styleSheets.length; i++) {
             var ss = document.styleSheets[i];
             var themename = ss.ownerNode.getAttribute("data-themename");
             if(themename === null) continue; // ignore non-theme stylesheets
-            // Disable all the stylesheets that are not the active theme
-            ss.disabled = !(themename === theme);
+            // Find the active theme
+            if(themename === theme) active = i;
+            else disabled.push(ss);
+          }
+          if(active !== null) {
+            disabled.forEach(function(ss){
+              ss.disabled = true;
+            });
+          } else {
+            console.warn("Rubbish theme name (" + theme + ") in localStorage.");
           }
         }
         set_theme_from_local_storage();

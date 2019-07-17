@@ -175,14 +175,24 @@ require(['jquery', 'headroom', 'headroom-jquery'], function($, Headroom) {
 // Theme selector
 require(['jquery'], function($) {
   function set_theme(theme) {
-    console.log("Theme from selector:", theme);
-    var themelinks = document.getElementsByClassName('docs-theme-link');
+    var active = null;
+    var disabled = [];
     for (var i = 0; i < document.styleSheets.length; i++) {
       var ss = document.styleSheets[i];
-      var ss_theme = ss.ownerNode.getAttribute("data-themename");
-      if(ss_theme === null) continue; // ignore non-theme stylesheets
-      // Disable all the stylesheets that are not the active theme
-      ss.disabled = !(ss_theme === theme);
+      var themename = ss.ownerNode.getAttribute("data-themename");
+      if(themename === null) continue; // ignore non-theme stylesheets
+      // Find the active theme
+      if(themename === theme) active = ss;
+      else disabled.push(ss);
+    }
+    console.log(disabled, active);
+    if(active !== null) {
+      active.disabled = false;
+      disabled.forEach(function(ss){
+        ss.disabled = true;
+      });
+    } else {
+      console.warn("Rubbish theme name (" + theme + ").");
     }
 
     // Store the theme in localStorage
@@ -206,9 +216,8 @@ require(['jquery'], function($) {
     // from localStorage
     if(typeof(window.localStorage) !== "undefined") {
       var theme =  window.localStorage.getItem("documenter-theme");
-      if(typeof(theme) !== "undefined") {
+      if(theme !== null) {
         $('#documenter-themepicker option').each(function(i,e) {
-          console.log(i, e);
           e.selected = (e.value === theme);
         })
       }
