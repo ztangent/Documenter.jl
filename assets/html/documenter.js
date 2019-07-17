@@ -39,7 +39,6 @@ require(['jquery', 'highlight', 'highlight-julia', 'highlight-julia-repl'], func
 })
 
 require(['jquery'], function($) {
-  console.log("Version selector:")
   // update the version selector with info from the siteinfo.js and ../versions.js files
   $(document).ready(function() {
     var version_selector = $("#documenter .docs-version-selector");
@@ -47,7 +46,6 @@ require(['jquery'], function($) {
 
     version_selector_select.change(function(x) {
       target_href = version_selector_select.children("option:selected").get(0).value;
-      console.log("Redirecting to: ", target_href);
       window.location.href = target_href;
     });
 
@@ -57,13 +55,10 @@ require(['jquery'], function($) {
       version_selector_select.append(option);
     }
 
-    console.log(documenterBaseURL);
-
     if (typeof DOC_VERSIONS !== 'undefined') {
       var existing_versions = version_selector_select.children("option");
       var existing_versions_texts = existing_versions.map(function(i,x){return x.text});
       DOC_VERSIONS.forEach(function(each) {
-        console.log(each, version_url);
         var version_url = documenterBaseURL + "/../" + each;
         var existing_id = $.inArray(each, existing_versions_texts);
         // if not already in the version selector, add it as a new option,
@@ -179,32 +174,46 @@ require(['jquery', 'headroom', 'headroom-jquery'], function($, Headroom) {
 
 // Theme selector
 require(['jquery'], function($) {
-    $(document).ready(function() {
-      var linktag = $('#documenter-theme-link');
-      function themepick_callback(ev){
-        var transition_style = $('<style>');
-        transition_style.html(`
-          * {
-            transition: all .3s;
-          }
-        `);
-        console.log(transition_style);
-        var transition_style_element = $('head').append(transition_style);
-        var themefile = $('#documenter-themepicker option:selected').attr('value') + ".css"
-        var themehref = linktag.attr('data-href-root') + "/" + themefile;
-        console.log("Click!", themehref, themefile, ev, ev.target);
-        linktag.attr('href', themehref);
-        console.log(linktag);
-        //transition_style_element.remove(transition_style);
-        // TODO: the transition needs to be more sophisticated. Let's instead append a new
-        // <link> for the new theme to <head>, wait for the transition and then remove the
-        // old theme <link> and the transition style.
-        setTimeout(function() {
-          transition_style.remove();
-        }, 2000);
+  function set_theme(theme) {
+    console.log("Theme from selector:", theme);
+    var themelinks = document.getElementsByClassName('docs-theme-link');
+    for (var i = 0; i < document.styleSheets.length; i++) {
+      var ss = document.styleSheets[i];
+      var ss_theme = ss.ownerNode.getAttribute("data-themename");
+      if(ss_theme === null) continue; // ignore non-theme stylesheets
+      // Disable all the stylesheets that are not the active theme
+      ss.disabled = !(ss_theme === theme);
+    }
+
+    // Store the theme in localStorage
+    if(typeof(window.localStorage) !== "undefined") {
+      console.log("Storing theme preference in local storage:", theme);
+      window.localStorage.setItem("documenter-theme", theme);
+    } else {
+      console.error("Browser does not support window.localStorage");
+    }
+  }
+
+  // Theme picker setup
+  $(document).ready(function() {
+    // onchange callback
+    $('#documenter-themepicker').change(function themepick_callback(ev){
+      var themename = $('#documenter-themepicker option:selected').attr('value');
+      set_theme(themename);
+    });
+
+    // Make sure that the themepicker displays the correct theme when the theme is retrieved
+    // from localStorage
+    if(typeof(window.localStorage) !== "undefined") {
+      var theme =  window.localStorage.getItem("documenter-theme");
+      if(typeof(theme) !== "undefined") {
+        $('#documenter-themepicker option').each(function(i,e) {
+          console.log(i, e);
+          e.selected = (e.value === theme);
+        })
       }
-      $('#documenter-themepicker').change(themepick_callback);
-    })
+    }
+  })
 })
 
 // Modal settings dialog

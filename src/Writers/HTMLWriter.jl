@@ -266,7 +266,6 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     ctx.documenter_js = copy_asset("documenter.js", doc)
     ctx.search_js = copy_asset("search.js", doc)
 
-    # push!(ctx.local_assets, copy_asset("themes/documenter.css", doc))
     copy_asset("themes/documenter.css", doc)
     copy_asset("themes/darkly.css", doc)
     copy_asset("devtools.js", doc)
@@ -459,12 +458,33 @@ function render_head(ctx, navnode)
 
         # Custom user-provided assets.
         asset_links(src, ctx.local_assets),
-        link[
-            :id => "documenter-theme-link",
-            :rel => "stylesheet", :type => "text/css",
-            :href => relhref(src, "assets/themes/documenter.css"),
-            Symbol("data-href-root") => relhref(src, "assets/themes"),
-        ],
+        # Themes. Note: we reverse the make sure that the default theme (first in the array)
+        # comes as the last <link> tag.
+        map(reverse(THEMES)) do theme
+            link[".docs-theme-link",
+                :rel => "stylesheet", :type => "text/css",
+                :href => relhref(src, "assets/themes/$(theme).css"),
+                Symbol("data-themename") => theme,
+                # Symbol("data-href-root") => relhref(src, "assets/themes"),
+            ]
+        end,
+        # Script to quickly swap the theme if there is something in localStorage
+        script("""
+        function set_theme_from_local_storage() {
+          if(typeof(window.localStorage) === "undefined") return;
+          var theme =  window.localStorage.getItem("documenter-theme");
+          if(typeof(theme) === "undefined") return;
+          console.log("Theme from local storage:", theme);
+          for (var i = 0; i < document.styleSheets.length; i++) {
+            var ss = document.styleSheets[i];
+            var themename = ss.ownerNode.getAttribute("data-themename");
+            if(themename === null) continue; // ignore non-theme stylesheets
+            // Disable all the stylesheets that are not the active theme
+            ss.disabled = !(themename === theme);
+          }
+        }
+        set_theme_from_local_storage();
+        """),
     )
 end
 
