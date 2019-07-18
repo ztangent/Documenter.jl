@@ -179,20 +179,22 @@ require(['jquery'], function($) {
     var disabled = [];
     for (var i = 0; i < document.styleSheets.length; i++) {
       var ss = document.styleSheets[i];
-      var themename = ss.ownerNode.getAttribute("data-themename");
+      var themename = ss.ownerNode.getAttribute("data-theme-name");
       if(themename === null) continue; // ignore non-theme stylesheets
       // Find the active theme
       if(themename === theme) active = ss;
       else disabled.push(ss);
     }
-    console.log(disabled, active);
     if(active !== null) {
       active.disabled = false;
+      if(active.ownerNode.getAttribute("data-theme-primary") === null) {
+        document.getElementsByTagName('html')[0].className = "theme--" + theme;
+      } else {
+        document.getElementsByTagName('html')[0].className = "";
+      }
       disabled.forEach(function(ss){
         ss.disabled = true;
       });
-    } else {
-      console.warn("Rubbish theme name (" + theme + ").");
     }
 
     // Store the theme in localStorage

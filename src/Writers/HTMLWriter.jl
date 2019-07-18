@@ -460,37 +460,41 @@ function render_head(ctx, navnode)
         asset_links(src, ctx.local_assets),
         # Themes. Note: we reverse the make sure that the default theme (first in the array)
         # comes as the last <link> tag.
-        map(reverse(THEMES)) do theme
-            link[".docs-theme-link",
+        map(Iterators.reverse(enumerate(THEMES))) do (i, theme)
+            e = link[".docs-theme-link",
                 :rel => "stylesheet", :type => "text/css",
                 :href => relhref(src, "assets/themes/$(theme).css"),
-                Symbol("data-themename") => theme,
-                # Symbol("data-href-root") => relhref(src, "assets/themes"),
+                Symbol("data-theme-name") => theme,
             ]
+            (i == 1) && push!(e.attributes, Symbol("data-theme-primary") => "")
+            return e
         end,
         # Script to quickly swap the theme if there is something in localStorage
         script("""
         function set_theme_from_local_storage() {
           if(typeof(window.localStorage) === "undefined") return;
-          var theme =  window.localStorage.getItem("documenter-theme");
-          if(theme === null) return; // nothing in localStorage
+          var theme =  window.localStorage.getItem("documenter-theme"); // may be null => primary
           console.log("Theme from local storage:", theme);
-          var active = null;
-          var disabled = [];
+          var active = null; var disabled = []; var alternates = [];
           for (var i = 0; i < document.styleSheets.length; i++) {
             var ss = document.styleSheets[i];
-            var themename = ss.ownerNode.getAttribute("data-themename");
+            var themename = ss.ownerNode.getAttribute("data-theme-name");
             if(themename === null) continue; // ignore non-theme stylesheets
+            var isprimary = (ss.ownerNode.getAttribute("data-theme-primary") !== null);
             // Find the active theme
-            if(themename === theme) active = i;
-            else disabled.push(ss);
+            if(!isprimary) alternates.push(ss);
+            if(!isprimary && themename === theme) active = i;
+            if(themename !== theme) disabled.push(ss);
           }
           if(active !== null) {
+            document.getElementsByTagName('html')[0].className = "theme--" + theme;
             disabled.forEach(function(ss){
               ss.disabled = true;
             });
           } else {
-            console.warn("Rubbish theme name (" + theme + ") in localStorage.");
+            alternates.forEach(function(ss){
+              ss.disabled = true;
+            });
           }
         }
         set_theme_from_local_storage();

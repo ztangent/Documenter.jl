@@ -16,28 +16,38 @@ $docstring-pre-background: adjust-color($background, $lightness: 5);
 @import "documenter/variables";
 
 @import "bulma/utilities/all";
-@import "bulma/base/all";
+@import "bulma/base/minireset.sass";
+@import "bulma/base/helpers.sass";
 
-@import "documenter/overrides";
+// All secondary themes have to be nested in a theme--$(themename) class. When Documenter
+// switches themes, it applies this class to <html> and then disables the primary
+// stylesheet.
+html.theme--darkly {
+  @import "bulma/base/generic.sass";
 
-@import "bulma/elements/all";
-@import "bulma/form/all";
-@import "bulma/components/all";
-@import "bulma/grid/all";
-@import "bulma/layout/all";
-@import "bulma-dashboard";
+  @import "documenter/overrides";
 
-@import "darkly/overrides";
+  @import "bulma/elements/all";
+  @import "bulma/form/all";
+  @import "bulma/components/all";
+  @import "bulma/grid/all";
+  @import "bulma/layout/all";
+  @import "bulma-dashboard";
 
-@import "documenter/components";
-@import "documenter/patches";
-@import "documenter/layout/all";
+  @import "darkly/overrides";
 
-.docstring > section {
-  pre {
-    background-color: $docstring-pre-background;
+  @import "documenter/components";
+  @import "documenter/patches";
+  @import "documenter/layout/all";
+
+  @import "documenter/theme_overrides";
+
+  .docstring > section {
+    pre {
+      background-color: $docstring-pre-background;
+    }
   }
-}
 
-// FIXME: Hack to get a proper theme for highlight.js in the Darkly theme
-@import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/a11y-dark.min.css";
+  // FIXME: Hack to get a proper theme for highlight.js in the Darkly theme
+  @import "a11y-dark";
+}
