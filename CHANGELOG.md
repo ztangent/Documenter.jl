@@ -1,5 +1,13 @@
 # Documenter.jl changelog
 
+## Version `v0.23.1`
+
+* ![Bugfix][badge-bugfix] Documenter no longer throws an error if the provided `EditURL` argument is missing. ([#1076](github-1076), [#1077](github-1077))
+
+* ![Bugfix][badge-bugfix] Non-standard Markdown AST nodes no longer cause Documenter to exit with a missing method error in doctesting and HTML output. Documenter falls back to `repr()` for such nodes. ([#1073](github-1073), [#1075](github-1075))
+
+* ![Bugfix][badge-bugfix] Docstrings parsed into nested `Markdown.MD` objects are now unwrapped correctly and do not cause Documenter to crash with a missing method error anymore. The user can run into that when reusing docstrings with the `@doc @doc(foo) function bar end` pattern. ([#1075](github-1075))
+
 ## Version `v0.23.0`
 
 * Documenter v0.23 requires Julia v1.0. ([#1015][github-1015])
@@ -26,6 +34,8 @@
 
 * ![Enhancement][badge-enhancement] Videos can now be included in the HTML output using the image syntax (`![]()`) if the file extension matches a known format (`.webm`, `.mp4`, `.ogg`, `.ogm`, `.ogv`, `.avi`). ([#1034][github-1034])
 
+* ![Enhancement][badge-enhancement] The PDF output now uses the DejaVu Sans  and DejaVu Sans Mono fonts to provide better Unicode coverage. ([#803][github-803], [#1066][github-1066])
+
 * ![Bugfix][badge-bugfix] The HTML output now outputs HTML files for pages that are not referenced in the `pages` keyword too (Documenter finds them according to their extension). But they do exists outside of the standard navigation hierarchy (as defined by `pages`). This fixes a bug where these pages could still be referenced by `@ref` links and `@contents` blocks, but in the HTML output, the links ended up being broken. ([#1031][github-1031], [#1047][github-1047])
 
 * ![Bugfix][badge-bugfix] `makedocs` now throws an error when the format objects (`Documenter.HTML`, `LaTeX`, `Markdown`) get passed positionally. The format types are no longer subtypes of `Documenter.Plugin`. ([#1046][github-1046], [#1061][github-1061])
@@ -35,6 +45,10 @@
 * ![Bugfix][badge-bugfix] Stacktraces in doctests that throw an error are now filtered more thoroughly, fixing an issue where too much of the stacktrace was included when `doctest` or `makedocs` was called from a more complicated context. ([#1062][github-1062])
 
 * ![Experimental][badge-experimental] ![Feature][badge-feature] The current working directory when evaluating `@repl` and `@example` blocks can now be set to a fixed directory by passing the `workdir` keyword to `makedocs`. _The new keyword and its behaviour are experimental and not part of the public API._ ([#1013][github-1013], [#1025][github-1025])
+
+## Version `v0.22.6`
+
+* ![Maintenance][badge-maintenance] Add DocStringExtensions 0.8 as an allowed dependency version. ([#1071][github-1071])
 
 ## Version `v0.22.5`
 
@@ -308,6 +322,7 @@
 [github-794]: https://github.com/JuliaDocs/Documenter.jl/pull/794
 [github-795]: https://github.com/JuliaDocs/Documenter.jl/pull/795
 [github-802]: https://github.com/JuliaDocs/Documenter.jl/pull/802
+[github-803]: https://github.com/JuliaDocs/Documenter.jl/issues/803
 [github-804]: https://github.com/JuliaDocs/Documenter.jl/pull/804
 [github-813]: https://github.com/JuliaDocs/Documenter.jl/pull/813
 [github-816]: https://github.com/JuliaDocs/Documenter.jl/pull/816
@@ -375,6 +390,12 @@
 [github-1054]: https://github.com/JuliaDocs/Documenter.jl/pull/1054
 [github-1061]: https://github.com/JuliaDocs/Documenter.jl/pull/1061
 [github-1062]: https://github.com/JuliaDocs/Documenter.jl/pull/1062
+[github-1066]: https://github.com/JuliaDocs/Documenter.jl/pull/1066
+[github-1071]: https://github.com/JuliaDocs/Documenter.jl/pull/1071
+[github-1073]: https://github.com/JuliaDocs/Documenter.jl/issues/1073
+[github-1075]: https://github.com/JuliaDocs/Documenter.jl/pull/1075
+[github-1076]: https://github.com/JuliaDocs/Documenter.jl/issues/1076
+[github-1077]: https://github.com/JuliaDocs/Documenter.jl/pull/1077
 
 [documenterlatex]: https://github.com/JuliaDocs/DocumenterLaTeX.jl
 [documentermarkdown]: https://github.com/JuliaDocs/DocumenterMarkdown.jl

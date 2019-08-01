@@ -125,6 +125,7 @@ htmlbuild_pages = Any[
     "Library" => [
         "lib/functions.md",
         "lib/autodocs.md",
+        "lib/editurl.md",
     ],
     hide("Hidden Pages" => "hidden/index.md", Any[
         "Page X" => "hidden/x.md",
@@ -135,7 +136,8 @@ htmlbuild_pages = Any[
         "expandorder/00.md",
         "expandorder/01.md",
         "expandorder/AA.md",
-    ]
+    ],
+    "unicode.md",
 ]
 
 @info("Building mock package docs: HTMLWriter / local build")
