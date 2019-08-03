@@ -746,9 +746,7 @@ function render_navbar(ctx, navnode, edit_page_link::Bool)
 end
 
 function render_footer(ctx, navnode)
-    @tags footer a div nav
-    # Build the footer
-    art_footer = footer[".footer"]
+    @tags a div nav
     # Navigation links (previous/next page), if there are any
     navlinks = DOM.Node[]
     if navnode.prev !== nothing
@@ -761,8 +759,7 @@ function render_footer(ctx, navnode)
         link = a[".column.has-text-right", :href => navhref(ctx, navnode.next, navnode)](title, " »")
         push!(navlinks, link)
     end
-    isempty(navlinks) || push!(art_footer.nodes, nav[".columns"](navlinks))
-    return art_footer
+    return isempty(navlinks) ? "" : nav[".docs-footer.columns"](navlinks)
 end
 
 # Article (page contents)

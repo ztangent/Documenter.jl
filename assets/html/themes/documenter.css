@@ -7340,10 +7340,6 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
 #documenter .docs-main > * {
   max-width: 50rem; }
 
-@media screen and (max-width: 768px) {
-  #documenter .docs-main > .content, #documenter .docs-main > footer {
-    padding: 0 1rem; } }
-
 #documenter .docs-main header.docs-navbar {
   background-color: white;
   border-bottom: 1px solid #dbdbdb;
@@ -7399,17 +7395,9 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     margin-right: 0;
     margin-bottom: 1em; }
 
-@media screen and (min-width: 769px), print {
-  #documenter .docs-main footer.footer {
-    padding-left: 0;
-    padding-right: 0; } }
-
-#documenter .docs-main footer.footer nav.columns {
-  margin-left: 0;
-  margin-right: 0; }
-  #documenter .docs-main footer.footer nav.columns .column {
-    padding-left: 0;
-    padding-right: 0; }
+@media screen and (max-width: 768px) {
+  #documenter .docs-main > .content, #documenter .docs-main > .docs-footer {
+    padding: 0 1rem; } }
 
 #documenter .docs-main #documenter-search-info {
   margin-bottom: 1rem; }

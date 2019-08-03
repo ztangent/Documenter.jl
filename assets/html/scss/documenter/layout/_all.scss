@@ -26,12 +26,6 @@
       max-width: $documenter-max-width;
     }
 
-    @include mobile {
-      > .content, > footer {
-        padding: 0 1rem;
-      }
-    }
-
     // Navbar is the top bar of the page that contains the breadcrumb,
     // the "Edit on GitHub" link and the sidebar burger (when on mobile).
     header.docs-navbar {
@@ -109,19 +103,9 @@
       }
     }
 
-    footer.footer {
-      @include tablet {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      nav.columns {
-        margin-left: 0;
-        margin-right: 0;
-        .column {
-          padding-left: 0;
-          padding-right: 0;
-        }
+    @include mobile {
+      > .content, > .docs-footer {
+        padding: 0 1rem;
       }
     }
   }

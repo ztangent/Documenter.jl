@@ -7384,9 +7384,6 @@ html.theme--darkly {
       padding-left: 1.3rem; } }
   html.theme--darkly #documenter .docs-main > * {
     max-width: 50rem; }
-  @media screen and (max-width: 768px) {
-    html.theme--darkly #documenter .docs-main > .content, html.theme--darkly #documenter .docs-main > footer {
-      padding: 0 1rem; } }
   html.theme--darkly #documenter .docs-main header.docs-navbar {
     background-color: #1f2424;
     border-bottom: 1px solid #5e6d6f;
@@ -7440,16 +7437,9 @@ html.theme--darkly {
     html.theme--darkly #documenter .docs-main section.footnotes li .tag.is-block:first-child, html.theme--darkly #documenter .docs-main section.footnotes li .content kbd.is-block:first-child, html.theme--darkly .content #documenter .docs-main section.footnotes li kbd.is-block:first-child, html.theme--darkly #documenter .docs-main section.footnotes li .docstring > section footer > a.is-block:first-child, html.theme--darkly .docstring > section #documenter .docs-main section.footnotes li footer > a.is-block:first-child {
       margin-right: 0;
       margin-bottom: 1em; }
-  @media screen and (min-width: 769px), print {
-    html.theme--darkly #documenter .docs-main footer.footer {
-      padding-left: 0;
-      padding-right: 0; } }
-  html.theme--darkly #documenter .docs-main footer.footer nav.columns {
-    margin-left: 0;
-    margin-right: 0; }
-    html.theme--darkly #documenter .docs-main footer.footer nav.columns .column {
-      padding-left: 0;
-      padding-right: 0; }
+  @media screen and (max-width: 768px) {
+    html.theme--darkly #documenter .docs-main > .content, html.theme--darkly #documenter .docs-main > .docs-footer {
+      padding: 0 1rem; } }
   html.theme--darkly #documenter .docs-main #documenter-search-info {
     margin-bottom: 1rem; }
   html.theme--darkly #documenter .docs-main #documenter-search-results {
