@@ -7433,10 +7433,8 @@ html.theme--darkly {
   html.theme--darkly #documenter .docs-main section.footnotes {
     border-top: 1px solid #5e6d6f; }
     html.theme--darkly #documenter .docs-main section.footnotes li .tag:first-child, html.theme--darkly #documenter .docs-main section.footnotes li .content kbd:first-child, html.theme--darkly .content #documenter .docs-main section.footnotes li kbd:first-child, html.theme--darkly #documenter .docs-main section.footnotes li .docstring > section footer > a:first-child, html.theme--darkly .docstring > section #documenter .docs-main section.footnotes li footer > a:first-child {
-      margin-right: 1em; }
-    html.theme--darkly #documenter .docs-main section.footnotes li .tag.is-block:first-child, html.theme--darkly #documenter .docs-main section.footnotes li .content kbd.is-block:first-child, html.theme--darkly .content #documenter .docs-main section.footnotes li kbd.is-block:first-child, html.theme--darkly #documenter .docs-main section.footnotes li .docstring > section footer > a.is-block:first-child, html.theme--darkly .docstring > section #documenter .docs-main section.footnotes li footer > a.is-block:first-child {
-      margin-right: 0;
-      margin-bottom: 1em; }
+      margin-right: 1em;
+      margin-bottom: 0.4em; }
   @media screen and (max-width: 768px) {
     html.theme--darkly #documenter .docs-main > .content, html.theme--darkly #documenter .docs-main > .docs-footer {
       padding: 0 1rem; } }

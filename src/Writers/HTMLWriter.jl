@@ -777,12 +777,12 @@ function render_article(ctx, navnode)
             citerefid = "citeref-$(f.id)"
             if length(f.text) == 1 && first(f.text) isa Markdown.Paragraph
                 li["#$(fid).footnote"](
-                    a[".tag.is-link", :href => "#$(citerefid)"](f.id), # FIXME: one line footnotes
+                    a[".tag.is-link", :href => "#$(citerefid)"](f.id),
                     mdconvert(f.text[1].content),
                 )
             else
                 li["#$(fid).footnote"](
-                    a[".tag.is-link.is-block", :href => "#$(citerefid)"](f.id), # FIXME: one line footnotes
+                    a[".tag.is-link", :href => "#$(citerefid)"](f.id),
                     mdconvert(f.text),
                 )
             end

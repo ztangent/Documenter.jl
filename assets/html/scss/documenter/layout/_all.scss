@@ -95,10 +95,7 @@
       li {
         .tag:first-child {
           margin-right: 1em;
-        }
-        .tag.is-block:first-child {
-          margin-right: 0;
-          margin-bottom: 1em;
+          margin-bottom: 0.4em;
         }
       }
     }
