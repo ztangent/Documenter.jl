@@ -100,9 +100,18 @@
       }
     }
 
+    .docs-footer {
+      border-top: 1px solid $border;
+    }
+
     @include mobile {
-      > .content, > .docs-footer {
-        padding: 0 1rem;
+      > .content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      > .docs-footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
   }

@@ -7393,9 +7393,16 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     margin-right: 1em;
     margin-bottom: 0.4em; }
 
+#documenter .docs-main .docs-footer {
+  border-top: 1px solid #dbdbdb; }
+
 @media screen and (max-width: 768px) {
-  #documenter .docs-main > .content, #documenter .docs-main > .docs-footer {
-    padding: 0 1rem; } }
+  #documenter .docs-main > .content {
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  #documenter .docs-main > .docs-footer {
+    padding-left: 1rem;
+    padding-right: 1rem; } }
 
 #documenter .docs-main #documenter-search-info {
   margin-bottom: 1rem; }
