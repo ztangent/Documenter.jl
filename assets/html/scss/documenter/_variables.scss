@@ -1,13 +1,32 @@
-$family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
-
-$shadow: #bbb !default;
-$shadow-size: 0.2rem !default;
-$shadow-blur: 0.4rem !default;
-
+// Helper functions
+// ----------------
+// Declares the amount of lightness modifier used in the darken-color and lighten-color
+// functions. Setting this to a negative value is useful for dark themes.
 $lightness-unit: 8% !default;
+// Uses adjust-color to create a darker version of $color
 @function darken-color($color, $factor) {
   @return adjust-color($color, $lightness: -$factor*$lightness-unit);
 }
+// Uses adjust-color to create a lighter version of $color
 @function lighten-color($color, $factor) {
   @return adjust-color($color, $lightness: $factor*$lightness-unit);
 }
+
+// Fonts
+// -----
+// Declares the font family for the main text.
+$family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
+// For monospace, we just use Bulma's default `font-family: monospace;`. This can be
+// overridden with the `$family-monospace` variable.
+//
+// Note: declaring a font family here does not necessarily mean that it will be available
+// for the user. For uncommon fonts it is up to the user to also provide the necessary font
+// assets, e.g. via a CDN, in the makedocs() call.
+
+// Shadows
+// -------
+// Shadows are used to visually elevate UI elements that are "floating" (e.g. the sidebar
+// on mobile layout).
+$shadow: #bbb !default;
+$shadow-size: 0.2rem !default;
+$shadow-blur: 0.4rem !default;
