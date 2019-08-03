@@ -589,7 +589,6 @@ function render_sidebar(ctx, navnode)
 
     # Version selector
     let
-        # vs_class = ".docs-version-selector"
         vs_class = ".docs-version-selector.field.has-addons"
         vs_label = span[".docs-label.button.is-static.is-size-7"]("Version")
         vs_label = div[".control"](vs_label)
@@ -659,7 +658,7 @@ function navitem(nctx, nn::Documents.NavNode)
         internal_links = map(subs) do s
             istoplevel, anchor, text = s
             _li = istoplevel ? li[".toplevel"] : li[]
-            _li(a[".tocitem", :href => anchor](mdconvert(text; droplinks=true)))
+            _li(a[".tocitem", :href => anchor](span(mdconvert(text; droplinks=true))))
         end
         # Only create the ul.internal tag if there actually are in-page headers
         length(internal_links) > 0 && push!(item.nodes, ul[".internal"](internal_links))
