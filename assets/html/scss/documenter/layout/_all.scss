@@ -11,19 +11,37 @@
  *
  */
 #documenter {
-  @extend .dashboard;
+  // @extend .dashboard;
 
   .docs-main {
-    @extend .dashboard-main;
-    @extend .is-scrollable;
+    // @extend .dashboard-main;
+    // @extend .is-scrollable;
+    @include tablet {
+      position: relative;
+      left: $sidebar-width;
+    }
 
     @include tablet {
-      padding: 0 1rem;
-      padding-left: 1.3rem;
+      padding: 0 $documenter-main-padding-right 0 $documenter-main-padding-right;
     }
     // We need to... FIXME
     > * {
-      max-width: $documenter-max-width;
+      max-width: $documenter-max-width + 2*$documenter-main-padding;
+      // margin: 0 auto;
+    }
+
+    @include mobile {
+      > article {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        padding: 0 $documenter-main-padding;
+      }
+      > header, > nav {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+      }
     }
 
     // Navbar is the top bar of the page that contains the breadcrumb,
@@ -103,17 +121,6 @@
     .docs-footer {
       border-top: 1px solid $border;
     }
-
-    @include mobile {
-      > .content {
-        margin-left: 1rem;
-        margin-right: 1rem;
-      }
-      > .docs-footer {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-    }
   }
 }
 
@@ -151,6 +158,6 @@
 // dashboard with the panes being scrollable individually, we need to explicitly remove the
 // scrollbars from the html element.
 html {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  // overflow-x: hidden;
+  // overflow-y: hidden;
 }

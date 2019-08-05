@@ -1,5 +1,7 @@
 #documenter .docs-sidebar {
-  @extend .dashboard-panel;
+  // @extend .dashboard-panel;
+  display: flex;
+  flex-direction: column;
 
   color: $sidebar-color;
   background-color: $sidebar-background;
@@ -10,9 +12,10 @@
 
   // This is mobile-first, so our default state is that the sidebar is hidden away left
   // of the screen.
-  position: absolute;
+  position: fixed;
   left: -$sidebar-width;
   width: $sidebar-width;
+  height: 100%;
   transition: left 0.3s;
   // Clicking on the hamburger on mobile toggles the .visible class on the sidebar
   // If enabled, we'll move the sidebar into view. As it is now floating above the
@@ -28,8 +31,8 @@
   }
   // In the non-mobile layout, we show the sidebar as a left panel of the dashboard.
   @include tablet {
-    position: relative;
     left: 0;
+    top: 0;
   }
 
   // The top bar of the sidebar bar contains:
@@ -69,13 +72,14 @@
     display: none;
     padding: 0.5rem;
     &.visible {
-      display: inherit;
+      display: flex;
     }
   }
 
   // Styling, positioning etc. of the menu items
   ul.docs-menu {
-    @extend .is-scrollable;
+    // @extend .is-scrollable;
+    overflow-y: auto;
     flex-grow: 1;
 
     // Heavy-handed approach to disable selecting when you double click on an expandable menu
