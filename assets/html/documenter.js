@@ -167,7 +167,6 @@ require(['jquery', 'headroom', 'headroom-jquery'], function($, Headroom) {
   $(document).ready(function() {
     $('#documenter .docs-navbar').headroom({
       "tolerance": {"up": 10, "down": 10},
-      scroller: $("#documenter .docs-main").get(0),
     });
   })
 })
