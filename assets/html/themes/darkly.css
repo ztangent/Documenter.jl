@@ -7380,7 +7380,7 @@ html.theme--darkly {
     right: 0; }
   @media screen and (min-width: 980px), print {
     html.theme--darkly #documenter .docs-main {
-      position: relative;
+      position: absolute;
       left: 18rem; } }
   @media screen and (min-width: 980px), print {
     html.theme--darkly #documenter .docs-main {
@@ -7594,6 +7594,8 @@ html.theme--darkly {
       margin-bottom: 0.5rem; }
       html.theme--darkly #documenter .docs-sidebar form.docs-search > input {
         width: 14.4rem; }
+  html.theme--darkly html {
+    overflow-x: auto; }
   html.theme--darkly {
     background-color: #1f2424;
     font-size: 15px;

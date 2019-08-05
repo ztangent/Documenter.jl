@@ -7281,7 +7281,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
  */
 @media screen and (min-width: 1045px), print {
   #documenter .docs-main {
-    position: relative;
+    position: absolute;
     left: 18rem; } }
 
 @media screen and (min-width: 1045px), print {
@@ -7504,3 +7504,6 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     margin-bottom: 0.5rem; }
     #documenter .docs-sidebar form.docs-search > input {
       width: 14.4rem; }
+
+html {
+  overflow-x: auto; }

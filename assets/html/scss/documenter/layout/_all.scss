@@ -17,7 +17,7 @@
     // @extend .dashboard-main;
     // @extend .is-scrollable;
     @include tablet {
-      position: relative;
+      position: absolute;
       left: $sidebar-width;
     }
 
@@ -158,6 +158,7 @@
 // dashboard with the panes being scrollable individually, we need to explicitly remove the
 // scrollbars from the html element.
 html {
+  overflow-x: auto;
   // overflow-x: hidden;
   // overflow-y: hidden;
 }
