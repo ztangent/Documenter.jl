@@ -328,7 +328,7 @@ th {
 .is-size-7, html.theme--darkly .docstring > section footer > a {
   font-size: 0.85em !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-size-1-mobile {
     font-size: 3rem !important; }
   .is-size-2-mobile {
@@ -344,7 +344,7 @@ th {
   .is-size-7-mobile {
     font-size: 0.85em !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-size-1-tablet {
     font-size: 3rem !important; }
   .is-size-2-tablet {
@@ -360,7 +360,7 @@ th {
   .is-size-7-tablet {
     font-size: 0.85em !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-size-1-touch {
     font-size: 3rem !important; }
   .is-size-2-touch {
@@ -376,7 +376,7 @@ th {
   .is-size-7-touch {
     font-size: 0.85em !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-size-1-desktop {
     font-size: 3rem !important; }
   .is-size-2-desktop {
@@ -436,27 +436,27 @@ th {
 .has-text-right {
   text-align: right !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .has-text-centered-mobile {
     text-align: center !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .has-text-centered-tablet {
     text-align: center !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .has-text-centered-tablet-only {
     text-align: center !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .has-text-centered-touch {
     text-align: center !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .has-text-centered-desktop {
     text-align: center !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .has-text-centered-desktop-only {
     text-align: center !important; } }
 
@@ -472,27 +472,27 @@ th {
   .has-text-centered-fullhd {
     text-align: center !important; } }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .has-text-justified-mobile {
     text-align: justify !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .has-text-justified-tablet {
     text-align: justify !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .has-text-justified-tablet-only {
     text-align: justify !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .has-text-justified-touch {
     text-align: justify !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .has-text-justified-desktop {
     text-align: justify !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .has-text-justified-desktop-only {
     text-align: justify !important; } }
 
@@ -508,27 +508,27 @@ th {
   .has-text-justified-fullhd {
     text-align: justify !important; } }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .has-text-left-mobile {
     text-align: left !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .has-text-left-tablet {
     text-align: left !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .has-text-left-tablet-only {
     text-align: left !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .has-text-left-touch {
     text-align: left !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .has-text-left-desktop {
     text-align: left !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .has-text-left-desktop-only {
     text-align: left !important; } }
 
@@ -544,27 +544,27 @@ th {
   .has-text-left-fullhd {
     text-align: left !important; } }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .has-text-right-mobile {
     text-align: right !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .has-text-right-tablet {
     text-align: right !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .has-text-right-tablet-only {
     text-align: right !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .has-text-right-touch {
     text-align: right !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .has-text-right-desktop {
     text-align: right !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .has-text-right-desktop-only {
     text-align: right !important; } }
 
@@ -769,27 +769,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .is-block {
   display: block !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-block-mobile {
     display: block !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-block-tablet {
     display: block !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-block-tablet-only {
     display: block !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-block-touch {
     display: block !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-block-desktop {
     display: block !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-block-desktop-only {
     display: block !important; } }
 
@@ -808,27 +808,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .is-flex {
   display: flex !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-flex-mobile {
     display: flex !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-flex-tablet {
     display: flex !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-flex-tablet-only {
     display: flex !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-flex-touch {
     display: flex !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-flex-desktop {
     display: flex !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-flex-desktop-only {
     display: flex !important; } }
 
@@ -847,27 +847,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .is-inline {
   display: inline !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-inline-mobile {
     display: inline !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-inline-tablet {
     display: inline !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-inline-tablet-only {
     display: inline !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-inline-touch {
     display: inline !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-inline-desktop {
     display: inline !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-inline-desktop-only {
     display: inline !important; } }
 
@@ -886,27 +886,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .is-inline-block {
   display: inline-block !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-inline-block-mobile {
     display: inline-block !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-inline-block-tablet {
     display: inline-block !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-inline-block-tablet-only {
     display: inline-block !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-inline-block-touch {
     display: inline-block !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-inline-block-desktop {
     display: inline-block !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-inline-block-desktop-only {
     display: inline-block !important; } }
 
@@ -925,27 +925,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .is-inline-flex {
   display: inline-flex !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-inline-flex-mobile {
     display: inline-flex !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-inline-flex-tablet {
     display: inline-flex !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-inline-flex-tablet-only {
     display: inline-flex !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-inline-flex-touch {
     display: inline-flex !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-inline-flex-desktop {
     display: inline-flex !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-inline-flex-desktop-only {
     display: inline-flex !important; } }
 
@@ -974,27 +974,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   white-space: nowrap !important;
   width: 0.01em !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-hidden-mobile {
     display: none !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-hidden-tablet {
     display: none !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-hidden-tablet-only {
     display: none !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-hidden-touch {
     display: none !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-hidden-desktop {
     display: none !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-hidden-desktop-only {
     display: none !important; } }
 
@@ -1013,27 +1013,27 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .is-invisible {
   visibility: hidden !important; }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 768px) {
   .is-invisible-mobile {
     visibility: hidden !important; } }
 
-@media screen and (min-width: 980px), print {
+@media screen and (min-width: 769px), print {
   .is-invisible-tablet {
     visibility: hidden !important; } }
 
-@media screen and (min-width: 980px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1044px) {
   .is-invisible-tablet-only {
     visibility: hidden !important; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1044px) {
   .is-invisible-touch {
     visibility: hidden !important; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1045px) {
   .is-invisible-desktop {
     visibility: hidden !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
+@media screen and (min-width: 1045px) and (max-width: 1215px) {
   .is-invisible-desktop-only {
     visibility: hidden !important; } }
 
@@ -1119,7 +1119,7 @@ html.theme--darkly {
   /* Purple */ }
   html.theme--darkly html {
     background-color: #1f2424;
-    font-size: 15px;
+    font-size: 16px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-width: 300px;
@@ -2051,9 +2051,9 @@ html.theme--darkly {
     margin: 0 auto;
     position: relative;
     width: auto; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .container {
-        max-width: 960px; }
+        max-width: 981px; }
         html.theme--darkly .container.is-fluid {
           margin-left: 32px;
           margin-right: 32px;
@@ -3542,15 +3542,15 @@ html.theme--darkly {
         margin-bottom: -0.75rem; }
       html.theme--darkly .field.is-grouped.is-grouped-multiline:not(:last-child) {
         margin-bottom: 0; }
-  @media screen and (min-width: 980px), print {
+  @media screen and (min-width: 769px), print {
     html.theme--darkly .field.is-horizontal {
       display: flex; } }
   html.theme--darkly .field-label .label {
     font-size: inherit; }
-  @media screen and (max-width: 979px) {
+  @media screen and (max-width: 768px) {
     html.theme--darkly .field-label {
       margin-bottom: 0.5rem; } }
-  @media screen and (min-width: 980px), print {
+  @media screen and (min-width: 769px), print {
     html.theme--darkly .field-label {
       flex-basis: 0;
       flex-grow: 1;
@@ -3570,7 +3570,7 @@ html.theme--darkly {
         padding-top: 0.375em; } }
   html.theme--darkly .field-body .field .field {
     margin-bottom: 0; }
-  @media screen and (min-width: 980px), print {
+  @media screen and (min-width: 769px), print {
     html.theme--darkly .field-body {
       display: flex;
       flex-basis: 0;
@@ -3816,7 +3816,7 @@ html.theme--darkly {
         margin-right: 0.75rem; }
       html.theme--darkly .level.is-mobile .level-item:not(.is-narrow) {
         flex-grow: 1; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .level {
         display: flex; }
         html.theme--darkly .level > .level-item:not(.is-narrow) {
@@ -3831,7 +3831,7 @@ html.theme--darkly {
     html.theme--darkly .level-item .title,
     html.theme--darkly .level-item .subtitle {
       margin-bottom: 0; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .level-item:not(:last-child) {
         margin-bottom: 0.75rem; } }
   html.theme--darkly .level-left,
@@ -3842,23 +3842,23 @@ html.theme--darkly {
     html.theme--darkly .level-left .level-item.is-flexible,
     html.theme--darkly .level-right .level-item.is-flexible {
       flex-grow: 1; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .level-left .level-item:not(:last-child),
       html.theme--darkly .level-right .level-item:not(:last-child) {
         margin-right: 0.75rem; } }
   html.theme--darkly .level-left {
     align-items: center;
     justify-content: flex-start; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .level-left + .level-right {
         margin-top: 1.5rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .level-left {
         display: flex; } }
   html.theme--darkly .level-right {
     align-items: center;
     justify-content: flex-end; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .level-right {
         display: flex; } }
   html.theme--darkly .list {
@@ -3922,7 +3922,7 @@ html.theme--darkly {
     flex-grow: 1;
     flex-shrink: 1;
     text-align: left; }
-  @media screen and (max-width: 979px) {
+  @media screen and (max-width: 768px) {
     html.theme--darkly .media-content {
       overflow-x: auto; } }
   html.theme--darkly .menu {
@@ -4104,7 +4104,7 @@ html.theme--darkly {
     overflow: auto;
     position: relative;
     width: 100%; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .modal-content,
       html.theme--darkly .modal-card {
         margin: 0 auto;
@@ -4176,7 +4176,7 @@ html.theme--darkly {
         border-color: #0a0a0a; }
       html.theme--darkly .navbar.is-white .navbar-burger {
         color: #0a0a0a; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-white .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-white .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-white .navbar-end > .navbar-item,
@@ -4221,7 +4221,7 @@ html.theme--darkly {
         border-color: white; }
       html.theme--darkly .navbar.is-black .navbar-burger {
         color: white; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-black .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-black .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-black .navbar-end > .navbar-item,
@@ -4270,7 +4270,7 @@ html.theme--darkly {
         border-color: #282f2f; }
       html.theme--darkly .navbar.is-light .navbar-burger, html.theme--darkly .docstring > section footer > a.navbar .navbar-burger {
         color: #282f2f; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-light .navbar-start > .navbar-item, html.theme--darkly .docstring > section footer > a.navbar .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-light .navbar-start .navbar-link,
         html.theme--darkly .docstring > section footer > a.navbar .navbar-start .navbar-link,
@@ -4334,7 +4334,7 @@ html.theme--darkly {
         border-color: #ecf0f1; }
       html.theme--darkly .navbar.is-dark .navbar-burger, html.theme--darkly .content kbd.navbar .navbar-burger {
         color: #ecf0f1; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-dark .navbar-start > .navbar-item, html.theme--darkly .content kbd.navbar .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-dark .navbar-start .navbar-link,
         html.theme--darkly .content kbd.navbar .navbar-start .navbar-link,
@@ -4394,7 +4394,7 @@ html.theme--darkly {
         border-color: #fff; }
       html.theme--darkly .navbar.is-primary .navbar-burger {
         color: #fff; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-primary .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-primary .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-primary .navbar-end > .navbar-item,
@@ -4439,7 +4439,7 @@ html.theme--darkly {
         border-color: #fff; }
       html.theme--darkly .navbar.is-link .navbar-burger {
         color: #fff; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-link .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-link .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-link .navbar-end > .navbar-item,
@@ -4484,7 +4484,7 @@ html.theme--darkly {
         border-color: #fff; }
       html.theme--darkly .navbar.is-info .navbar-burger {
         color: #fff; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-info .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-info .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-info .navbar-end > .navbar-item,
@@ -4529,7 +4529,7 @@ html.theme--darkly {
         border-color: #fff; }
       html.theme--darkly .navbar.is-success .navbar-burger {
         color: #fff; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-success .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-success .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-success .navbar-end > .navbar-item,
@@ -4574,7 +4574,7 @@ html.theme--darkly {
         border-color: #fff; }
       html.theme--darkly .navbar.is-warning .navbar-burger {
         color: #fff; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-warning .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-warning .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-warning .navbar-end > .navbar-item,
@@ -4619,7 +4619,7 @@ html.theme--darkly {
         border-color: #fff; }
       html.theme--darkly .navbar.is-danger .navbar-burger {
         color: #fff; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly .navbar.is-danger .navbar-start > .navbar-item,
         html.theme--darkly .navbar.is-danger .navbar-start .navbar-link,
         html.theme--darkly .navbar.is-danger .navbar-end > .navbar-item,
@@ -4788,7 +4788,7 @@ html.theme--darkly {
     display: none;
     height: 2px;
     margin: 0.5rem 0; }
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1044px) {
     html.theme--darkly .navbar > .container {
       display: block; }
     html.theme--darkly .navbar-brand .navbar-item,
@@ -4824,7 +4824,7 @@ html.theme--darkly {
     html.theme--darkly html.has-navbar-fixed-bottom-touch,
     html.theme--darkly body.has-navbar-fixed-bottom-touch {
       padding-bottom: 4rem; } }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1045px) {
     html.theme--darkly .navbar,
     html.theme--darkly .navbar-menu,
     html.theme--darkly .navbar-start,
@@ -5041,7 +5041,7 @@ html.theme--darkly {
     pointer-events: none; }
   html.theme--darkly .pagination-list {
     flex-wrap: wrap; }
-  @media screen and (max-width: 979px) {
+  @media screen and (max-width: 768px) {
     html.theme--darkly .pagination {
       flex-wrap: wrap; }
     html.theme--darkly .pagination-previous,
@@ -5051,7 +5051,7 @@ html.theme--darkly {
     html.theme--darkly .pagination-list li {
       flex-grow: 1;
       flex-shrink: 1; } }
-  @media screen and (min-width: 980px), print {
+  @media screen and (min-width: 769px), print {
     html.theme--darkly .pagination-list {
       flex-grow: 1;
       flex-shrink: 1;
@@ -5379,7 +5379,7 @@ html.theme--darkly {
       width: 100%; }
     .columns.is-mobile > html.theme--darkly .column.is-offset-12 {
       margin-left: 100%; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .column.is-narrow-mobile {
         flex: none; }
       html.theme--darkly .column.is-full-mobile {
@@ -5495,7 +5495,7 @@ html.theme--darkly {
         width: 100%; }
       html.theme--darkly .column.is-offset-12-mobile {
         margin-left: 100%; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .column.is-narrow, html.theme--darkly .column.is-narrow-tablet {
         flex: none; }
       html.theme--darkly .column.is-full, html.theme--darkly .column.is-full-tablet {
@@ -5611,7 +5611,7 @@ html.theme--darkly {
         width: 100%; }
       html.theme--darkly .column.is-offset-12, html.theme--darkly .column.is-offset-12-tablet {
         margin-left: 100%; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .column.is-narrow-touch {
         flex: none; }
       html.theme--darkly .column.is-full-touch {
@@ -5727,7 +5727,7 @@ html.theme--darkly {
         width: 100%; }
       html.theme--darkly .column.is-offset-12-touch {
         margin-left: 100%; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .column.is-narrow-desktop {
         flex: none; }
       html.theme--darkly .column.is-full-desktop {
@@ -6102,10 +6102,10 @@ html.theme--darkly {
       flex-wrap: wrap; }
     html.theme--darkly .columns.is-vcentered {
       align-items: center; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns:not(.is-desktop) {
         display: flex; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-desktop {
         display: flex; } }
   html.theme--darkly .columns.is-variable {
@@ -6117,22 +6117,22 @@ html.theme--darkly {
       padding-right: var(--columnGap); }
     html.theme--darkly .columns.is-variable.is-0 {
       --columnGap: 0rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-0-mobile {
         --columnGap: 0rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-0-tablet {
         --columnGap: 0rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-0-tablet-only {
         --columnGap: 0rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-0-touch {
         --columnGap: 0rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-0-desktop {
         --columnGap: 0rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-0-desktop-only {
         --columnGap: 0rem; } }
     @media screen and (min-width: 1216px) {
@@ -6146,22 +6146,22 @@ html.theme--darkly {
         --columnGap: 0rem; } }
     html.theme--darkly .columns.is-variable.is-1 {
       --columnGap: 0.25rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-1-mobile {
         --columnGap: 0.25rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-1-tablet {
         --columnGap: 0.25rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-1-tablet-only {
         --columnGap: 0.25rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-1-touch {
         --columnGap: 0.25rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-1-desktop {
         --columnGap: 0.25rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-1-desktop-only {
         --columnGap: 0.25rem; } }
     @media screen and (min-width: 1216px) {
@@ -6175,22 +6175,22 @@ html.theme--darkly {
         --columnGap: 0.25rem; } }
     html.theme--darkly .columns.is-variable.is-2 {
       --columnGap: 0.5rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-2-mobile {
         --columnGap: 0.5rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-2-tablet {
         --columnGap: 0.5rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-2-tablet-only {
         --columnGap: 0.5rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-2-touch {
         --columnGap: 0.5rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-2-desktop {
         --columnGap: 0.5rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-2-desktop-only {
         --columnGap: 0.5rem; } }
     @media screen and (min-width: 1216px) {
@@ -6204,22 +6204,22 @@ html.theme--darkly {
         --columnGap: 0.5rem; } }
     html.theme--darkly .columns.is-variable.is-3 {
       --columnGap: 0.75rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-3-mobile {
         --columnGap: 0.75rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-3-tablet {
         --columnGap: 0.75rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-3-tablet-only {
         --columnGap: 0.75rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-3-touch {
         --columnGap: 0.75rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-3-desktop {
         --columnGap: 0.75rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-3-desktop-only {
         --columnGap: 0.75rem; } }
     @media screen and (min-width: 1216px) {
@@ -6233,22 +6233,22 @@ html.theme--darkly {
         --columnGap: 0.75rem; } }
     html.theme--darkly .columns.is-variable.is-4 {
       --columnGap: 1rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-4-mobile {
         --columnGap: 1rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-4-tablet {
         --columnGap: 1rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-4-tablet-only {
         --columnGap: 1rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-4-touch {
         --columnGap: 1rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-4-desktop {
         --columnGap: 1rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-4-desktop-only {
         --columnGap: 1rem; } }
     @media screen and (min-width: 1216px) {
@@ -6262,22 +6262,22 @@ html.theme--darkly {
         --columnGap: 1rem; } }
     html.theme--darkly .columns.is-variable.is-5 {
       --columnGap: 1.25rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-5-mobile {
         --columnGap: 1.25rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-5-tablet {
         --columnGap: 1.25rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-5-tablet-only {
         --columnGap: 1.25rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-5-touch {
         --columnGap: 1.25rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-5-desktop {
         --columnGap: 1.25rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-5-desktop-only {
         --columnGap: 1.25rem; } }
     @media screen and (min-width: 1216px) {
@@ -6291,22 +6291,22 @@ html.theme--darkly {
         --columnGap: 1.25rem; } }
     html.theme--darkly .columns.is-variable.is-6 {
       --columnGap: 1.5rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-6-mobile {
         --columnGap: 1.5rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-6-tablet {
         --columnGap: 1.5rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-6-tablet-only {
         --columnGap: 1.5rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-6-touch {
         --columnGap: 1.5rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-6-desktop {
         --columnGap: 1.5rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-6-desktop-only {
         --columnGap: 1.5rem; } }
     @media screen and (min-width: 1216px) {
@@ -6320,22 +6320,22 @@ html.theme--darkly {
         --columnGap: 1.5rem; } }
     html.theme--darkly .columns.is-variable.is-7 {
       --columnGap: 1.75rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-7-mobile {
         --columnGap: 1.75rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-7-tablet {
         --columnGap: 1.75rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-7-tablet-only {
         --columnGap: 1.75rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-7-touch {
         --columnGap: 1.75rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-7-desktop {
         --columnGap: 1.75rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-7-desktop-only {
         --columnGap: 1.75rem; } }
     @media screen and (min-width: 1216px) {
@@ -6349,22 +6349,22 @@ html.theme--darkly {
         --columnGap: 1.75rem; } }
     html.theme--darkly .columns.is-variable.is-8 {
       --columnGap: 2rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .columns.is-variable.is-8-mobile {
         --columnGap: 2rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .columns.is-variable.is-8-tablet {
         --columnGap: 2rem; } }
-    @media screen and (min-width: 980px) and (max-width: 1023px) {
+    @media screen and (min-width: 769px) and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-8-tablet-only {
         --columnGap: 2rem; } }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .columns.is-variable.is-8-touch {
         --columnGap: 2rem; } }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .columns.is-variable.is-8-desktop {
         --columnGap: 2rem; } }
-    @media screen and (min-width: 1024px) and (max-width: 1215px) {
+    @media screen and (min-width: 1045px) and (max-width: 1215px) {
       html.theme--darkly .columns.is-variable.is-8-desktop-only {
         --columnGap: 2rem; } }
     @media screen and (min-width: 1216px) {
@@ -6399,7 +6399,7 @@ html.theme--darkly {
       flex-direction: column; }
       html.theme--darkly .tile.is-vertical > .tile.is-child:not(:last-child) {
         margin-bottom: 1.5rem !important; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .tile:not(.is-child) {
         display: flex; }
       html.theme--darkly .tile.is-1 {
@@ -6460,7 +6460,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-white .subtitle a:not(.button),
         html.theme--darkly .hero.is-white .subtitle strong {
           color: #0a0a0a; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-white .navbar-menu {
           background-color: white; } }
       html.theme--darkly .hero.is-white .navbar-item,
@@ -6488,7 +6488,7 @@ html.theme--darkly {
         color: white; }
       html.theme--darkly .hero.is-white.is-bold {
         background-image: linear-gradient(141deg, #e6e6e6 0%, white 71%, white 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-white.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #e6e6e6 0%, white 71%, white 100%); } }
     html.theme--darkly .hero.is-black {
@@ -6504,7 +6504,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-black .subtitle a:not(.button),
         html.theme--darkly .hero.is-black .subtitle strong {
           color: white; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-black .navbar-menu {
           background-color: #0a0a0a; } }
       html.theme--darkly .hero.is-black .navbar-item,
@@ -6532,7 +6532,7 @@ html.theme--darkly {
         color: #0a0a0a; }
       html.theme--darkly .hero.is-black.is-bold {
         background-image: linear-gradient(141deg, black 0%, #0a0a0a 71%, #181616 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-black.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, black 0%, #0a0a0a 71%, #181616 100%); } }
     html.theme--darkly .hero.is-light, html.theme--darkly .docstring > section footer > a.hero {
@@ -6550,7 +6550,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-light .subtitle strong,
         html.theme--darkly .docstring > section footer > a.hero .subtitle strong {
           color: #282f2f; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-light .navbar-menu, html.theme--darkly .docstring > section footer > a.hero .navbar-menu {
           background-color: #ecf0f1; } }
       html.theme--darkly .hero.is-light .navbar-item, html.theme--darkly .docstring > section footer > a.hero .navbar-item,
@@ -6581,7 +6581,7 @@ html.theme--darkly {
         color: #ecf0f1; }
       html.theme--darkly .hero.is-light.is-bold, html.theme--darkly .docstring > section footer > a.hero.is-bold {
         background-image: linear-gradient(141deg, #cadfe0 0%, #ecf0f1 71%, #fafbfc 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-light.is-bold .navbar-menu, html.theme--darkly .docstring > section footer > a.hero.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #cadfe0 0%, #ecf0f1 71%, #fafbfc 100%); } }
     html.theme--darkly .hero.is-dark, html.theme--darkly .content kbd.hero {
@@ -6599,7 +6599,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-dark .subtitle strong,
         html.theme--darkly .content kbd.hero .subtitle strong {
           color: #ecf0f1; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-dark .navbar-menu, html.theme--darkly .content kbd.hero .navbar-menu {
           background-color: #282f2f; } }
       html.theme--darkly .hero.is-dark .navbar-item, html.theme--darkly .content kbd.hero .navbar-item,
@@ -6630,7 +6630,7 @@ html.theme--darkly {
         color: #282f2f; }
       html.theme--darkly .hero.is-dark.is-bold, html.theme--darkly .content kbd.hero.is-bold {
         background-image: linear-gradient(141deg, #0f1615 0%, #282f2f 71%, #313c40 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-dark.is-bold .navbar-menu, html.theme--darkly .content kbd.hero.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #0f1615 0%, #282f2f 71%, #313c40 100%); } }
     html.theme--darkly .hero.is-primary {
@@ -6646,7 +6646,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-primary .subtitle a:not(.button),
         html.theme--darkly .hero.is-primary .subtitle strong {
           color: #fff; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-primary .navbar-menu {
           background-color: #375a7f; } }
       html.theme--darkly .hero.is-primary .navbar-item,
@@ -6674,7 +6674,7 @@ html.theme--darkly {
         color: #375a7f; }
       html.theme--darkly .hero.is-primary.is-bold {
         background-image: linear-gradient(141deg, #214b62 0%, #375a7f 71%, #3a5796 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-primary.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #214b62 0%, #375a7f 71%, #3a5796 100%); } }
     html.theme--darkly .hero.is-link {
@@ -6690,7 +6690,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-link .subtitle a:not(.button),
         html.theme--darkly .hero.is-link .subtitle strong {
           color: #fff; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-link .navbar-menu {
           background-color: #1abc9c; } }
       html.theme--darkly .hero.is-link .navbar-item,
@@ -6718,7 +6718,7 @@ html.theme--darkly {
         color: #1abc9c; }
       html.theme--darkly .hero.is-link.is-bold {
         background-image: linear-gradient(141deg, #0c9764 0%, #1abc9c 71%, #17d8d2 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-link.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #0c9764 0%, #1abc9c 71%, #17d8d2 100%); } }
     html.theme--darkly .hero.is-info {
@@ -6734,7 +6734,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-info .subtitle a:not(.button),
         html.theme--darkly .hero.is-info .subtitle strong {
           color: #fff; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-info .navbar-menu {
           background-color: #209cee; } }
       html.theme--darkly .hero.is-info .navbar-item,
@@ -6762,7 +6762,7 @@ html.theme--darkly {
         color: #209cee; }
       html.theme--darkly .hero.is-info.is-bold {
         background-image: linear-gradient(141deg, #04a6d7 0%, #209cee 71%, #3287f5 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-info.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #04a6d7 0%, #209cee 71%, #3287f5 100%); } }
     html.theme--darkly .hero.is-success {
@@ -6778,7 +6778,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-success .subtitle a:not(.button),
         html.theme--darkly .hero.is-success .subtitle strong {
           color: #fff; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-success .navbar-menu {
           background-color: #2ecc71; } }
       html.theme--darkly .hero.is-success .navbar-item,
@@ -6806,7 +6806,7 @@ html.theme--darkly {
         color: #2ecc71; }
       html.theme--darkly .hero.is-success.is-bold {
         background-image: linear-gradient(141deg, #1bac40 0%, #2ecc71 71%, #3ada98 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-success.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #1bac40 0%, #2ecc71 71%, #3ada98 100%); } }
     html.theme--darkly .hero.is-warning {
@@ -6822,7 +6822,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-warning .subtitle a:not(.button),
         html.theme--darkly .hero.is-warning .subtitle strong {
           color: #fff; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-warning .navbar-menu {
           background-color: #f1b70e; } }
       html.theme--darkly .hero.is-warning .navbar-item,
@@ -6850,7 +6850,7 @@ html.theme--darkly {
         color: #f1b70e; }
       html.theme--darkly .hero.is-warning.is-bold {
         background-image: linear-gradient(141deg, #cb7601 0%, #f1b70e 71%, #f8e520 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-warning.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #cb7601 0%, #f1b70e 71%, #f8e520 100%); } }
     html.theme--darkly .hero.is-danger {
@@ -6866,7 +6866,7 @@ html.theme--darkly {
         html.theme--darkly .hero.is-danger .subtitle a:not(.button),
         html.theme--darkly .hero.is-danger .subtitle strong {
           color: #fff; }
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 1044px) {
         html.theme--darkly .hero.is-danger .navbar-menu {
           background-color: #e74c3c; } }
       html.theme--darkly .hero.is-danger .navbar-item,
@@ -6894,17 +6894,17 @@ html.theme--darkly {
         color: #e74c3c; }
       html.theme--darkly .hero.is-danger.is-bold {
         background-image: linear-gradient(141deg, #e20e1e 0%, #e74c3c 71%, #ef784e 100%); }
-        @media screen and (max-width: 979px) {
+        @media screen and (max-width: 768px) {
           html.theme--darkly .hero.is-danger.is-bold .navbar-menu {
             background-image: linear-gradient(141deg, #e20e1e 0%, #e74c3c 71%, #ef784e 100%); } }
     html.theme--darkly .hero.is-small .hero-body, html.theme--darkly #documenter .docs-sidebar form.docs-search > input.hero .hero-body {
       padding-bottom: 1.5rem;
       padding-top: 1.5rem; }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .hero.is-medium .hero-body {
         padding-bottom: 9rem;
         padding-top: 9rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .hero.is-large .hero-body {
         padding-bottom: 18rem;
         padding-top: 18rem; } }
@@ -6929,17 +6929,17 @@ html.theme--darkly {
       transform: translate3d(-50%, -50%, 0); }
     html.theme--darkly .hero-video.is-transparent {
       opacity: 0.3; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .hero-video {
         display: none; } }
   html.theme--darkly .hero-buttons {
     margin-top: 1.5rem; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 768px) {
       html.theme--darkly .hero-buttons .button {
         display: flex; }
         html.theme--darkly .hero-buttons .button:not(:last-child) {
           margin-bottom: 0.75rem; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 769px), print {
       html.theme--darkly .hero-buttons {
         display: flex;
         justify-content: center; }
@@ -6955,7 +6955,7 @@ html.theme--darkly {
     padding: 3rem 1.5rem; }
   html.theme--darkly .section {
     padding: 3rem 1.5rem; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly .section.is-medium {
         padding: 9rem 1.5rem; }
       html.theme--darkly .section.is-large {
@@ -7184,7 +7184,7 @@ html.theme--darkly {
       background: none; }
     html.theme--darkly .navbar.is-primary .navbar-dropdown a.navbar-item.is-active {
       background-color: #1abc9c; }
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly .navbar .navbar-menu {
         background-color: #375a7f;
         border-radius: 0 0 0.4em 0.4em; } }
@@ -7378,16 +7378,16 @@ html.theme--darkly {
   html.theme--darkly .katex .katex-mathml {
     top: 0;
     right: 0; }
-  @media screen and (min-width: 980px), print {
+  @media screen and (min-width: 1045px) {
     html.theme--darkly #documenter .docs-main {
       position: absolute;
       left: 18rem; } }
-  @media screen and (min-width: 980px), print {
+  @media screen and (min-width: 1045px) {
     html.theme--darkly #documenter .docs-main {
       padding: 0 1rem 0 1rem; } }
   html.theme--darkly #documenter .docs-main > * {
     max-width: 52rem; }
-  @media screen and (max-width: 979px) {
+  @media screen and (max-width: 1044px) {
     html.theme--darkly #documenter .docs-main > article {
       margin-left: auto;
       margin-right: auto;
@@ -7421,7 +7421,7 @@ html.theme--darkly {
         margin: auto 0 auto 1rem; }
     html.theme--darkly #documenter .docs-main header.docs-navbar > * {
       margin: auto 0; }
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 1044px) {
       html.theme--darkly #documenter .docs-main header.docs-navbar {
         position: sticky;
         top: 0;
@@ -7476,10 +7476,10 @@ html.theme--darkly {
     html.theme--darkly #documenter .docs-sidebar.visible {
       left: 0;
       box-shadow: 0.4rem 0rem 0.8rem #282f2f; }
-      @media screen and (min-width: 980px), print {
+      @media screen and (min-width: 1045px) {
         html.theme--darkly #documenter .docs-sidebar.visible {
           box-shadow: none; } }
-    @media screen and (min-width: 980px), print {
+    @media screen and (min-width: 1045px) {
       html.theme--darkly #documenter .docs-sidebar {
         left: 0;
         top: 0; } }
@@ -7598,9 +7598,8 @@ html.theme--darkly {
     overflow-x: auto; }
   html.theme--darkly {
     background-color: #1f2424;
-    font-size: 15px;
-    overflow-x: hidden;
-    overflow-y: hidden; }
+    font-size: 16px;
+    overflow-x: auto; }
   html.theme--darkly .docstring > section pre {
     background-color: #343c3d; }
   html.theme--darkly .hljs-comment,

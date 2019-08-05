@@ -16,12 +16,12 @@
   .docs-main {
     // @extend .dashboard-main;
     // @extend .is-scrollable;
-    @include tablet {
+    @include desktop {
       position: absolute;
       left: $sidebar-width;
     }
 
-    @include tablet {
+    @include desktop {
       padding: 0 $documenter-main-padding-right 0 $documenter-main-padding-right;
     }
     // We need to... FIXME
@@ -30,7 +30,7 @@
       // margin: 0 auto;
     }
 
-    @include mobile {
+    @include touch {
       > article {
         margin-left: auto;
         margin-right: auto;
@@ -83,7 +83,7 @@
         margin: auto 0;
       }
 
-      @include mobile {
+      @include touch {
         // background-color: $background;
         // box-shadow: 0.2rem 0rem 0.4rem #bbb;
         position: sticky;

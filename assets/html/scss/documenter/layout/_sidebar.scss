@@ -23,14 +23,14 @@
   &.visible {
     left: 0;
     box-shadow: 2*$shadow-size 0rem 2*$shadow-blur $shadow;
-    @include tablet {
+    @include desktop {
       // We make sure that the shadow is gone if we've ended up in non-mobile layout
       // but the .visible class is still toggled.
       box-shadow: none;
     }
   }
   // In the non-mobile layout, we show the sidebar as a left panel of the dashboard.
-  @include tablet {
+  @include desktop {
     left: 0;
     top: 0;
   }

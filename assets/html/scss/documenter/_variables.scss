@@ -43,6 +43,7 @@ $documenter-main-padding: 1rem !default;
 // We'll override the Bulma $tablet width, which is the point at which the
 // layout switches between the mobile and tablet modes. Note: $tablet needs
 // to be in px, hence the unit conversion.
-$tablet: round($body-size * ($documenter-max-width + $sidebar-width + $documenter-main-padding-left + $documenter-main-padding-right - 5rem)/1rem) !default;
+$desktop: round($body-size * ($documenter-max-width + $sidebar-width + $documenter-main-padding-left + $documenter-main-padding-right - 5rem)/1rem) !default;
 
-@debug "$tablet: #{$tablet}";
+// @debug "$tablet: #{$tablet}";
+@debug "$desktop: #{$desktop}";

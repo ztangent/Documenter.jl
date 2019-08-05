@@ -696,8 +696,8 @@ function render_navbar(ctx, navnode, edit_page_link::Bool)
     end
     header_links[end] = header_links[end][".is-active"]
     breadcrumb = nav[".breadcrumb"](
-        ul[".is-hidden-mobile"](header_links),
-        ul[".is-hidden-tablet"](header_links[end]) # when on mobile, we only show the page title, basically
+        ul[".is-hidden-touch"](header_links),
+        ul[".is-hidden-desktop"](header_links[end]) # when on mobile, we only show the page title, basically
     )
 
     # The "Edit on GitHub" links and the hamburger to open the sidebar (on mobile) float right
@@ -737,7 +737,7 @@ function render_navbar(ctx, navnode, edit_page_link::Bool)
             push!(navbar_right.nodes,
                 a[".docs-edit-link", :href => url, :title => title](
                     span[".docs-icon.fab"](logo),
-                    span[".docs-label.is-hidden-mobile"](title)
+                    span[".docs-label.is-hidden-touch"](title)
                 )
             )
         end
@@ -751,7 +751,7 @@ function render_navbar(ctx, navnode, edit_page_link::Bool)
 
     # Hamburger on mobile
     push!(navbar_right.nodes, a[
-        "#documenter-sidebar-button.docs-sidebar-button.fa.fa-bars.is-hidden-tablet",
+        "#documenter-sidebar-button.docs-sidebar-button.fa.fa-bars.is-hidden-desktop",
         :href => "#"
     ])
 
