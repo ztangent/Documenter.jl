@@ -7270,14 +7270,6 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
 /* This file contain the overall layout.
  *
  * The main container is <div> that is identified by id #documenter.
- *
- * The layout is currently done using the bulma-dashboard extension.
- *
- * But we don't want to make this immutable, hence we use the @extend rules.
- *
- * It contain two panels: .docs-sidebar, which extends .dashboard-panel
- * and
- *
  */
 @media screen and (min-width: 1045px) {
   #documenter .docs-main {

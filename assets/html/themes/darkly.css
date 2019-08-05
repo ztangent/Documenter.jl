@@ -1069,14 +1069,6 @@ html.theme--darkly {
   /* This file contain the overall layout.
  *
  * The main container is <div> that is identified by id #documenter.
- *
- * The layout is currently done using the bulma-dashboard extension.
- *
- * But we don't want to make this immutable, hence we use the @extend rules.
- *
- * It contain two panels: .docs-sidebar, which extends .dashboard-panel
- * and
- *
  */
   /* a11y-dark theme
  * Based on the Tomorrow Night Eighties theme:
@@ -6963,57 +6955,6 @@ html.theme--darkly {
   html.theme--darkly .footer {
     background-color: #282f2f;
     padding: 1.5rem; }
-  html.theme--darkly .is-scrollable {
-    overflow-y: auto; }
-  html.theme--darkly .dashboard {
-    display: flex;
-    flex-direction: row;
-    height: 100vh; }
-    html.theme--darkly .dashboard-panel {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem 1.5rem;
-      flex: 0 0 25rem;
-      height: 100%; }
-      html.theme--darkly .dashboard-panel.left {
-        width: 25rem; }
-      html.theme--darkly .dashboard-panel.right {
-        width: 25rem; }
-      html.theme--darkly .dashboard-panel.has-thick-padding {
-        padding: 3rem 2rem; }
-      html.theme--darkly .dashboard-panel.is-one-quarter {
-        flex: 0 0 25%; }
-      html.theme--darkly .dashboard-panel.is-half {
-        flex: 0 0 50%; }
-      html.theme--darkly .dashboard-panel.is-one-third {
-        flex: 0 0 33.33333%; }
-      html.theme--darkly .dashboard-panel.is-small, html.theme--darkly #documenter .docs-sidebar form.docs-search > input.dashboard-panel {
-        flex: 0 0 15rem; }
-      html.theme--darkly .dashboard-panel.is-medium {
-        flex: 0 0 20rem; }
-      html.theme--darkly .dashboard-panel.is-large {
-        flex: 0 0 30rem; }
-      html.theme--darkly .dashboard-panel-header.is-centered, html.theme--darkly .dashboard-panel-content.is-centered, html.theme--darkly .dashboard-panel-footer.is-centered {
-        display: flex;
-        justify-content: center; }
-      html.theme--darkly .dashboard-panel-header {
-        margin-bottom: 2rem; }
-      html.theme--darkly .dashboard-panel-main {
-        flex: 1; }
-      html.theme--darkly .dashboard-panel-footer {
-        margin-top: 2rem; }
-    html.theme--darkly .dashboard-main {
-      display: flex;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; }
-      html.theme--darkly .dashboard-main .navbar.is-fixed-top {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0; }
-      html.theme--darkly .dashboard-main .footer {
-        flex: 1; }
   html.theme--darkly hr {
     height: 2px; }
   html.theme--darkly h6 {

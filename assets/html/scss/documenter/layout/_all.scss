@@ -1,21 +1,9 @@
 /* This file contain the overall layout.
  *
  * The main container is <div> that is identified by id #documenter.
- *
- * The layout is currently done using the bulma-dashboard extension.
- *
- * But we don't want to make this immutable, hence we use the @extend rules.
- *
- * It contain two panels: .docs-sidebar, which extends .dashboard-panel
- * and
- *
  */
 #documenter {
-  // @extend .dashboard;
-
   .docs-main {
-    // @extend .dashboard-main;
-    // @extend .is-scrollable;
     @include desktop {
       position: absolute;
       left: $sidebar-width;
@@ -159,6 +147,4 @@
 // scrollbars from the html element.
 html {
   overflow-x: auto;
-  // overflow-x: hidden;
-  // overflow-y: hidden;
 }
