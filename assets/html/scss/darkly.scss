@@ -5,6 +5,16 @@ $bulmaswatch-import-font: false;
 
 @import "darkly/variables";
 
+$info: #024c7d;
+$success: #008438;
+$warning: #ad8100;
+$danger: #9e1b0d;
+
+$admonition-background: (
+  'default': $background, 'info': $background, 'success': $background, 'warning': $background, 'danger': $background
+);
+$admonition-header-background: ('default': $grey);
+
 $body-size: 16px;
 $sidebar-background: $grey-darker;
 $shadow: $grey-darker;
@@ -15,6 +25,8 @@ $docstring-pre-background: adjust-color($background, $lightness: 5);
 
 @import "documenter/utilities";
 @import "documenter/variables";
+
+$code-background: rgba(255, 255, 255, 0.05);
 
 @import "bulma/utilities/all";
 @import "bulma/base/minireset.sass";
@@ -36,7 +48,8 @@ html.theme--darkly {
 
   @import "darkly/overrides";
 
-  @import "documenter/components";
+  @import "documenter/elements";
+  @import "documenter/components/all";
   @import "documenter/patches";
   @import "documenter/layout/all";
 

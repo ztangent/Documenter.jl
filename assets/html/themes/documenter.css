@@ -32,7 +32,7 @@
   width: 0.625em; }
 
 .box:not(:last-child), .content:not(:last-child), .notification:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .title:not(:last-child),
-.subtitle:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .breadcrumb:not(:last-child), .level:not(:last-child), .list:not(:last-child), .message:not(:last-child), .tabs:not(:last-child) {
+.subtitle:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .breadcrumb:not(:last-child), .level:not(:last-child), .list:not(:last-child), .message:not(:last-child), .tabs:not(:last-child), .admonition:not(:last-child) {
   margin-bottom: 1.5rem; }
 
 .delete, .modal-close {
@@ -333,7 +333,7 @@ a {
     color: #363636; }
 
 code {
-  background-color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.05);
   color: #ff3860;
   font-size: 0.875em;
   font-weight: normal;
@@ -2610,40 +2610,40 @@ a.box:active {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; }
-  .tags .tag, .tags .content kbd, .content .tags kbd, .tags .docstring > section footer > a, .docstring > section .tags footer > a {
+  .tags .tag, .tags .docstring > section footer > a, .docstring > section .tags footer > a, .tags .content kbd, .content .tags kbd {
     margin-bottom: 0.5rem; }
-    .tags .tag:not(:last-child), .tags .content kbd:not(:last-child), .content .tags kbd:not(:last-child), .tags .docstring > section footer > a:not(:last-child), .docstring > section .tags footer > a:not(:last-child) {
+    .tags .tag:not(:last-child), .tags .docstring > section footer > a:not(:last-child), .docstring > section .tags footer > a:not(:last-child), .tags .content kbd:not(:last-child), .content .tags kbd:not(:last-child) {
       margin-right: 0.5rem; }
   .tags:last-child {
     margin-bottom: -0.5rem; }
   .tags:not(:last-child) {
     margin-bottom: 1rem; }
-  .tags.are-medium .tag:not(.is-normal):not(.is-large), .tags.are-medium .content kbd:not(.is-normal):not(.is-large), .content .tags.are-medium kbd:not(.is-normal):not(.is-large), .tags.are-medium .docstring > section footer > a:not(.is-normal):not(.is-large), .docstring > section .tags.are-medium footer > a:not(.is-normal):not(.is-large) {
+  .tags.are-medium .tag:not(.is-normal):not(.is-large), .tags.are-medium .docstring > section footer > a:not(.is-normal):not(.is-large), .docstring > section .tags.are-medium footer > a:not(.is-normal):not(.is-large), .tags.are-medium .content kbd:not(.is-normal):not(.is-large), .content .tags.are-medium kbd:not(.is-normal):not(.is-large) {
     font-size: 1rem; }
-  .tags.are-large .tag:not(.is-normal):not(.is-medium), .tags.are-large .content kbd:not(.is-normal):not(.is-medium), .content .tags.are-large kbd:not(.is-normal):not(.is-medium), .tags.are-large .docstring > section footer > a:not(.is-normal):not(.is-medium), .docstring > section .tags.are-large footer > a:not(.is-normal):not(.is-medium) {
+  .tags.are-large .tag:not(.is-normal):not(.is-medium), .tags.are-large .docstring > section footer > a:not(.is-normal):not(.is-medium), .docstring > section .tags.are-large footer > a:not(.is-normal):not(.is-medium), .tags.are-large .content kbd:not(.is-normal):not(.is-medium), .content .tags.are-large kbd:not(.is-normal):not(.is-medium) {
     font-size: 1.25rem; }
   .tags.is-centered {
     justify-content: center; }
-    .tags.is-centered .tag, .tags.is-centered .content kbd, .content .tags.is-centered kbd, .tags.is-centered .docstring > section footer > a, .docstring > section .tags.is-centered footer > a {
+    .tags.is-centered .tag, .tags.is-centered .docstring > section footer > a, .docstring > section .tags.is-centered footer > a, .tags.is-centered .content kbd, .content .tags.is-centered kbd {
       margin-right: 0.25rem;
       margin-left: 0.25rem; }
   .tags.is-right {
     justify-content: flex-end; }
-    .tags.is-right .tag:not(:first-child), .tags.is-right .content kbd:not(:first-child), .content .tags.is-right kbd:not(:first-child), .tags.is-right .docstring > section footer > a:not(:first-child), .docstring > section .tags.is-right footer > a:not(:first-child) {
+    .tags.is-right .tag:not(:first-child), .tags.is-right .docstring > section footer > a:not(:first-child), .docstring > section .tags.is-right footer > a:not(:first-child), .tags.is-right .content kbd:not(:first-child), .content .tags.is-right kbd:not(:first-child) {
       margin-left: 0.5rem; }
-    .tags.is-right .tag:not(:last-child), .tags.is-right .content kbd:not(:last-child), .content .tags.is-right kbd:not(:last-child), .tags.is-right .docstring > section footer > a:not(:last-child), .docstring > section .tags.is-right footer > a:not(:last-child) {
+    .tags.is-right .tag:not(:last-child), .tags.is-right .docstring > section footer > a:not(:last-child), .docstring > section .tags.is-right footer > a:not(:last-child), .tags.is-right .content kbd:not(:last-child), .content .tags.is-right kbd:not(:last-child) {
       margin-right: 0; }
-  .tags.has-addons .tag, .tags.has-addons .content kbd, .content .tags.has-addons kbd, .tags.has-addons .docstring > section footer > a, .docstring > section .tags.has-addons footer > a {
+  .tags.has-addons .tag, .tags.has-addons .docstring > section footer > a, .docstring > section .tags.has-addons footer > a, .tags.has-addons .content kbd, .content .tags.has-addons kbd {
     margin-right: 0; }
-    .tags.has-addons .tag:not(:first-child), .tags.has-addons .content kbd:not(:first-child), .content .tags.has-addons kbd:not(:first-child), .tags.has-addons .docstring > section footer > a:not(:first-child), .docstring > section .tags.has-addons footer > a:not(:first-child) {
+    .tags.has-addons .tag:not(:first-child), .tags.has-addons .docstring > section footer > a:not(:first-child), .docstring > section .tags.has-addons footer > a:not(:first-child), .tags.has-addons .content kbd:not(:first-child), .content .tags.has-addons kbd:not(:first-child) {
       margin-left: 0;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0; }
-    .tags.has-addons .tag:not(:last-child), .tags.has-addons .content kbd:not(:last-child), .content .tags.has-addons kbd:not(:last-child), .tags.has-addons .docstring > section footer > a:not(:last-child), .docstring > section .tags.has-addons footer > a:not(:last-child) {
+    .tags.has-addons .tag:not(:last-child), .tags.has-addons .docstring > section footer > a:not(:last-child), .docstring > section .tags.has-addons footer > a:not(:last-child), .tags.has-addons .content kbd:not(:last-child), .content .tags.has-addons kbd:not(:last-child) {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0; }
 
-.tag:not(body), .content kbd:not(body), .docstring > section footer > a:not(body) {
+.tag:not(body), .docstring > section footer > a:not(body), .content kbd:not(body) {
   align-items: center;
   background-color: whitesmoke;
   border-radius: 4px;
@@ -2656,60 +2656,60 @@ a.box:active {
   padding-left: 0.75em;
   padding-right: 0.75em;
   white-space: nowrap; }
-  .tag:not(body) .delete, .content kbd:not(body) .delete, .docstring > section footer > a:not(body) .delete {
+  .tag:not(body) .delete, .docstring > section footer > a:not(body) .delete, .content kbd:not(body) .delete {
     margin-left: 0.25rem;
     margin-right: -0.375rem; }
-  .tag:not(body).is-white, .content kbd:not(body).is-white, .docstring > section footer > a:not(body).is-white {
+  .tag:not(body).is-white, .docstring > section footer > a:not(body).is-white, .content kbd:not(body).is-white {
     background-color: white;
     color: #0a0a0a; }
-  .tag:not(body).is-black, .content kbd:not(body).is-black, .docstring > section footer > a:not(body).is-black {
+  .tag:not(body).is-black, .docstring > section footer > a:not(body).is-black, .content kbd:not(body).is-black {
     background-color: #0a0a0a;
     color: white; }
-  .tag:not(body).is-light, .content kbd:not(body).is-light, .docstring > section footer > a:not(body) {
+  .tag:not(body).is-light, .docstring > section footer > a:not(body), .content kbd:not(body).is-light {
     background-color: whitesmoke;
     color: #363636; }
-  .tag:not(body).is-dark, .content kbd:not(body), .docstring > section footer > a:not(body).is-dark {
+  .tag:not(body).is-dark, .docstring > section footer > a:not(body).is-dark, .content kbd:not(body) {
     background-color: #363636;
     color: whitesmoke; }
-  .tag:not(body).is-primary, .content kbd:not(body).is-primary, .docstring > section footer > a:not(body).is-primary {
+  .tag:not(body).is-primary, .docstring > section footer > a:not(body).is-primary, .content kbd:not(body).is-primary {
     background-color: #00d1b2;
     color: #fff; }
-  .tag:not(body).is-link, .content kbd:not(body).is-link, .docstring > section footer > a:not(body).is-link {
+  .tag:not(body).is-link, .docstring > section footer > a:not(body).is-link, .content kbd:not(body).is-link {
     background-color: #3273dc;
     color: #fff; }
-  .tag:not(body).is-info, .content kbd:not(body).is-info, .docstring > section footer > a:not(body).is-info {
+  .tag:not(body).is-info, .docstring > section footer > a:not(body).is-info, .content kbd:not(body).is-info {
     background-color: #209cee;
     color: #fff; }
-  .tag:not(body).is-success, .content kbd:not(body).is-success, .docstring > section footer > a:not(body).is-success {
+  .tag:not(body).is-success, .docstring > section footer > a:not(body).is-success, .content kbd:not(body).is-success {
     background-color: #23d160;
     color: #fff; }
-  .tag:not(body).is-warning, .content kbd:not(body).is-warning, .docstring > section footer > a:not(body).is-warning {
+  .tag:not(body).is-warning, .docstring > section footer > a:not(body).is-warning, .content kbd:not(body).is-warning {
     background-color: #ffdd57;
     color: rgba(0, 0, 0, 0.7); }
-  .tag:not(body).is-danger, .content kbd:not(body).is-danger, .docstring > section footer > a:not(body).is-danger {
+  .tag:not(body).is-danger, .docstring > section footer > a:not(body).is-danger, .content kbd:not(body).is-danger {
     background-color: #ff3860;
     color: #fff; }
-  .tag:not(body).is-normal, .content kbd:not(body).is-normal, .docstring > section footer > a:not(body).is-normal {
+  .tag:not(body).is-normal, .docstring > section footer > a:not(body).is-normal, .content kbd:not(body).is-normal {
     font-size: 0.75rem; }
-  .tag:not(body).is-medium, .content kbd:not(body).is-medium, .docstring > section footer > a:not(body).is-medium {
+  .tag:not(body).is-medium, .docstring > section footer > a:not(body).is-medium, .content kbd:not(body).is-medium {
     font-size: 1rem; }
-  .tag:not(body).is-large, .content kbd:not(body).is-large, .docstring > section footer > a:not(body).is-large {
+  .tag:not(body).is-large, .docstring > section footer > a:not(body).is-large, .content kbd:not(body).is-large {
     font-size: 1.25rem; }
-  .tag:not(body) .icon:first-child:not(:last-child), .content kbd:not(body) .icon:first-child:not(:last-child), .docstring > section footer > a:not(body) .icon:first-child:not(:last-child) {
+  .tag:not(body) .icon:first-child:not(:last-child), .docstring > section footer > a:not(body) .icon:first-child:not(:last-child), .content kbd:not(body) .icon:first-child:not(:last-child) {
     margin-left: -0.375em;
     margin-right: 0.1875em; }
-  .tag:not(body) .icon:last-child:not(:first-child), .content kbd:not(body) .icon:last-child:not(:first-child), .docstring > section footer > a:not(body) .icon:last-child:not(:first-child) {
+  .tag:not(body) .icon:last-child:not(:first-child), .docstring > section footer > a:not(body) .icon:last-child:not(:first-child), .content kbd:not(body) .icon:last-child:not(:first-child) {
     margin-left: 0.1875em;
     margin-right: -0.375em; }
-  .tag:not(body) .icon:first-child:last-child, .content kbd:not(body) .icon:first-child:last-child, .docstring > section footer > a:not(body) .icon:first-child:last-child {
+  .tag:not(body) .icon:first-child:last-child, .docstring > section footer > a:not(body) .icon:first-child:last-child, .content kbd:not(body) .icon:first-child:last-child {
     margin-left: -0.375em;
     margin-right: -0.375em; }
-  .tag:not(body).is-delete, .content kbd:not(body).is-delete, .docstring > section footer > a:not(body).is-delete {
+  .tag:not(body).is-delete, .docstring > section footer > a:not(body).is-delete, .content kbd:not(body).is-delete {
     margin-left: 1px;
     padding: 0;
     position: relative;
     width: 2em; }
-    .tag:not(body).is-delete::before, .content kbd:not(body).is-delete::before, .docstring > section footer > a:not(body).is-delete::before, .tag:not(body).is-delete::after, .content kbd:not(body).is-delete::after, .docstring > section footer > a:not(body).is-delete::after {
+    .tag:not(body).is-delete::before, .docstring > section footer > a:not(body).is-delete::before, .content kbd:not(body).is-delete::before, .tag:not(body).is-delete::after, .docstring > section footer > a:not(body).is-delete::after, .content kbd:not(body).is-delete::after {
       background-color: currentColor;
       content: "";
       display: block;
@@ -2718,17 +2718,17 @@ a.box:active {
       top: 50%;
       transform: translateX(-50%) translateY(-50%) rotate(45deg);
       transform-origin: center center; }
-    .tag:not(body).is-delete::before, .content kbd:not(body).is-delete::before, .docstring > section footer > a:not(body).is-delete::before {
+    .tag:not(body).is-delete::before, .docstring > section footer > a:not(body).is-delete::before, .content kbd:not(body).is-delete::before {
       height: 1px;
       width: 50%; }
-    .tag:not(body).is-delete::after, .content kbd:not(body).is-delete::after, .docstring > section footer > a:not(body).is-delete::after {
+    .tag:not(body).is-delete::after, .docstring > section footer > a:not(body).is-delete::after, .content kbd:not(body).is-delete::after {
       height: 50%;
       width: 1px; }
-    .tag:not(body).is-delete:hover, .content kbd:not(body).is-delete:hover, .docstring > section footer > a:not(body).is-delete:hover, .tag:not(body).is-delete:focus, .content kbd:not(body).is-delete:focus, .docstring > section footer > a:not(body).is-delete:focus {
+    .tag:not(body).is-delete:hover, .docstring > section footer > a:not(body).is-delete:hover, .content kbd:not(body).is-delete:hover, .tag:not(body).is-delete:focus, .docstring > section footer > a:not(body).is-delete:focus, .content kbd:not(body).is-delete:focus {
       background-color: #e8e8e8; }
-    .tag:not(body).is-delete:active, .content kbd:not(body).is-delete:active, .docstring > section footer > a:not(body).is-delete:active {
+    .tag:not(body).is-delete:active, .docstring > section footer > a:not(body).is-delete:active, .content kbd:not(body).is-delete:active {
       background-color: #dbdbdb; }
-  .tag:not(body).is-rounded, .content kbd:not(body).is-rounded, .docstring > section footer > a:not(body).is-rounded, #documenter .docs-sidebar form.docs-search > input.tag:not(body) {
+  .tag:not(body).is-rounded, .docstring > section footer > a:not(body).is-rounded, .content kbd:not(body).is-rounded, #documenter .docs-sidebar form.docs-search > input.tag:not(body) {
     border-radius: 290486px; }
 
 a.tag:hover, .docstring > section footer > a:hover {
@@ -2748,12 +2748,12 @@ a.tag:hover, .docstring > section footer > a:hover {
   .title sup,
   .subtitle sup {
     font-size: 0.75em; }
-  .title .tag, .title .content kbd, .content .title kbd, .title .docstring > section footer > a, .docstring > section .title footer > a,
+  .title .tag, .title .docstring > section footer > a, .docstring > section .title footer > a, .title .content kbd, .content .title kbd,
   .subtitle .tag,
-  .subtitle .content kbd,
-  .content .subtitle kbd,
   .subtitle .docstring > section footer > a,
-  .docstring > section .subtitle footer > a {
+  .docstring > section .subtitle footer > a,
+  .subtitle .content kbd,
+  .content .subtitle kbd {
     vertical-align: middle; }
 
 .title {
@@ -7099,7 +7099,6 @@ label.panel-block {
   background-color: #fafafa;
   padding: 1.5rem; }
 
-/* */
 h1 .docs-heading-anchor, h2 .docs-heading-anchor, h3 .docs-heading-anchor, h4 .docs-heading-anchor, h5 .docs-heading-anchor, h6 .docs-heading-anchor {
   visibility: hidden;
   vertical-align: middle;
@@ -7112,6 +7111,83 @@ h1 .docs-heading-anchor, h2 .docs-heading-anchor, h3 .docs-heading-anchor, h4 .d
 
 h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-heading-anchor, h4:hover .docs-heading-anchor, h5:hover .docs-heading-anchor, h6:hover .docs-heading-anchor {
   visibility: visible; }
+
+.admonition {
+  background-color: whitesmoke;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  font-size: 1rem; }
+  .admonition strong {
+    color: currentColor; }
+  .admonition a:not(.button):not(.tag):not(.dropdown-item) {
+    color: currentColor;
+    text-decoration: underline; }
+  .admonition.is-small, #documenter .docs-sidebar form.docs-search > input.admonition {
+    font-size: 0.75rem; }
+  .admonition.is-medium {
+    font-size: 1.25rem; }
+  .admonition.is-large {
+    font-size: 1.5rem; }
+  .admonition.is-default {
+    background-color: #878787;
+    border-color: #363636; }
+    .admonition.is-default > .admonition-header {
+      background-color: #363636;
+      color: #fff; }
+    .admonition.is-default > .admonition-body {
+      color: #fff; }
+  .admonition.is-info {
+    background-color: #b8dffa;
+    border-color: #209cee; }
+    .admonition.is-info > .admonition-header {
+      background-color: #209cee;
+      color: #fff; }
+    .admonition.is-info > .admonition-body {
+      color: rgba(0, 0, 0, 0.7); }
+  .admonition.is-success {
+    background-color: #a8f0c1;
+    border-color: #23d160; }
+    .admonition.is-success > .admonition-header {
+      background-color: #23d160;
+      color: #fff; }
+    .admonition.is-success > .admonition-body {
+      color: rgba(0, 0, 0, 0.7); }
+  .admonition.is-warning {
+    background-color: #fff3c5;
+    border-color: #ffdd57; }
+    .admonition.is-warning > .admonition-header {
+      background-color: #ffdd57;
+      color: rgba(0, 0, 0, 0.7); }
+    .admonition.is-warning > .admonition-body {
+      color: rgba(0, 0, 0, 0.7); }
+  .admonition.is-danger {
+    background-color: #ffdbe2;
+    border-color: #ff3860; }
+    .admonition.is-danger > .admonition-header {
+      background-color: #ff3860;
+      color: #fff; }
+    .admonition.is-danger > .admonition-body {
+      color: rgba(0, 0, 0, 0.7); }
+
+.admonition-header {
+  color: #fff;
+  background-color: #363636;
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  line-height: 1.25;
+  padding: 0.75em 1em;
+  position: relative; }
+
+.admonition-body {
+  color: #4a4a4a;
+  padding: 1.25em 1.5em; }
+  .admonition-body pre {
+    background-color: whitesmoke; }
+  .admonition-body code {
+    background-color: rgba(0, 0, 0, 0.05); }
 
 .docstring {
   margin-bottom: 1em; }
@@ -7129,116 +7205,6 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
       text-align: right; }
     .docstring > section:hover > footer {
       visibility: visible; }
-
-.content .message.is-white .message-header code {
-  color: #4d4d4d;
-  background-color: white; }
-
-.content .message.is-white .message-body h1, .content .message.is-white .message-body h2, .content .message.is-white .message-body h3, .content .message.is-white .message-body h4, .content .message.is-white .message-body h5, .content .message.is-white .message-body h6 {
-  color: #4d4d4d; }
-
-.content .message.is-white .message-body pre {
-  color: #4d4d4d;
-  background-color: white; }
-
-.content .message.is-black .message-header code {
-  color: #090909;
-  background-color: #f2f2f2; }
-
-.content .message.is-black .message-body h1, .content .message.is-black .message-body h2, .content .message.is-black .message-body h3, .content .message.is-black .message-body h4, .content .message.is-black .message-body h5, .content .message.is-black .message-body h6 {
-  color: #090909; }
-
-.content .message.is-black .message-body pre {
-  color: #090909;
-  background-color: #f2f2f2; }
-
-.content .message.is-light .message-header code, .content .docstring > section footer > a.message .message-header code, .docstring > section .content footer > a.message .message-header code {
-  color: #505050;
-  background-color: whitesmoke; }
-
-.content .message.is-light .message-body h1, .content .docstring > section footer > a.message .message-body h1, .docstring > section .content footer > a.message .message-body h1, .content .message.is-light .message-body h2, .content .docstring > section footer > a.message .message-body h2, .docstring > section .content footer > a.message .message-body h2, .content .message.is-light .message-body h3, .content .docstring > section footer > a.message .message-body h3, .docstring > section .content footer > a.message .message-body h3, .content .message.is-light .message-body h4, .content .docstring > section footer > a.message .message-body h4, .docstring > section .content footer > a.message .message-body h4, .content .message.is-light .message-body h5, .content .docstring > section footer > a.message .message-body h5, .docstring > section .content footer > a.message .message-body h5, .content .message.is-light .message-body h6, .content .docstring > section footer > a.message .message-body h6, .docstring > section .content footer > a.message .message-body h6 {
-  color: #505050; }
-
-.content .message.is-light .message-body pre, .content .docstring > section footer > a.message .message-body pre, .docstring > section .content footer > a.message .message-body pre {
-  color: #505050;
-  background-color: whitesmoke; }
-
-.content .message.is-dark .message-header code, .content kbd.message .message-header code {
-  color: #2a2a2a;
-  background-color: #f2f2f2; }
-
-.content .message.is-dark .message-body h1, .content kbd.message .message-body h1, .content .message.is-dark .message-body h2, .content kbd.message .message-body h2, .content .message.is-dark .message-body h3, .content kbd.message .message-body h3, .content .message.is-dark .message-body h4, .content kbd.message .message-body h4, .content .message.is-dark .message-body h5, .content kbd.message .message-body h5, .content .message.is-dark .message-body h6, .content kbd.message .message-body h6 {
-  color: #2a2a2a; }
-
-.content .message.is-dark .message-body pre, .content kbd.message .message-body pre {
-  color: #2a2a2a;
-  background-color: #f2f2f2; }
-
-.content .message.is-primary .message-header code {
-  color: #021310;
-  background-color: #e6fffb; }
-
-.content .message.is-primary .message-body h1, .content .message.is-primary .message-body h2, .content .message.is-primary .message-body h3, .content .message.is-primary .message-body h4, .content .message.is-primary .message-body h5, .content .message.is-primary .message-body h6 {
-  color: #021310; }
-
-.content .message.is-primary .message-body pre {
-  color: #021310;
-  background-color: #e6fffb; }
-
-.content .message.is-link .message-header code {
-  color: #22509a;
-  background-color: #e9f0fb; }
-
-.content .message.is-link .message-body h1, .content .message.is-link .message-body h2, .content .message.is-link .message-body h3, .content .message.is-link .message-body h4, .content .message.is-link .message-body h5, .content .message.is-link .message-body h6 {
-  color: #22509a; }
-
-.content .message.is-link .message-body pre {
-  color: #22509a;
-  background-color: #e9f0fb; }
-
-.content .message.is-info .message-header code {
-  color: #12537e;
-  background-color: #e7f4fd; }
-
-.content .message.is-info .message-body h1, .content .message.is-info .message-body h2, .content .message.is-info .message-body h3, .content .message.is-info .message-body h4, .content .message.is-info .message-body h5, .content .message.is-info .message-body h6 {
-  color: #12537e; }
-
-.content .message.is-info .message-body pre {
-  color: #12537e;
-  background-color: #e7f4fd; }
-
-.content .message.is-success .message-header code {
-  color: #0e301a;
-  background-color: #e9fbf0; }
-
-.content .message.is-success .message-body h1, .content .message.is-success .message-body h2, .content .message.is-success .message-body h3, .content .message.is-success .message-body h4, .content .message.is-success .message-body h5, .content .message.is-success .message-body h6 {
-  color: #0e301a; }
-
-.content .message.is-success .message-body pre {
-  color: #0e301a;
-  background-color: #e9fbf0; }
-
-.content .message.is-warning .message-header code {
-  color: #3b3108;
-  background-color: #fffae6; }
-
-.content .message.is-warning .message-body h1, .content .message.is-warning .message-body h2, .content .message.is-warning .message-body h3, .content .message.is-warning .message-body h4, .content .message.is-warning .message-body h5, .content .message.is-warning .message-body h6 {
-  color: #3b3108; }
-
-.content .message.is-warning .message-body pre {
-  color: #3b3108;
-  background-color: #fffae6; }
-
-.content .message.is-danger .message-header code {
-  color: #cd0930;
-  background-color: #ffe6eb; }
-
-.content .message.is-danger .message-body h1, .content .message.is-danger .message-body h2, .content .message.is-danger .message-body h3, .content .message.is-danger .message-body h4, .content .message.is-danger .message-body h5, .content .message.is-danger .message-body h6 {
-  color: #cd0930; }
-
-.content .message.is-danger .message-body pre {
-  color: #cd0930;
-  background-color: #ffe6eb; }
 
 .content pre {
   border: 1px solid #dbdbdb; }
@@ -7343,7 +7309,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
 
 #documenter .docs-main section.footnotes {
   border-top: 1px solid #dbdbdb; }
-  #documenter .docs-main section.footnotes li .tag:first-child, #documenter .docs-main section.footnotes li .content kbd:first-child, .content #documenter .docs-main section.footnotes li kbd:first-child, #documenter .docs-main section.footnotes li .docstring > section footer > a:first-child, .docstring > section #documenter .docs-main section.footnotes li footer > a:first-child {
+  #documenter .docs-main section.footnotes li .tag:first-child, #documenter .docs-main section.footnotes li .docstring > section footer > a:first-child, .docstring > section #documenter .docs-main section.footnotes li footer > a:first-child, #documenter .docs-main section.footnotes li .content kbd:first-child, .content #documenter .docs-main section.footnotes li kbd:first-child {
     margin-right: 1em;
     margin-bottom: 0.4em; }
 

@@ -3,6 +3,29 @@ This is the [`DocumenterShowcase`](@ref), which contains
 
 * [`DocumenterShowcase.foo`](@ref)
 * [`DocumenterShowcase.bar`](@ref)
+
+Docstrings can contain admonitions and other block-level nodes.
+
+!!! info
+
+    This admonition is in a docstring. It itself can contain block levels nodes such
+    as code blocks:
+
+    ```julia
+    println("Hello World")
+    ```
+
+    ... or block quotes:
+
+    > Lorem ipsum.
+
+In fact, while not recommended, you can actually have a matryoshka of admonitions:
+
+!!! danger
+    !!! warning
+        !!! tip
+            !!! note
+                Stack overflow.
 """
 module DocumenterShowcase
 

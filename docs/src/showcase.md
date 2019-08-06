@@ -48,7 +48,7 @@ By default, the HTML output renders equations with [KaTeX](https://katex.org/), 
 Finally, admonitions for notes, warnings and such:
 
 !!! note "'note' admonition"
-    Admonitions (with an unrecognized style) looks like this. This is a `!!! note`-type admonition.
+    Admonitions look like this. This is a `!!! note`-type admonition.
 
     Note that admonitions themselves can contain other block-level elements too,
     such as code blocks. E.g.
@@ -58,6 +58,14 @@ Finally, admonitions for notes, warnings and such:
     ```
 
     However, you **can not** have at-blocks, docstrings, doctests etc. in an admonition.
+
+    Headings are OK though:
+    # Heading 1
+    ## Heading 2
+    ### Heading 3
+    #### Heading 4
+    ##### Heading 5
+    ###### Heading 6
 
 !!! info "'info' admonition"
     This is a `!!! info`-type admonition. This is the same as a `!!! note`-type.
@@ -72,7 +80,7 @@ Finally, admonitions for notes, warnings and such:
     This is a `!!! danger`-type admonition.
 
 !!! ukw "Unknown admonition class"
-    Admonition with an unknown admonition class.
+    Admonition with an unknown admonition class. This is a `code example`.
 
 ### Tables
 

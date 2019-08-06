@@ -1,30 +1,3 @@
-//
-.content {
-  kbd {
-    @extend .tag;
-    @extend .is-dark;
-  }
-}
-
-/* */
-h1, h2, h3, h4, h5, h6 {
-  .docs-heading-anchor {
-    visibility: hidden;
-    vertical-align: middle;
-    margin-left: 0.5em;
-    font-size: 0.8rem;
-
-    &::before {
-      @include font-awesome;
-      content: "\f0c1";
-    }
-  }
-
-  &:hover .docs-heading-anchor {
-    visibility: visible;
-  }
-}
-
 .docstring {
   @extend .card;
   margin-bottom: 1em;
@@ -70,22 +43,3 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
-
-// .ui-mask {
-//   transition: opacity 0.3s;
-//   opacity: 0;
-//   // display: none;
-//   background-color: black;
-//
-//   visibility: hidden;
-//   position: absolute;
-//   min-width: 100vw;
-//   min-height: 100vh;
-//   z-index: 4;
-//
-//   &.visible {
-//     opacity: 0.3;
-//     // display: block;
-//     visibility: visible;
-//   }
-// }
