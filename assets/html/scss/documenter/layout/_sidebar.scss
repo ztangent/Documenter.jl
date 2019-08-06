@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
 
-  color: $sidebar-color;
-  background-color: $sidebar-background;
+  color: $documenter-sidebar-color;
+  background-color: $documenter-sidebar-background;
   border-right: 1px solid $border;
   padding: 0;
-  flex: 0 0 $sidebar-width;
+  flex: 0 0 $documenter-sidebar-width;
   z-index: 5; // make sure it's on top of the main body and top bar
 
   // This is mobile-first, so our default state is that the sidebar is hidden away left
   // of the screen.
   position: fixed;
-  left: -$sidebar-width;
-  width: $sidebar-width;
+  left: -$documenter-sidebar-width;
+  width: $documenter-sidebar-width;
   height: 100%;
   transition: left 0.3s;
   // Clicking on the hamburger on mobile toggles the .visible class on the sidebar
@@ -48,7 +48,7 @@
   // 2. The site name, from the sitename keyword (optional)
   .docs-package-name {
     flex-shrink: 0;
-    font-size: $sidebar-title-font-size;
+    font-size: $documenter-sidebar-title-font-size;
     font-weight: $weight-bold;
     text-align: center;
     white-space: nowrap;
@@ -60,7 +60,7 @@
     // sitename). So we wrap the name in a <span> which can be dynamically resized with
     // JS.
     .docs-autofit {
-      max-width: $sidebar-title-width;
+      max-width: $documenter-sidebar-title-width;
     }
   }
 
@@ -152,27 +152,27 @@
       padding: 0.5rem 0.5rem;
 
       &, &:hover {
-        color: $sidebar-color;
+        color: $documenter-sidebar-color;
       }
     }
 
     a, label {
       &.tocitem:hover {
-        background-color: $sidebar-menu-hover-background;
-        // color: $sidebar-menu-hover-color;
+        background-color: $documenter-sidebar-menu-hover-background;
+        // color: $documenter-sidebar-menu-hover-color;
       }
     }
 
     li.is-active {
-      border-top: 1px solid $sidebar-menu-border;
+      border-top: 1px solid $documenter-sidebar-menu-border;
       border-bottom: 1px solid $border;
-      background-color: $sidebar-menu-active-background;
+      background-color: $documenter-sidebar-menu-active-background;
 
       > .tocitem {
         &, &:hover {
-          background-color: $sidebar-menu-active-background;
-          color: $sidebar-menu-active-color;
-          // font-weight: $sidebar-menu-active-font-weight;
+          background-color: $documenter-sidebar-menu-active-background;
+          color: $documenter-sidebar-menu-active-color;
+          // font-weight: $documenter-sidebar-menu-active-font-weight;
           // color: $primary;
         }
       }
@@ -187,11 +187,11 @@
     // In-page headings
     ul.internal {
       margin: 0 0.5rem 0.5rem;
-      // background-color: $sidebar-menu-internal-background;
+      // background-color: $documenter-sidebar-menu-internal-background;
       border-top: 1px solid $border;
       li {
         font-size: 0.85*$size-normal;
-        // border-left: 0.3em solid $sidebar-menu-internal-hover-background;
+        // border-left: 0.3em solid $documenter-sidebar-menu-internal-hover-background;
         margin-left: 0;
         border-left: none;
         margin-top: 0.5rem;
@@ -209,8 +209,8 @@
         }
 
         &:hover {
-          // background-color: $sidebar-menu-internal-hover-background;
-          // color: $sidebar-menu-internal-hover-color;
+          // background-color: $documenter-sidebar-menu-internal-hover-background;
+          // color: $documenter-sidebar-menu-internal-hover-color;
         }
       }
     }
@@ -221,7 +221,7 @@
       @extend .input;
       @extend .is-rounded;
       @extend .is-small;
-      width: 0.8 * $sidebar-width;
+      width: 0.8 * $documenter-sidebar-width;
     }
     margin: auto;
     margin-top: 0.5rem;
@@ -239,11 +239,11 @@
 
     &::-webkit-scrollbar-thumb {
         border-radius: 5px 0px 0px 5px;
-        background: $sidebar-scrollbar-color;
+        background: $documenter-sidebar-scrollbar-color;
     }
 
     &::-webkit-scrollbar-thumb:hover {
-        background: $sidebar-scrollbar-color-hover;
+        background: $documenter-sidebar-scrollbar-color-hover;
     }
   }
   @include desktop {

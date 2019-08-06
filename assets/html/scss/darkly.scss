@@ -16,9 +16,9 @@ $admonition-background: (
 $admonition-header-background: ('default': $grey);
 
 $body-size: 16px;
-$sidebar-background: $grey-darker;
+$documenter-sidebar-background: $grey-darker;
 $shadow: $grey-darker;
-$sidebar-color: $text;
+$documenter-sidebar-color: $text;
 $lightness-unit: -8%;
 
 $docstring-pre-background: adjust-color($background, $lightness: 5);
