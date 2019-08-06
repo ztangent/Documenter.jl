@@ -47,5 +47,3 @@ $documenter-main-padding: 1rem !default;
 // layout switches between the mobile and tablet modes. Note: $tablet needs
 // to be in px, hence the unit conversion.
 $desktop: round($body-size * ($documenter-max-width + $sidebar-width + $documenter-main-padding-left + $documenter-main-padding-right - 5rem)/1rem) !default;
-
-$admonition-background: ('warning': #fff3c5) !default;

@@ -7205,6 +7205,7 @@ html.theme--darkly {
     background-color: #282f2f;
     border-style: solid;
     border-width: 1px;
+    border-color: #5e6d6f;
     border-radius: 0.4em;
     font-size: 15px; }
     html.theme--darkly .admonition strong {

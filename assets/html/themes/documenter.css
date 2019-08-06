@@ -7113,9 +7113,10 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
   visibility: visible; }
 
 .admonition {
-  background-color: whitesmoke;
+  background-color: #b5b5b5;
   border-style: solid;
   border-width: 1px;
+  border-color: #363636;
   border-radius: 4px;
   font-size: 1rem; }
   .admonition strong {
@@ -7130,7 +7131,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
   .admonition.is-large {
     font-size: 1.5rem; }
   .admonition.is-default {
-    background-color: #878787;
+    background-color: #b5b5b5;
     border-color: #363636; }
     .admonition.is-default > .admonition-header {
       background-color: #363636;

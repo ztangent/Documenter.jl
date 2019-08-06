@@ -27,9 +27,10 @@ $admonition-header-color: () !default;
 .admonition {
   @extend %block;
 
-  background-color: $message-background-color;
+  background-color: map-get($admonition-background, 'default');
   border-style: solid;
   border-width: 1px;
+  border-color: map-get($admonition-header-background, 'default');
   border-radius: $message-radius;
   font-size: $size-normal;
 
@@ -63,7 +64,7 @@ $admonition-header-color: () !default;
 
     &.is-#{$name} {
       background-color: map-get($admonition-background, $name);
-      border-color: map-get($admonition-header-background, $name);;
+      border-color: map-get($admonition-header-background, $name);
 
       > .admonition-header {
         background-color: map-get($admonition-header-background, $name);
