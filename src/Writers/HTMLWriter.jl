@@ -59,7 +59,7 @@ using ...Utilities.MDFlatten
 export HTML
 
 "List of Documenter native themes."
-const THEMES = ["documenter", "darkly"]
+const THEMES = ["documenter-light", "documenter-dark"]
 "The root directory of the HTML assets."
 const ASSETS = normpath(joinpath(@__DIR__, "..", "..", "assets", "html"))
 "The directory where all the Sass/SCSS files needed for theme building are."
@@ -266,8 +266,9 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     ctx.documenter_js = copy_asset("documenter.js", doc)
     ctx.search_js = copy_asset("search.js", doc)
 
-    copy_asset("themes/documenter.css", doc)
-    copy_asset("themes/darkly.css", doc)
+    for theme in THEMES
+        copy_asset("themes/$(theme).css", doc)
+    end
     copy_asset("devtools.js", doc)
     append!(ctx.local_assets, settings.assets)
 

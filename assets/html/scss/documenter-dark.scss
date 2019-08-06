@@ -1,4 +1,7 @@
 @charset "UTF-8";
+// The Documente dark theme is a modified version of the Darkly theme from Bulmaswatch:
+// https://jenil.github.io/bulmaswatch/, https://github.com/jenil/bulmaswatch
+$themename: "documenter-dark"; // CSS file must be called `$(themename).css`
 
 // Darkly wants to @import the Lato font by default, but we don't need it.
 $bulmaswatch-import-font: false;
@@ -45,7 +48,7 @@ $button-static-border-color: $border;
 // All secondary themes have to be nested in a theme--$(themename) class. When Documenter
 // switches themes, it applies this class to <html> and then disables the primary
 // stylesheet.
-html.theme--darkly {
+html.theme--#{$themename} {
   @import "bulma/base/generic.sass";
 
   @import "documenter/overrides";

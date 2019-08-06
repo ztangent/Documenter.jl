@@ -7097,7 +7097,7 @@ label.panel-block {
 
 .footer {
   background-color: #fafafa;
-  padding: 1.5rem; }
+  padding: 3rem 1.5rem 6rem; }
 
 h1 .docs-heading-anchor, h2 .docs-heading-anchor, h3 .docs-heading-anchor, h4 .docs-heading-anchor, h5 .docs-heading-anchor, h6 .docs-heading-anchor {
   visibility: hidden;
