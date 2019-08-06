@@ -33,6 +33,7 @@ $shadow-blur: 0.4rem !default;
 
 // Layout
 // ------
+$body-overflow-x: auto !default;
 $body-size: 16px !default;
 $documenter-max-width: 50rem !default;
 $sidebar-width: 18rem !default;
@@ -44,6 +45,3 @@ $documenter-main-padding: 1rem !default;
 // layout switches between the mobile and tablet modes. Note: $tablet needs
 // to be in px, hence the unit conversion.
 $desktop: round($body-size * ($documenter-max-width + $sidebar-width + $documenter-main-padding-left + $documenter-main-padding-right - 5rem)/1rem) !default;
-
-// @debug "$tablet: #{$tablet}";
-@debug "$desktop: #{$desktop}";

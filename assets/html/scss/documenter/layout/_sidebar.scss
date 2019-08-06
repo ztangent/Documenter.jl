@@ -77,8 +77,6 @@
 
   // Styling, positioning etc. of the menu items
   ul.docs-menu {
-    // @extend .is-scrollable;
-    overflow-y: auto;
     flex-grow: 1;
 
     // Heavy-handed approach to disable selecting when you double click on an expandable menu
@@ -151,7 +149,7 @@
 
     .tocitem {
       display: block;
-      padding: 0.3rem 0.5rem;
+      padding: 0.5rem 0.5rem;
 
       &, &:hover {
         color: $sidebar-color;
@@ -196,7 +194,7 @@
         // border-left: 0.3em solid $sidebar-menu-internal-hover-background;
         margin-left: 0;
         border-left: none;
-        margin-top: 0.3rem;
+        margin-top: 0.5rem;
       }
 
       .tocitem {
@@ -216,8 +214,22 @@
         }
       }
     }
+  }
 
-    /* Setting up a nicer theme style for the scrollbar */
+  form.docs-search {
+    > input {
+      @extend .input;
+      @extend .is-rounded;
+      @extend .is-small;
+      width: 0.8 * $sidebar-width;
+    }
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Setting up a nicer theme style for the scrollbar */
+  @mixin sidebar-scroll {
     overflow-y: auto;
     -webkit-overflow-scroll: touch;
     &::-webkit-scrollbar {
@@ -234,16 +246,12 @@
         background: $sidebar-scrollbar-color-hover;
     }
   }
-
-  form.docs-search {
-    > input {
-      @extend .input;
-      @extend .is-rounded;
-      @extend .is-small;
-      width: 0.8 * $sidebar-width;
+  @include desktop {
+    ul.docs-menu {
+      @include sidebar-scroll;
     }
-    margin: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  }
+  @include touch {
+    @include sidebar-scroll;
   }
 }

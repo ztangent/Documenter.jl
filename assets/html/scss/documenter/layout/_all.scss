@@ -141,10 +141,3 @@
 }
 
 @import "sidebar";
-
-// Bulma always adds a vertical scrollbar to the whole page. But since we're using the
-// dashboard with the panes being scrollable individually, we need to explicitly remove the
-// scrollbars from the html element.
-html {
-  overflow-x: auto;
-}

@@ -1115,7 +1115,7 @@ html.theme--darkly {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-width: 300px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: scroll;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%; }
@@ -7413,7 +7413,8 @@ html.theme--darkly {
     left: -18rem;
     width: 18rem;
     height: 100%;
-    transition: left 0.3s; }
+    transition: left 0.3s;
+    /* Setting up a nicer theme style for the scrollbar */ }
     html.theme--darkly #documenter .docs-sidebar.visible {
       left: 0;
       box-shadow: 0.4rem 0rem 0.8rem #282f2f; }
@@ -7447,16 +7448,12 @@ html.theme--darkly {
       html.theme--darkly #documenter .docs-sidebar .docs-version-selector.visible {
         display: flex; }
     html.theme--darkly #documenter .docs-sidebar ul.docs-menu {
-      overflow-y: auto;
       flex-grow: 1;
       user-select: none;
       font-size: 15px;
       border-top: 1px solid #5e6d6f;
       padding-bottom: 1.5rem;
-      /* Managing collapsible submenus */
-      /* Setting up a nicer theme style for the scrollbar */
-      overflow-y: auto;
-      -webkit-overflow-scroll: touch; }
+      /* Managing collapsible submenus */ }
       html.theme--darkly #documenter .docs-sidebar ul.docs-menu > li > .tocitem {
         font-weight: bold; }
       html.theme--darkly #documenter .docs-sidebar ul.docs-menu > li li {
@@ -7491,7 +7488,7 @@ html.theme--darkly {
         content: "\f078"; }
       html.theme--darkly #documenter .docs-sidebar ul.docs-menu .tocitem {
         display: block;
-        padding: 0.3rem 0.5rem; }
+        padding: 0.5rem 0.5rem; }
         html.theme--darkly #documenter .docs-sidebar ul.docs-menu .tocitem, html.theme--darkly #documenter .docs-sidebar ul.docs-menu .tocitem:hover {
           color: #fff; }
       html.theme--darkly #documenter .docs-sidebar ul.docs-menu a.tocitem:hover, html.theme--darkly #documenter .docs-sidebar ul.docs-menu label.tocitem:hover {
@@ -7512,7 +7509,7 @@ html.theme--darkly {
           font-size: 12.75px;
           margin-left: 0;
           border-left: none;
-          margin-top: 0.3rem; }
+          margin-top: 0.5rem; }
         html.theme--darkly #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem {
           display: flex;
           width: 100%;
@@ -7521,26 +7518,46 @@ html.theme--darkly {
           html.theme--darkly #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem::before {
             content: "#";
             margin-right: 0.5em; }
-      html.theme--darkly #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar {
-        width: .3rem;
-        background: none; }
-      html.theme--darkly #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb {
-        border-radius: 5px 0px 0px 5px;
-        background: #3b4445; }
-      html.theme--darkly #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb:hover {
-        background: #4e5a5c; }
     html.theme--darkly #documenter .docs-sidebar form.docs-search {
       margin: auto;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem; }
       html.theme--darkly #documenter .docs-sidebar form.docs-search > input {
         width: 14.4rem; }
-  html.theme--darkly html {
-    overflow-x: auto; }
+    @media screen and (min-width: 1045px) {
+      html.theme--darkly #documenter .docs-sidebar ul.docs-menu {
+        overflow-y: auto;
+        -webkit-overflow-scroll: touch; }
+        html.theme--darkly #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar {
+          width: .3rem;
+          background: none; }
+        html.theme--darkly #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb {
+          border-radius: 5px 0px 0px 5px;
+          background: #3b4445; }
+        html.theme--darkly #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb:hover {
+          background: #4e5a5c; } }
+    @media screen and (max-width: 1044px) {
+      html.theme--darkly #documenter .docs-sidebar {
+        overflow-y: auto;
+        -webkit-overflow-scroll: touch; }
+        html.theme--darkly #documenter .docs-sidebar::-webkit-scrollbar {
+          width: .3rem;
+          background: none; }
+        html.theme--darkly #documenter .docs-sidebar::-webkit-scrollbar-thumb {
+          border-radius: 5px 0px 0px 5px;
+          background: #3b4445; }
+        html.theme--darkly #documenter .docs-sidebar::-webkit-scrollbar-thumb:hover {
+          background: #4e5a5c; } }
   html.theme--darkly {
     background-color: #1f2424;
     font-size: 16px;
-    overflow-x: auto; }
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: 300px;
+    overflow-x: auto;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%; }
   html.theme--darkly .docstring > section pre {
     background-color: #343c3d; }
   html.theme--darkly .hljs-comment,

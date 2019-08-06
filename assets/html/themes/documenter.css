@@ -290,7 +290,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   min-width: 300px;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: scroll;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%; }
@@ -7374,7 +7374,8 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
   left: -18rem;
   width: 18rem;
   height: 100%;
-  transition: left 0.3s; }
+  transition: left 0.3s;
+  /* Setting up a nicer theme style for the scrollbar */ }
   #documenter .docs-sidebar.visible {
     left: 0;
     box-shadow: 0.4rem 0rem 0.8rem #bbb; }
@@ -7408,16 +7409,12 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     #documenter .docs-sidebar .docs-version-selector.visible {
       display: flex; }
   #documenter .docs-sidebar ul.docs-menu {
-    overflow-y: auto;
     flex-grow: 1;
     user-select: none;
     font-size: 1rem;
     border-top: 1px solid #dbdbdb;
     padding-bottom: 1.5rem;
-    /* Managing collapsible submenus */
-    /* Setting up a nicer theme style for the scrollbar */
-    overflow-y: auto;
-    -webkit-overflow-scroll: touch; }
+    /* Managing collapsible submenus */ }
     #documenter .docs-sidebar ul.docs-menu > li > .tocitem {
       font-weight: bold; }
     #documenter .docs-sidebar ul.docs-menu > li li {
@@ -7452,7 +7449,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
       content: "\f078"; }
     #documenter .docs-sidebar ul.docs-menu .tocitem {
       display: block;
-      padding: 0.3rem 0.5rem; }
+      padding: 0.5rem 0.5rem; }
       #documenter .docs-sidebar ul.docs-menu .tocitem, #documenter .docs-sidebar ul.docs-menu .tocitem:hover {
         color: #0a0a0a; }
     #documenter .docs-sidebar ul.docs-menu a.tocitem:hover, #documenter .docs-sidebar ul.docs-menu label.tocitem:hover {
@@ -7473,7 +7470,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
         font-size: 0.85rem;
         margin-left: 0;
         border-left: none;
-        margin-top: 0.3rem; }
+        margin-top: 0.5rem; }
       #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem {
         display: flex;
         width: 100%;
@@ -7482,20 +7479,33 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
         #documenter .docs-sidebar ul.docs-menu ul.internal .tocitem::before {
           content: "#";
           margin-right: 0.5em; }
-    #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar {
-      width: .3rem;
-      background: none; }
-    #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb {
-      border-radius: 5px 0px 0px 5px;
-      background: #e0e0e0; }
-    #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb:hover {
-      background: #cccccc; }
   #documenter .docs-sidebar form.docs-search {
     margin: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem; }
     #documenter .docs-sidebar form.docs-search > input {
       width: 14.4rem; }
-
-html {
-  overflow-x: auto; }
+  @media screen and (min-width: 1045px) {
+    #documenter .docs-sidebar ul.docs-menu {
+      overflow-y: auto;
+      -webkit-overflow-scroll: touch; }
+      #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar {
+        width: .3rem;
+        background: none; }
+      #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb {
+        border-radius: 5px 0px 0px 5px;
+        background: #e0e0e0; }
+      #documenter .docs-sidebar ul.docs-menu::-webkit-scrollbar-thumb:hover {
+        background: #cccccc; } }
+  @media screen and (max-width: 1044px) {
+    #documenter .docs-sidebar {
+      overflow-y: auto;
+      -webkit-overflow-scroll: touch; }
+      #documenter .docs-sidebar::-webkit-scrollbar {
+        width: .3rem;
+        background: none; }
+      #documenter .docs-sidebar::-webkit-scrollbar-thumb {
+        border-radius: 5px 0px 0px 5px;
+        background: #e0e0e0; }
+      #documenter .docs-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #cccccc; } }
