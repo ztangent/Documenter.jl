@@ -34,7 +34,7 @@
       // visibility: hidden;
       > a {
         @extend .tag;
-        @extend .is-light;
+        @extend .is-primary;
         @extend .is-size-7;
       }
     }

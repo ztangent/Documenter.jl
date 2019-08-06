@@ -32,6 +32,16 @@ $code-background: rgba(255, 255, 255, 0.05);
 @import "bulma/base/minireset.sass";
 @import "bulma/base/helpers.sass";
 
+// Search box, version selector etc.
+$input-color: $grey-lighter;
+$input-background-color: $body-background-color;
+$input-border-color: $border;
+$input-placeholder-color: rgba($input-color, 0.3);
+
+$button-static-color: $grey-lighter;
+$button-static-background-color: $background;
+$button-static-border-color: $border;
+
 // All secondary themes have to be nested in a theme--$(themename) class. When Documenter
 // switches themes, it applies this class to <html> and then disables the primary
 // stylesheet.
