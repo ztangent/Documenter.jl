@@ -7310,13 +7310,9 @@ html.theme--documenter-dark {
     right: 0; }
   @media screen and (min-width: 1045px) {
     html.theme--documenter-dark #documenter .docs-main {
-      position: absolute;
-      left: 18rem; } }
-  @media screen and (min-width: 1045px) {
-    html.theme--documenter-dark #documenter .docs-main {
+      margin-left: 18rem;
+      max-width: 52rem;
       padding: 0 1rem 0 1rem; } }
-  html.theme--documenter-dark #documenter .docs-main > * {
-    max-width: 52rem; }
   @media screen and (max-width: 1044px) {
     html.theme--documenter-dark #documenter .docs-main > article {
       margin-left: auto;
@@ -7379,16 +7375,16 @@ html.theme--documenter-dark {
       margin-right: 1em;
       margin-bottom: 0.4em; }
   html.theme--documenter-dark #documenter .docs-main .docs-footer {
-    border-top: 1px solid #5e6d6f; }
-  html.theme--documenter-dark #documenter .docs-main #documenter-search-info {
-    margin-bottom: 1rem; }
-  html.theme--documenter-dark #documenter .docs-main #documenter-search-results {
-    list-style-type: circle;
-    list-style-position: outside; }
-    html.theme--documenter-dark #documenter .docs-main #documenter-search-results li {
-      margin-left: 2rem; }
-    html.theme--documenter-dark #documenter .docs-main #documenter-search-results .docs-highlight {
-      background-color: yellow; }
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    border-top: 1px solid #5e6d6f;
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+    html.theme--documenter-dark #documenter .docs-main .docs-footer .docs-footer-nextpage, html.theme--documenter-dark #documenter .docs-main .docs-footer .docs-footer-prevpage {
+      flex-grow: 1; }
+    html.theme--documenter-dark #documenter .docs-main .docs-footer .docs-footer-nextpage {
+      text-align: right; }
   html.theme--documenter-dark #documenter .docs-sidebar {
     display: flex;
     flex-direction: column;
@@ -7537,6 +7533,15 @@ html.theme--documenter-dark {
           background: #3b4445; }
         html.theme--documenter-dark #documenter .docs-sidebar::-webkit-scrollbar-thumb:hover {
           background: #4e5a5c; } }
+  html.theme--documenter-dark #documenter .docs-main #documenter-search-info {
+    margin-bottom: 1rem; }
+  html.theme--documenter-dark #documenter .docs-main #documenter-search-results {
+    list-style-type: circle;
+    list-style-position: outside; }
+    html.theme--documenter-dark #documenter .docs-main #documenter-search-results li {
+      margin-left: 2rem; }
+    html.theme--documenter-dark #documenter .docs-main #documenter-search-results .docs-highlight {
+      background-color: yellow; }
   html.theme--documenter-dark {
     background-color: #1f2424;
     font-size: 16px;

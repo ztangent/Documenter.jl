@@ -1,9 +1,9 @@
 // We need to override some .content behavior
 .content {
-  // Bold code spans
   pre {
     border: 1px solid $border;
   }
+  // Bold code spans
   code {
     font-weight: inherit;
     // long unbreakable code snippets can happen, so we'll be slightly more

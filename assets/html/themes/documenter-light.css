@@ -7248,15 +7248,9 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
  */
 @media screen and (min-width: 1045px) {
   #documenter .docs-main {
-    position: absolute;
-    left: 18rem; } }
-
-@media screen and (min-width: 1045px) {
-  #documenter .docs-main {
+    margin-left: 18rem;
+    max-width: 52rem;
     padding: 0 1rem 0 1rem; } }
-
-#documenter .docs-main > * {
-  max-width: 52rem; }
 
 @media screen and (max-width: 1044px) {
   #documenter .docs-main > article {
@@ -7323,18 +7317,16 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     margin-bottom: 0.4em; }
 
 #documenter .docs-main .docs-footer {
-  border-top: 1px solid #dbdbdb; }
-
-#documenter .docs-main #documenter-search-info {
-  margin-bottom: 1rem; }
-
-#documenter .docs-main #documenter-search-results {
-  list-style-type: circle;
-  list-style-position: outside; }
-  #documenter .docs-main #documenter-search-results li {
-    margin-left: 2rem; }
-  #documenter .docs-main #documenter-search-results .docs-highlight {
-    background-color: yellow; }
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+  border-top: 1px solid #dbdbdb;
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  #documenter .docs-main .docs-footer .docs-footer-nextpage, #documenter .docs-main .docs-footer .docs-footer-prevpage {
+    flex-grow: 1; }
+  #documenter .docs-main .docs-footer .docs-footer-nextpage {
+    text-align: right; }
 
 #documenter .docs-sidebar {
   display: flex;
@@ -7484,3 +7476,14 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
         background: #e0e0e0; }
       #documenter .docs-sidebar::-webkit-scrollbar-thumb:hover {
         background: #cccccc; } }
+
+#documenter .docs-main #documenter-search-info {
+  margin-bottom: 1rem; }
+
+#documenter .docs-main #documenter-search-results {
+  list-style-type: circle;
+  list-style-position: outside; }
+  #documenter .docs-main #documenter-search-results li {
+    margin-left: 2rem; }
+  #documenter .docs-main #documenter-search-results .docs-highlight {
+    background-color: yellow; }

@@ -766,15 +766,15 @@ function render_footer(ctx, navnode)
     navlinks = DOM.Node[]
     if navnode.prev !== nothing
         title = mdconvert(pagetitle(ctx, navnode.prev); droplinks=true)
-        link = a[".column.has-text-left", :href => navhref(ctx, navnode.prev, navnode)]("« ", title)
+        link = a[".docs-footer-prevpage", :href => navhref(ctx, navnode.prev, navnode)]("« ", title)
         push!(navlinks, link)
     end
     if navnode.next !== nothing
         title = mdconvert(pagetitle(ctx, navnode.next); droplinks=true)
-        link = a[".column.has-text-right", :href => navhref(ctx, navnode.next, navnode)](title, " »")
+        link = a[".docs-footer-nextpage", :href => navhref(ctx, navnode.next, navnode)](title, " »")
         push!(navlinks, link)
     end
-    return isempty(navlinks) ? "" : nav[".docs-footer.columns"](navlinks)
+    return isempty(navlinks) ? "" : nav[".docs-footer"](navlinks)
 end
 
 # Article (page contents)
