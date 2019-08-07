@@ -7310,19 +7310,22 @@ html.theme--documenter-dark {
     right: 0; }
   @media screen and (min-width: 1045px) {
     html.theme--documenter-dark #documenter .docs-main {
-      margin-left: 18rem;
       max-width: 52rem;
+      margin-left: 18rem;
       padding: 0 1rem 0 1rem; } }
   @media screen and (max-width: 1044px) {
-    html.theme--documenter-dark #documenter .docs-main > article {
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 1rem;
-      padding: 0 1rem; }
-    html.theme--documenter-dark #documenter .docs-main > header, html.theme--documenter-dark #documenter .docs-main > nav {
-      max-width: 100%;
-      width: 100%;
-      margin: 0; } }
+    html.theme--documenter-dark #documenter .docs-main {
+      width: 100%; }
+      html.theme--documenter-dark #documenter .docs-main > article {
+        max-width: 52rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        padding: 0 1rem; }
+      html.theme--documenter-dark #documenter .docs-main > header, html.theme--documenter-dark #documenter .docs-main > nav {
+        max-width: 100%;
+        width: 100%;
+        margin: 0; } }
   html.theme--documenter-dark #documenter .docs-main header.docs-navbar {
     background-color: #1f2424;
     border-bottom: 1px solid #5e6d6f;
@@ -7381,6 +7384,10 @@ html.theme--documenter-dark {
     border-top: 1px solid #5e6d6f;
     padding-top: 1rem;
     padding-bottom: 1rem; }
+    @media screen and (max-width: 1044px) {
+      html.theme--documenter-dark #documenter .docs-main .docs-footer {
+        padding-left: 1rem;
+        padding-right: 1rem; } }
     html.theme--documenter-dark #documenter .docs-main .docs-footer .docs-footer-nextpage, html.theme--documenter-dark #documenter .docs-main .docs-footer .docs-footer-prevpage {
       flex-grow: 1; }
     html.theme--documenter-dark #documenter .docs-main .docs-footer .docs-footer-nextpage {

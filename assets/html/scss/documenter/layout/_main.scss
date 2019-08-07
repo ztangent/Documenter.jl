@@ -5,13 +5,16 @@
 #documenter {
   .docs-main {
     @include desktop {
-      margin-left: $documenter-sidebar-width;
       max-width: $documenter-max-width + 2*$documenter-main-padding;
+      margin-left: $documenter-sidebar-width;
       padding: 0 $documenter-main-padding-right 0 $documenter-main-padding-right;
     }
 
     @include touch {
+      width: 100%;
+
       > article {
+        max-width: $documenter-max-width + 2*$documenter-main-padding;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 1rem;
@@ -104,6 +107,11 @@
       border-top: 1px solid $border;
       padding-top: 1rem;
       padding-bottom: 1rem;
+
+      @include touch {
+        padding-left: $documenter-main-padding;
+        padding-right: $documenter-main-padding;
+      }
 
       .docs-footer-nextpage, .docs-footer-prevpage {
         flex-grow: 1;

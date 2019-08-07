@@ -7248,20 +7248,23 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
  */
 @media screen and (min-width: 1045px) {
   #documenter .docs-main {
-    margin-left: 18rem;
     max-width: 52rem;
+    margin-left: 18rem;
     padding: 0 1rem 0 1rem; } }
 
 @media screen and (max-width: 1044px) {
-  #documenter .docs-main > article {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    padding: 0 1rem; }
-  #documenter .docs-main > header, #documenter .docs-main > nav {
-    max-width: 100%;
-    width: 100%;
-    margin: 0; } }
+  #documenter .docs-main {
+    width: 100%; }
+    #documenter .docs-main > article {
+      max-width: 52rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1rem;
+      padding: 0 1rem; }
+    #documenter .docs-main > header, #documenter .docs-main > nav {
+      max-width: 100%;
+      width: 100%;
+      margin: 0; } }
 
 #documenter .docs-main header.docs-navbar {
   background-color: white;
@@ -7323,6 +7326,10 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
   border-top: 1px solid #dbdbdb;
   padding-top: 1rem;
   padding-bottom: 1rem; }
+  @media screen and (max-width: 1044px) {
+    #documenter .docs-main .docs-footer {
+      padding-left: 1rem;
+      padding-right: 1rem; } }
   #documenter .docs-main .docs-footer .docs-footer-nextpage, #documenter .docs-main .docs-footer .docs-footer-prevpage {
     flex-grow: 1; }
   #documenter .docs-main .docs-footer .docs-footer-nextpage {
