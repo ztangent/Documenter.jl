@@ -37,9 +37,13 @@
       @extend .is-primary;
       @extend .is-size-7;
     }
+  }
 
-    &:hover > a.docs-sourcelink {
-      opacity: 1;
-    }
+  &:hover > section > a.docs-sourcelink {
+    opacity: 0.2;
+  }
+
+  & > section:hover a.docs-sourcelink {
+    opacity: 1;
   }
 }

@@ -7212,8 +7212,10 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
       position: absolute;
       right: 0.75rem;
       bottom: 0.75rem; }
-    .docstring > section:hover > a.docs-sourcelink {
-      opacity: 1; }
+  .docstring:hover > section > a.docs-sourcelink {
+    opacity: 0.2; }
+  .docstring > section:hover a.docs-sourcelink {
+    opacity: 1; }
 
 .content pre {
   border: 1px solid #dbdbdb; }
