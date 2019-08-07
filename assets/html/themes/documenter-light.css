@@ -425,7 +425,7 @@ table th {
 .is-size-6 {
   font-size: 1rem !important; }
 
-.is-size-7, .docstring > section footer > a {
+.is-size-7, .docstring > section > a.docs-sourcelink {
   font-size: 0.75rem !important; }
 
 @media screen and (max-width: 768px) {
@@ -1512,78 +1512,74 @@ a.box:active {
         border-color: whitesmoke;
         box-shadow: none;
         color: whitesmoke; }
-  .button.is-primary, .docstring > section footer > a.button {
+  .button.is-primary, .docstring > section > a.button.docs-sourcelink {
     background-color: #4eb5de;
     border-color: transparent;
     color: #fff; }
-    .button.is-primary:hover, .docstring > section footer > a.button:hover, .button.is-primary.is-hovered, .docstring > section footer > a.button.is-hovered {
+    .button.is-primary:hover, .docstring > section > a.button.docs-sourcelink:hover, .button.is-primary.is-hovered, .docstring > section > a.button.is-hovered.docs-sourcelink {
       background-color: #43b1dc;
       border-color: transparent;
       color: #fff; }
-    .button.is-primary:focus, .docstring > section footer > a.button:focus, .button.is-primary.is-focused, .docstring > section footer > a.button.is-focused {
+    .button.is-primary:focus, .docstring > section > a.button.docs-sourcelink:focus, .button.is-primary.is-focused, .docstring > section > a.button.is-focused.docs-sourcelink {
       border-color: transparent;
       color: #fff; }
-      .button.is-primary:focus:not(:active), .docstring > section footer > a.button:focus:not(:active), .button.is-primary.is-focused:not(:active), .docstring > section footer > a.button.is-focused:not(:active) {
+      .button.is-primary:focus:not(:active), .docstring > section > a.button.docs-sourcelink:focus:not(:active), .button.is-primary.is-focused:not(:active), .docstring > section > a.button.is-focused.docs-sourcelink:not(:active) {
         box-shadow: 0 0 0 0.125em rgba(78, 181, 222, 0.25); }
-    .button.is-primary:active, .docstring > section footer > a.button:active, .button.is-primary.is-active, .docstring > section footer > a.button.is-active {
+    .button.is-primary:active, .docstring > section > a.button.docs-sourcelink:active, .button.is-primary.is-active, .docstring > section > a.button.is-active.docs-sourcelink {
       background-color: #39acda;
       border-color: transparent;
       color: #fff; }
-    .button.is-primary[disabled], .docstring > section footer > a.button[disabled],
+    .button.is-primary[disabled], .docstring > section > a.button.docs-sourcelink[disabled],
     fieldset[disabled] .button.is-primary,
-    fieldset[disabled] .docstring > section footer > a.button,
-    .docstring > section fieldset[disabled] footer > a.button {
+    fieldset[disabled] .docstring > section > a.button.docs-sourcelink {
       background-color: #4eb5de;
       border-color: transparent;
       box-shadow: none; }
-    .button.is-primary.is-inverted, .docstring > section footer > a.button.is-inverted {
+    .button.is-primary.is-inverted, .docstring > section > a.button.is-inverted.docs-sourcelink {
       background-color: #fff;
       color: #4eb5de; }
-      .button.is-primary.is-inverted:hover, .docstring > section footer > a.button.is-inverted:hover, .button.is-primary.is-inverted.is-hovered, .docstring > section footer > a.button.is-inverted.is-hovered {
+      .button.is-primary.is-inverted:hover, .docstring > section > a.button.is-inverted.docs-sourcelink:hover, .button.is-primary.is-inverted.is-hovered, .docstring > section > a.button.is-inverted.is-hovered.docs-sourcelink {
         background-color: #f2f2f2; }
-      .button.is-primary.is-inverted[disabled], .docstring > section footer > a.button.is-inverted[disabled],
+      .button.is-primary.is-inverted[disabled], .docstring > section > a.button.is-inverted.docs-sourcelink[disabled],
       fieldset[disabled] .button.is-primary.is-inverted,
-      fieldset[disabled] .docstring > section footer > a.button.is-inverted,
-      .docstring > section fieldset[disabled] footer > a.button.is-inverted {
+      fieldset[disabled] .docstring > section > a.button.is-inverted.docs-sourcelink {
         background-color: #fff;
         border-color: transparent;
         box-shadow: none;
         color: #4eb5de; }
-    .button.is-primary.is-loading::after, .docstring > section footer > a.button.is-loading::after {
+    .button.is-primary.is-loading::after, .docstring > section > a.button.is-loading.docs-sourcelink::after {
       border-color: transparent transparent #fff #fff !important; }
-    .button.is-primary.is-outlined, .docstring > section footer > a.button.is-outlined {
+    .button.is-primary.is-outlined, .docstring > section > a.button.is-outlined.docs-sourcelink {
       background-color: transparent;
       border-color: #4eb5de;
       color: #4eb5de; }
-      .button.is-primary.is-outlined:hover, .docstring > section footer > a.button.is-outlined:hover, .button.is-primary.is-outlined.is-hovered, .docstring > section footer > a.button.is-outlined.is-hovered, .button.is-primary.is-outlined:focus, .docstring > section footer > a.button.is-outlined:focus, .button.is-primary.is-outlined.is-focused, .docstring > section footer > a.button.is-outlined.is-focused {
+      .button.is-primary.is-outlined:hover, .docstring > section > a.button.is-outlined.docs-sourcelink:hover, .button.is-primary.is-outlined.is-hovered, .docstring > section > a.button.is-outlined.is-hovered.docs-sourcelink, .button.is-primary.is-outlined:focus, .docstring > section > a.button.is-outlined.docs-sourcelink:focus, .button.is-primary.is-outlined.is-focused, .docstring > section > a.button.is-outlined.is-focused.docs-sourcelink {
         background-color: #4eb5de;
         border-color: #4eb5de;
         color: #fff; }
-      .button.is-primary.is-outlined.is-loading::after, .docstring > section footer > a.button.is-outlined.is-loading::after {
+      .button.is-primary.is-outlined.is-loading::after, .docstring > section > a.button.is-outlined.is-loading.docs-sourcelink::after {
         border-color: transparent transparent #4eb5de #4eb5de !important; }
-      .button.is-primary.is-outlined.is-loading:hover::after, .docstring > section footer > a.button.is-outlined.is-loading:hover::after, .button.is-primary.is-outlined.is-loading.is-hovered::after, .docstring > section footer > a.button.is-outlined.is-loading.is-hovered::after, .button.is-primary.is-outlined.is-loading:focus::after, .docstring > section footer > a.button.is-outlined.is-loading:focus::after, .button.is-primary.is-outlined.is-loading.is-focused::after, .docstring > section footer > a.button.is-outlined.is-loading.is-focused::after {
+      .button.is-primary.is-outlined.is-loading:hover::after, .docstring > section > a.button.is-outlined.is-loading.docs-sourcelink:hover::after, .button.is-primary.is-outlined.is-loading.is-hovered::after, .docstring > section > a.button.is-outlined.is-loading.is-hovered.docs-sourcelink::after, .button.is-primary.is-outlined.is-loading:focus::after, .docstring > section > a.button.is-outlined.is-loading.docs-sourcelink:focus::after, .button.is-primary.is-outlined.is-loading.is-focused::after, .docstring > section > a.button.is-outlined.is-loading.is-focused.docs-sourcelink::after {
         border-color: transparent transparent #fff #fff !important; }
-      .button.is-primary.is-outlined[disabled], .docstring > section footer > a.button.is-outlined[disabled],
+      .button.is-primary.is-outlined[disabled], .docstring > section > a.button.is-outlined.docs-sourcelink[disabled],
       fieldset[disabled] .button.is-primary.is-outlined,
-      fieldset[disabled] .docstring > section footer > a.button.is-outlined,
-      .docstring > section fieldset[disabled] footer > a.button.is-outlined {
+      fieldset[disabled] .docstring > section > a.button.is-outlined.docs-sourcelink {
         background-color: transparent;
         border-color: #4eb5de;
         box-shadow: none;
         color: #4eb5de; }
-    .button.is-primary.is-inverted.is-outlined, .docstring > section footer > a.button.is-inverted.is-outlined {
+    .button.is-primary.is-inverted.is-outlined, .docstring > section > a.button.is-inverted.is-outlined.docs-sourcelink {
       background-color: transparent;
       border-color: #fff;
       color: #fff; }
-      .button.is-primary.is-inverted.is-outlined:hover, .docstring > section footer > a.button.is-inverted.is-outlined:hover, .button.is-primary.is-inverted.is-outlined.is-hovered, .docstring > section footer > a.button.is-inverted.is-outlined.is-hovered, .button.is-primary.is-inverted.is-outlined:focus, .docstring > section footer > a.button.is-inverted.is-outlined:focus, .button.is-primary.is-inverted.is-outlined.is-focused, .docstring > section footer > a.button.is-inverted.is-outlined.is-focused {
+      .button.is-primary.is-inverted.is-outlined:hover, .docstring > section > a.button.is-inverted.is-outlined.docs-sourcelink:hover, .button.is-primary.is-inverted.is-outlined.is-hovered, .docstring > section > a.button.is-inverted.is-outlined.is-hovered.docs-sourcelink, .button.is-primary.is-inverted.is-outlined:focus, .docstring > section > a.button.is-inverted.is-outlined.docs-sourcelink:focus, .button.is-primary.is-inverted.is-outlined.is-focused, .docstring > section > a.button.is-inverted.is-outlined.is-focused.docs-sourcelink {
         background-color: #fff;
         color: #4eb5de; }
-      .button.is-primary.is-inverted.is-outlined.is-loading:hover::after, .docstring > section footer > a.button.is-inverted.is-outlined.is-loading:hover::after, .button.is-primary.is-inverted.is-outlined.is-loading.is-hovered::after, .docstring > section footer > a.button.is-inverted.is-outlined.is-loading.is-hovered::after, .button.is-primary.is-inverted.is-outlined.is-loading:focus::after, .docstring > section footer > a.button.is-inverted.is-outlined.is-loading:focus::after, .button.is-primary.is-inverted.is-outlined.is-loading.is-focused::after, .docstring > section footer > a.button.is-inverted.is-outlined.is-loading.is-focused::after {
+      .button.is-primary.is-inverted.is-outlined.is-loading:hover::after, .docstring > section > a.button.is-inverted.is-outlined.is-loading.docs-sourcelink:hover::after, .button.is-primary.is-inverted.is-outlined.is-loading.is-hovered::after, .docstring > section > a.button.is-inverted.is-outlined.is-loading.is-hovered.docs-sourcelink::after, .button.is-primary.is-inverted.is-outlined.is-loading:focus::after, .docstring > section > a.button.is-inverted.is-outlined.is-loading.docs-sourcelink:focus::after, .button.is-primary.is-inverted.is-outlined.is-loading.is-focused::after, .docstring > section > a.button.is-inverted.is-outlined.is-loading.is-focused.docs-sourcelink::after {
         border-color: transparent transparent #4eb5de #4eb5de !important; }
-      .button.is-primary.is-inverted.is-outlined[disabled], .docstring > section footer > a.button.is-inverted.is-outlined[disabled],
+      .button.is-primary.is-inverted.is-outlined[disabled], .docstring > section > a.button.is-inverted.is-outlined.docs-sourcelink[disabled],
       fieldset[disabled] .button.is-primary.is-inverted.is-outlined,
-      fieldset[disabled] .docstring > section footer > a.button.is-inverted.is-outlined,
-      .docstring > section fieldset[disabled] footer > a.button.is-inverted.is-outlined {
+      fieldset[disabled] .docstring > section > a.button.is-inverted.is-outlined.docs-sourcelink {
         background-color: transparent;
         border-color: #fff;
         box-shadow: none;
@@ -2331,7 +2327,7 @@ a.box:active {
   .notification.is-dark, .content kbd.notification {
     background-color: #363636;
     color: whitesmoke; }
-  .notification.is-primary, .docstring > section footer > a.notification {
+  .notification.is-primary, .docstring > section > a.notification.docs-sourcelink {
     background-color: #4eb5de;
     color: #fff; }
   .notification.is-link {
@@ -2401,13 +2397,13 @@ a.box:active {
     background-color: #363636; }
   .progress.is-dark:indeterminate, .content kbd.progress:indeterminate {
     background-image: linear-gradient(to right, #363636 30%, #dbdbdb 30%); }
-  .progress.is-primary::-webkit-progress-value, .docstring > section footer > a.progress::-webkit-progress-value {
+  .progress.is-primary::-webkit-progress-value, .docstring > section > a.progress.docs-sourcelink::-webkit-progress-value {
     background-color: #4eb5de; }
-  .progress.is-primary::-moz-progress-bar, .docstring > section footer > a.progress::-moz-progress-bar {
+  .progress.is-primary::-moz-progress-bar, .docstring > section > a.progress.docs-sourcelink::-moz-progress-bar {
     background-color: #4eb5de; }
-  .progress.is-primary::-ms-fill, .docstring > section footer > a.progress::-ms-fill {
+  .progress.is-primary::-ms-fill, .docstring > section > a.progress.docs-sourcelink::-ms-fill {
     background-color: #4eb5de; }
-  .progress.is-primary:indeterminate, .docstring > section footer > a.progress:indeterminate {
+  .progress.is-primary:indeterminate, .docstring > section > a.progress.docs-sourcelink:indeterminate {
     background-image: linear-gradient(to right, #4eb5de 30%, #dbdbdb 30%); }
   .progress.is-link::-webkit-progress-value {
     background-color: #3273dc; }
@@ -2610,40 +2606,40 @@ a.box:active {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; }
-  .tags .tag, .tags .docstring > section footer > a, .docstring > section .tags footer > a, .tags .content kbd, .content .tags kbd {
+  .tags .tag, .tags .docstring > section > a.docs-sourcelink, .tags .content kbd, .content .tags kbd {
     margin-bottom: 0.5rem; }
-    .tags .tag:not(:last-child), .tags .docstring > section footer > a:not(:last-child), .docstring > section .tags footer > a:not(:last-child), .tags .content kbd:not(:last-child), .content .tags kbd:not(:last-child) {
+    .tags .tag:not(:last-child), .tags .docstring > section > a.docs-sourcelink:not(:last-child), .tags .content kbd:not(:last-child), .content .tags kbd:not(:last-child) {
       margin-right: 0.5rem; }
   .tags:last-child {
     margin-bottom: -0.5rem; }
   .tags:not(:last-child) {
     margin-bottom: 1rem; }
-  .tags.are-medium .tag:not(.is-normal):not(.is-large), .tags.are-medium .docstring > section footer > a:not(.is-normal):not(.is-large), .docstring > section .tags.are-medium footer > a:not(.is-normal):not(.is-large), .tags.are-medium .content kbd:not(.is-normal):not(.is-large), .content .tags.are-medium kbd:not(.is-normal):not(.is-large) {
+  .tags.are-medium .tag:not(.is-normal):not(.is-large), .tags.are-medium .docstring > section > a.docs-sourcelink:not(.is-normal):not(.is-large), .tags.are-medium .content kbd:not(.is-normal):not(.is-large), .content .tags.are-medium kbd:not(.is-normal):not(.is-large) {
     font-size: 1rem; }
-  .tags.are-large .tag:not(.is-normal):not(.is-medium), .tags.are-large .docstring > section footer > a:not(.is-normal):not(.is-medium), .docstring > section .tags.are-large footer > a:not(.is-normal):not(.is-medium), .tags.are-large .content kbd:not(.is-normal):not(.is-medium), .content .tags.are-large kbd:not(.is-normal):not(.is-medium) {
+  .tags.are-large .tag:not(.is-normal):not(.is-medium), .tags.are-large .docstring > section > a.docs-sourcelink:not(.is-normal):not(.is-medium), .tags.are-large .content kbd:not(.is-normal):not(.is-medium), .content .tags.are-large kbd:not(.is-normal):not(.is-medium) {
     font-size: 1.25rem; }
   .tags.is-centered {
     justify-content: center; }
-    .tags.is-centered .tag, .tags.is-centered .docstring > section footer > a, .docstring > section .tags.is-centered footer > a, .tags.is-centered .content kbd, .content .tags.is-centered kbd {
+    .tags.is-centered .tag, .tags.is-centered .docstring > section > a.docs-sourcelink, .tags.is-centered .content kbd, .content .tags.is-centered kbd {
       margin-right: 0.25rem;
       margin-left: 0.25rem; }
   .tags.is-right {
     justify-content: flex-end; }
-    .tags.is-right .tag:not(:first-child), .tags.is-right .docstring > section footer > a:not(:first-child), .docstring > section .tags.is-right footer > a:not(:first-child), .tags.is-right .content kbd:not(:first-child), .content .tags.is-right kbd:not(:first-child) {
+    .tags.is-right .tag:not(:first-child), .tags.is-right .docstring > section > a.docs-sourcelink:not(:first-child), .tags.is-right .content kbd:not(:first-child), .content .tags.is-right kbd:not(:first-child) {
       margin-left: 0.5rem; }
-    .tags.is-right .tag:not(:last-child), .tags.is-right .docstring > section footer > a:not(:last-child), .docstring > section .tags.is-right footer > a:not(:last-child), .tags.is-right .content kbd:not(:last-child), .content .tags.is-right kbd:not(:last-child) {
+    .tags.is-right .tag:not(:last-child), .tags.is-right .docstring > section > a.docs-sourcelink:not(:last-child), .tags.is-right .content kbd:not(:last-child), .content .tags.is-right kbd:not(:last-child) {
       margin-right: 0; }
-  .tags.has-addons .tag, .tags.has-addons .docstring > section footer > a, .docstring > section .tags.has-addons footer > a, .tags.has-addons .content kbd, .content .tags.has-addons kbd {
+  .tags.has-addons .tag, .tags.has-addons .docstring > section > a.docs-sourcelink, .tags.has-addons .content kbd, .content .tags.has-addons kbd {
     margin-right: 0; }
-    .tags.has-addons .tag:not(:first-child), .tags.has-addons .docstring > section footer > a:not(:first-child), .docstring > section .tags.has-addons footer > a:not(:first-child), .tags.has-addons .content kbd:not(:first-child), .content .tags.has-addons kbd:not(:first-child) {
+    .tags.has-addons .tag:not(:first-child), .tags.has-addons .docstring > section > a.docs-sourcelink:not(:first-child), .tags.has-addons .content kbd:not(:first-child), .content .tags.has-addons kbd:not(:first-child) {
       margin-left: 0;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0; }
-    .tags.has-addons .tag:not(:last-child), .tags.has-addons .docstring > section footer > a:not(:last-child), .docstring > section .tags.has-addons footer > a:not(:last-child), .tags.has-addons .content kbd:not(:last-child), .content .tags.has-addons kbd:not(:last-child) {
+    .tags.has-addons .tag:not(:last-child), .tags.has-addons .docstring > section > a.docs-sourcelink:not(:last-child), .tags.has-addons .content kbd:not(:last-child), .content .tags.has-addons kbd:not(:last-child) {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0; }
 
-.tag:not(body), .docstring > section footer > a:not(body), .content kbd:not(body) {
+.tag:not(body), .docstring > section > a.docs-sourcelink:not(body), .content kbd:not(body) {
   align-items: center;
   background-color: whitesmoke;
   border-radius: 4px;
@@ -2656,60 +2652,60 @@ a.box:active {
   padding-left: 0.75em;
   padding-right: 0.75em;
   white-space: nowrap; }
-  .tag:not(body) .delete, .docstring > section footer > a:not(body) .delete, .content kbd:not(body) .delete {
+  .tag:not(body) .delete, .docstring > section > a.docs-sourcelink:not(body) .delete, .content kbd:not(body) .delete {
     margin-left: 0.25rem;
     margin-right: -0.375rem; }
-  .tag:not(body).is-white, .docstring > section footer > a:not(body).is-white, .content kbd:not(body).is-white {
+  .tag:not(body).is-white, .docstring > section > a.docs-sourcelink:not(body).is-white, .content kbd:not(body).is-white {
     background-color: white;
     color: #0a0a0a; }
-  .tag:not(body).is-black, .docstring > section footer > a:not(body).is-black, .content kbd:not(body).is-black {
+  .tag:not(body).is-black, .docstring > section > a.docs-sourcelink:not(body).is-black, .content kbd:not(body).is-black {
     background-color: #0a0a0a;
     color: white; }
-  .tag:not(body).is-light, .docstring > section footer > a:not(body).is-light, .content kbd:not(body).is-light {
+  .tag:not(body).is-light, .docstring > section > a.docs-sourcelink:not(body).is-light, .content kbd:not(body).is-light {
     background-color: whitesmoke;
     color: #363636; }
-  .tag:not(body).is-dark, .docstring > section footer > a:not(body).is-dark, .content kbd:not(body) {
+  .tag:not(body).is-dark, .docstring > section > a.docs-sourcelink:not(body).is-dark, .content kbd:not(body) {
     background-color: #363636;
     color: whitesmoke; }
-  .tag:not(body).is-primary, .docstring > section footer > a:not(body), .content kbd:not(body).is-primary {
+  .tag:not(body).is-primary, .docstring > section > a.docs-sourcelink:not(body), .content kbd:not(body).is-primary {
     background-color: #4eb5de;
     color: #fff; }
-  .tag:not(body).is-link, .docstring > section footer > a:not(body).is-link, .content kbd:not(body).is-link {
+  .tag:not(body).is-link, .docstring > section > a.docs-sourcelink:not(body).is-link, .content kbd:not(body).is-link {
     background-color: #3273dc;
     color: #fff; }
-  .tag:not(body).is-info, .docstring > section footer > a:not(body).is-info, .content kbd:not(body).is-info {
+  .tag:not(body).is-info, .docstring > section > a.docs-sourcelink:not(body).is-info, .content kbd:not(body).is-info {
     background-color: #209cee;
     color: #fff; }
-  .tag:not(body).is-success, .docstring > section footer > a:not(body).is-success, .content kbd:not(body).is-success {
+  .tag:not(body).is-success, .docstring > section > a.docs-sourcelink:not(body).is-success, .content kbd:not(body).is-success {
     background-color: #23d160;
     color: #fff; }
-  .tag:not(body).is-warning, .docstring > section footer > a:not(body).is-warning, .content kbd:not(body).is-warning {
+  .tag:not(body).is-warning, .docstring > section > a.docs-sourcelink:not(body).is-warning, .content kbd:not(body).is-warning {
     background-color: #ffdd57;
     color: rgba(0, 0, 0, 0.7); }
-  .tag:not(body).is-danger, .docstring > section footer > a:not(body).is-danger, .content kbd:not(body).is-danger {
+  .tag:not(body).is-danger, .docstring > section > a.docs-sourcelink:not(body).is-danger, .content kbd:not(body).is-danger {
     background-color: #ff3860;
     color: #fff; }
-  .tag:not(body).is-normal, .docstring > section footer > a:not(body).is-normal, .content kbd:not(body).is-normal {
+  .tag:not(body).is-normal, .docstring > section > a.docs-sourcelink:not(body).is-normal, .content kbd:not(body).is-normal {
     font-size: 0.75rem; }
-  .tag:not(body).is-medium, .docstring > section footer > a:not(body).is-medium, .content kbd:not(body).is-medium {
+  .tag:not(body).is-medium, .docstring > section > a.docs-sourcelink:not(body).is-medium, .content kbd:not(body).is-medium {
     font-size: 1rem; }
-  .tag:not(body).is-large, .docstring > section footer > a:not(body).is-large, .content kbd:not(body).is-large {
+  .tag:not(body).is-large, .docstring > section > a.docs-sourcelink:not(body).is-large, .content kbd:not(body).is-large {
     font-size: 1.25rem; }
-  .tag:not(body) .icon:first-child:not(:last-child), .docstring > section footer > a:not(body) .icon:first-child:not(:last-child), .content kbd:not(body) .icon:first-child:not(:last-child) {
+  .tag:not(body) .icon:first-child:not(:last-child), .docstring > section > a.docs-sourcelink:not(body) .icon:first-child:not(:last-child), .content kbd:not(body) .icon:first-child:not(:last-child) {
     margin-left: -0.375em;
     margin-right: 0.1875em; }
-  .tag:not(body) .icon:last-child:not(:first-child), .docstring > section footer > a:not(body) .icon:last-child:not(:first-child), .content kbd:not(body) .icon:last-child:not(:first-child) {
+  .tag:not(body) .icon:last-child:not(:first-child), .docstring > section > a.docs-sourcelink:not(body) .icon:last-child:not(:first-child), .content kbd:not(body) .icon:last-child:not(:first-child) {
     margin-left: 0.1875em;
     margin-right: -0.375em; }
-  .tag:not(body) .icon:first-child:last-child, .docstring > section footer > a:not(body) .icon:first-child:last-child, .content kbd:not(body) .icon:first-child:last-child {
+  .tag:not(body) .icon:first-child:last-child, .docstring > section > a.docs-sourcelink:not(body) .icon:first-child:last-child, .content kbd:not(body) .icon:first-child:last-child {
     margin-left: -0.375em;
     margin-right: -0.375em; }
-  .tag:not(body).is-delete, .docstring > section footer > a:not(body).is-delete, .content kbd:not(body).is-delete {
+  .tag:not(body).is-delete, .docstring > section > a.docs-sourcelink:not(body).is-delete, .content kbd:not(body).is-delete {
     margin-left: 1px;
     padding: 0;
     position: relative;
     width: 2em; }
-    .tag:not(body).is-delete::before, .docstring > section footer > a:not(body).is-delete::before, .content kbd:not(body).is-delete::before, .tag:not(body).is-delete::after, .docstring > section footer > a:not(body).is-delete::after, .content kbd:not(body).is-delete::after {
+    .tag:not(body).is-delete::before, .docstring > section > a.docs-sourcelink:not(body).is-delete::before, .content kbd:not(body).is-delete::before, .tag:not(body).is-delete::after, .docstring > section > a.docs-sourcelink:not(body).is-delete::after, .content kbd:not(body).is-delete::after {
       background-color: currentColor;
       content: "";
       display: block;
@@ -2718,20 +2714,20 @@ a.box:active {
       top: 50%;
       transform: translateX(-50%) translateY(-50%) rotate(45deg);
       transform-origin: center center; }
-    .tag:not(body).is-delete::before, .docstring > section footer > a:not(body).is-delete::before, .content kbd:not(body).is-delete::before {
+    .tag:not(body).is-delete::before, .docstring > section > a.docs-sourcelink:not(body).is-delete::before, .content kbd:not(body).is-delete::before {
       height: 1px;
       width: 50%; }
-    .tag:not(body).is-delete::after, .docstring > section footer > a:not(body).is-delete::after, .content kbd:not(body).is-delete::after {
+    .tag:not(body).is-delete::after, .docstring > section > a.docs-sourcelink:not(body).is-delete::after, .content kbd:not(body).is-delete::after {
       height: 50%;
       width: 1px; }
-    .tag:not(body).is-delete:hover, .docstring > section footer > a:not(body).is-delete:hover, .content kbd:not(body).is-delete:hover, .tag:not(body).is-delete:focus, .docstring > section footer > a:not(body).is-delete:focus, .content kbd:not(body).is-delete:focus {
+    .tag:not(body).is-delete:hover, .docstring > section > a.docs-sourcelink:not(body).is-delete:hover, .content kbd:not(body).is-delete:hover, .tag:not(body).is-delete:focus, .docstring > section > a.docs-sourcelink:not(body).is-delete:focus, .content kbd:not(body).is-delete:focus {
       background-color: #e8e8e8; }
-    .tag:not(body).is-delete:active, .docstring > section footer > a:not(body).is-delete:active, .content kbd:not(body).is-delete:active {
+    .tag:not(body).is-delete:active, .docstring > section > a.docs-sourcelink:not(body).is-delete:active, .content kbd:not(body).is-delete:active {
       background-color: #dbdbdb; }
-  .tag:not(body).is-rounded, .docstring > section footer > a:not(body).is-rounded, .content kbd:not(body).is-rounded, #documenter .docs-sidebar form.docs-search > input.tag:not(body) {
+  .tag:not(body).is-rounded, .docstring > section > a.docs-sourcelink:not(body).is-rounded, .content kbd:not(body).is-rounded, #documenter .docs-sidebar form.docs-search > input.tag:not(body) {
     border-radius: 290486px; }
 
-a.tag:hover, .docstring > section footer > a:hover {
+a.tag:hover, .docstring > section > a.docs-sourcelink:hover {
   text-decoration: underline; }
 
 .title,
@@ -2748,10 +2744,9 @@ a.tag:hover, .docstring > section footer > a:hover {
   .title sup,
   .subtitle sup {
     font-size: 0.75em; }
-  .title .tag, .title .docstring > section footer > a, .docstring > section .title footer > a, .title .content kbd, .content .title kbd,
+  .title .tag, .title .docstring > section > a.docs-sourcelink, .title .content kbd, .content .title kbd,
   .subtitle .tag,
-  .subtitle .docstring > section footer > a,
-  .docstring > section .subtitle footer > a,
+  .subtitle .docstring > section > a.docs-sourcelink,
   .subtitle .content kbd,
   .content .subtitle kbd {
     vertical-align: middle; }
@@ -2922,9 +2917,9 @@ a.tag:hover, .docstring > section footer > a:hover {
     border-color: #363636; }
     .is-dark.input:focus, .content kbd.input:focus, #documenter .docs-sidebar form.docs-search > input.is-dark:focus, .is-dark.textarea:focus, .content kbd.textarea:focus, .is-dark.is-focused.input, .content kbd.is-focused.input, #documenter .docs-sidebar form.docs-search > input.is-dark.is-focused, .is-dark.is-focused.textarea, .content kbd.is-focused.textarea, .is-dark.input:active, .content kbd.input:active, #documenter .docs-sidebar form.docs-search > input.is-dark:active, .is-dark.textarea:active, .content kbd.textarea:active, .is-dark.is-active.input, .content kbd.is-active.input, #documenter .docs-sidebar form.docs-search > input.is-dark.is-active, .is-dark.is-active.textarea, .content kbd.is-active.textarea {
       box-shadow: 0 0 0 0.125em rgba(54, 54, 54, 0.25); }
-  .is-primary.input, .docstring > section footer > a.input, #documenter .docs-sidebar form.docs-search > input.is-primary, .is-primary.textarea, .docstring > section footer > a.textarea {
+  .is-primary.input, .docstring > section > a.input.docs-sourcelink, #documenter .docs-sidebar form.docs-search > input.is-primary, .is-primary.textarea, .docstring > section > a.textarea.docs-sourcelink {
     border-color: #4eb5de; }
-    .is-primary.input:focus, .docstring > section footer > a.input:focus, #documenter .docs-sidebar form.docs-search > input.is-primary:focus, .is-primary.textarea:focus, .docstring > section footer > a.textarea:focus, .is-primary.is-focused.input, .docstring > section footer > a.is-focused.input, #documenter .docs-sidebar form.docs-search > input.is-primary.is-focused, .is-primary.is-focused.textarea, .docstring > section footer > a.is-focused.textarea, .is-primary.input:active, .docstring > section footer > a.input:active, #documenter .docs-sidebar form.docs-search > input.is-primary:active, .is-primary.textarea:active, .docstring > section footer > a.textarea:active, .is-primary.is-active.input, .docstring > section footer > a.is-active.input, #documenter .docs-sidebar form.docs-search > input.is-primary.is-active, .is-primary.is-active.textarea, .docstring > section footer > a.is-active.textarea {
+    .is-primary.input:focus, .docstring > section > a.input.docs-sourcelink:focus, #documenter .docs-sidebar form.docs-search > input.is-primary:focus, .is-primary.textarea:focus, .docstring > section > a.textarea.docs-sourcelink:focus, .is-primary.is-focused.input, .docstring > section > a.is-focused.input.docs-sourcelink, #documenter .docs-sidebar form.docs-search > input.is-primary.is-focused, .is-primary.is-focused.textarea, .docstring > section > a.is-focused.textarea.docs-sourcelink, .is-primary.input:active, .docstring > section > a.input.docs-sourcelink:active, #documenter .docs-sidebar form.docs-search > input.is-primary:active, .is-primary.textarea:active, .docstring > section > a.textarea.docs-sourcelink:active, .is-primary.is-active.input, .docstring > section > a.is-active.input.docs-sourcelink, #documenter .docs-sidebar form.docs-search > input.is-primary.is-active, .is-primary.is-active.textarea, .docstring > section > a.is-active.textarea.docs-sourcelink {
       box-shadow: 0 0 0 0.125em rgba(78, 181, 222, 0.25); }
   .is-link.input, #documenter .docs-sidebar form.docs-search > input.is-link, .is-link.textarea {
     border-color: #3273dc; }
@@ -3070,13 +3065,13 @@ a.tag:hover, .docstring > section footer > a:hover {
       border-color: #292929; }
     .select.is-dark select:focus, .content kbd.select select:focus, .select.is-dark select.is-focused, .content kbd.select select.is-focused, .select.is-dark select:active, .content kbd.select select:active, .select.is-dark select.is-active, .content kbd.select select.is-active {
       box-shadow: 0 0 0 0.125em rgba(54, 54, 54, 0.25); }
-  .select.is-primary:not(:hover)::after, .docstring > section footer > a.select:not(:hover)::after {
+  .select.is-primary:not(:hover)::after, .docstring > section > a.select.docs-sourcelink:not(:hover)::after {
     border-color: #4eb5de; }
-  .select.is-primary select, .docstring > section footer > a.select select {
+  .select.is-primary select, .docstring > section > a.select.docs-sourcelink select {
     border-color: #4eb5de; }
-    .select.is-primary select:hover, .docstring > section footer > a.select select:hover, .select.is-primary select.is-hovered, .docstring > section footer > a.select select.is-hovered {
+    .select.is-primary select:hover, .docstring > section > a.select.docs-sourcelink select:hover, .select.is-primary select.is-hovered, .docstring > section > a.select.docs-sourcelink select.is-hovered {
       border-color: #39acda; }
-    .select.is-primary select:focus, .docstring > section footer > a.select select:focus, .select.is-primary select.is-focused, .docstring > section footer > a.select select.is-focused, .select.is-primary select:active, .docstring > section footer > a.select select:active, .select.is-primary select.is-active, .docstring > section footer > a.select select.is-active {
+    .select.is-primary select:focus, .docstring > section > a.select.docs-sourcelink select:focus, .select.is-primary select.is-focused, .docstring > section > a.select.docs-sourcelink select.is-focused, .select.is-primary select:active, .docstring > section > a.select.docs-sourcelink select:active, .select.is-primary select.is-active, .docstring > section > a.select.docs-sourcelink select.is-active {
       box-shadow: 0 0 0 0.125em rgba(78, 181, 222, 0.25); }
   .select.is-link:not(:hover)::after {
     border-color: #3273dc; }
@@ -3213,19 +3208,19 @@ a.tag:hover, .docstring > section footer > a:hover {
     background-color: #292929;
     border-color: transparent;
     color: whitesmoke; }
-  .file.is-primary .file-cta, .docstring > section footer > a.file .file-cta {
+  .file.is-primary .file-cta, .docstring > section > a.file.docs-sourcelink .file-cta {
     background-color: #4eb5de;
     border-color: transparent;
     color: #fff; }
-  .file.is-primary:hover .file-cta, .docstring > section footer > a.file:hover .file-cta, .file.is-primary.is-hovered .file-cta, .docstring > section footer > a.file.is-hovered .file-cta {
+  .file.is-primary:hover .file-cta, .docstring > section > a.file.docs-sourcelink:hover .file-cta, .file.is-primary.is-hovered .file-cta, .docstring > section > a.file.is-hovered.docs-sourcelink .file-cta {
     background-color: #43b1dc;
     border-color: transparent;
     color: #fff; }
-  .file.is-primary:focus .file-cta, .docstring > section footer > a.file:focus .file-cta, .file.is-primary.is-focused .file-cta, .docstring > section footer > a.file.is-focused .file-cta {
+  .file.is-primary:focus .file-cta, .docstring > section > a.file.docs-sourcelink:focus .file-cta, .file.is-primary.is-focused .file-cta, .docstring > section > a.file.is-focused.docs-sourcelink .file-cta {
     border-color: transparent;
     box-shadow: 0 0 0.5em rgba(78, 181, 222, 0.25);
     color: #fff; }
-  .file.is-primary:active .file-cta, .docstring > section footer > a.file:active .file-cta, .file.is-primary.is-active .file-cta, .docstring > section footer > a.file.is-active .file-cta {
+  .file.is-primary:active .file-cta, .docstring > section > a.file.docs-sourcelink:active .file-cta, .file.is-primary.is-active .file-cta, .docstring > section > a.file.is-active.docs-sourcelink .file-cta {
     background-color: #39acda;
     border-color: transparent;
     color: #fff; }
@@ -3455,7 +3450,7 @@ a.tag:hover, .docstring > section footer > a:hover {
     color: whitesmoke; }
   .help.is-dark, .content kbd.help {
     color: #363636; }
-  .help.is-primary, .docstring > section footer > a.help {
+  .help.is-primary, .docstring > section > a.help.docs-sourcelink {
     color: #4eb5de; }
   .help.is-link {
     color: #3273dc; }
@@ -3735,14 +3730,14 @@ a.tag:hover, .docstring > section footer > a:hover {
   .breadcrumb.has-succeeds-separator li + li::before {
     content: "\0227B"; }
 
-.card, .docstring {
+.card {
   background-color: white;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   color: #4a4a4a;
   max-width: 100%;
   position: relative; }
 
-.card-header, .docstring > header {
+.card-header {
   background-color: transparent;
   align-items: stretch;
   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
@@ -3769,7 +3764,7 @@ a.tag:hover, .docstring > section footer > a:hover {
   display: block;
   position: relative; }
 
-.card-content, .docstring > section {
+.card-content {
   background-color: transparent;
   padding: 1.5rem; }
 
@@ -3790,7 +3785,7 @@ a.tag:hover, .docstring > section footer > a:hover {
   .card-footer-item:not(:last-child) {
     border-right: 1px solid #dbdbdb; }
 
-.card .media:not(:last-child), .docstring .media:not(:last-child) {
+.card .media:not(:last-child) {
   margin-bottom: 1.5rem; }
 
 .dropdown {
@@ -4081,12 +4076,12 @@ a.list-item {
     .message.is-dark .message-body, .content kbd.message .message-body {
       border-color: #363636;
       color: #2a2a2a; }
-  .message.is-primary, .docstring > section footer > a.message {
+  .message.is-primary, .docstring > section > a.message.docs-sourcelink {
     background-color: #f6fbfd; }
-    .message.is-primary .message-header, .docstring > section footer > a.message .message-header {
+    .message.is-primary .message-header, .docstring > section > a.message.docs-sourcelink .message-header {
       background-color: #4eb5de;
       color: #fff; }
-    .message.is-primary .message-body, .docstring > section footer > a.message .message-body {
+    .message.is-primary .message-body, .docstring > section > a.message.docs-sourcelink .message-body {
       border-color: #4eb5de;
       color: #1f556a; }
   .message.is-link {
@@ -4447,68 +4442,68 @@ a.list-item {
       .navbar.is-dark .navbar-dropdown a.navbar-item.is-active, .content kbd.navbar .navbar-dropdown a.navbar-item.is-active {
         background-color: #363636;
         color: whitesmoke; } }
-  .navbar.is-primary, .docstring > section footer > a.navbar {
+  .navbar.is-primary, .docstring > section > a.navbar.docs-sourcelink {
     background-color: #4eb5de;
     color: #fff; }
-    .navbar.is-primary .navbar-brand > .navbar-item, .docstring > section footer > a.navbar .navbar-brand > .navbar-item,
+    .navbar.is-primary .navbar-brand > .navbar-item, .docstring > section > a.navbar.docs-sourcelink .navbar-brand > .navbar-item,
     .navbar.is-primary .navbar-brand .navbar-link,
-    .docstring > section footer > a.navbar .navbar-brand .navbar-link {
+    .docstring > section > a.navbar.docs-sourcelink .navbar-brand .navbar-link {
       color: #fff; }
-    .navbar.is-primary .navbar-brand > a.navbar-item:focus, .docstring > section footer > a.navbar .navbar-brand > a.navbar-item:focus, .navbar.is-primary .navbar-brand > a.navbar-item:hover, .docstring > section footer > a.navbar .navbar-brand > a.navbar-item:hover, .navbar.is-primary .navbar-brand > a.navbar-item.is-active, .docstring > section footer > a.navbar .navbar-brand > a.navbar-item.is-active,
+    .navbar.is-primary .navbar-brand > a.navbar-item:focus, .docstring > section > a.navbar.docs-sourcelink .navbar-brand > a.navbar-item:focus, .navbar.is-primary .navbar-brand > a.navbar-item:hover, .docstring > section > a.navbar.docs-sourcelink .navbar-brand > a.navbar-item:hover, .navbar.is-primary .navbar-brand > a.navbar-item.is-active, .docstring > section > a.navbar.docs-sourcelink .navbar-brand > a.navbar-item.is-active,
     .navbar.is-primary .navbar-brand .navbar-link:focus,
-    .docstring > section footer > a.navbar .navbar-brand .navbar-link:focus,
+    .docstring > section > a.navbar.docs-sourcelink .navbar-brand .navbar-link:focus,
     .navbar.is-primary .navbar-brand .navbar-link:hover,
-    .docstring > section footer > a.navbar .navbar-brand .navbar-link:hover,
+    .docstring > section > a.navbar.docs-sourcelink .navbar-brand .navbar-link:hover,
     .navbar.is-primary .navbar-brand .navbar-link.is-active,
-    .docstring > section footer > a.navbar .navbar-brand .navbar-link.is-active {
+    .docstring > section > a.navbar.docs-sourcelink .navbar-brand .navbar-link.is-active {
       background-color: #39acda;
       color: #fff; }
-    .navbar.is-primary .navbar-brand .navbar-link::after, .docstring > section footer > a.navbar .navbar-brand .navbar-link::after {
+    .navbar.is-primary .navbar-brand .navbar-link::after, .docstring > section > a.navbar.docs-sourcelink .navbar-brand .navbar-link::after {
       border-color: #fff; }
-    .navbar.is-primary .navbar-burger, .docstring > section footer > a.navbar .navbar-burger {
+    .navbar.is-primary .navbar-burger, .docstring > section > a.navbar.docs-sourcelink .navbar-burger {
       color: #fff; }
     @media screen and (min-width: 1045px) {
-      .navbar.is-primary .navbar-start > .navbar-item, .docstring > section footer > a.navbar .navbar-start > .navbar-item,
+      .navbar.is-primary .navbar-start > .navbar-item, .docstring > section > a.navbar.docs-sourcelink .navbar-start > .navbar-item,
       .navbar.is-primary .navbar-start .navbar-link,
-      .docstring > section footer > a.navbar .navbar-start .navbar-link,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-start .navbar-link,
       .navbar.is-primary .navbar-end > .navbar-item,
-      .docstring > section footer > a.navbar .navbar-end > .navbar-item,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end > .navbar-item,
       .navbar.is-primary .navbar-end .navbar-link,
-      .docstring > section footer > a.navbar .navbar-end .navbar-link {
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end .navbar-link {
         color: #fff; }
-      .navbar.is-primary .navbar-start > a.navbar-item:focus, .docstring > section footer > a.navbar .navbar-start > a.navbar-item:focus, .navbar.is-primary .navbar-start > a.navbar-item:hover, .docstring > section footer > a.navbar .navbar-start > a.navbar-item:hover, .navbar.is-primary .navbar-start > a.navbar-item.is-active, .docstring > section footer > a.navbar .navbar-start > a.navbar-item.is-active,
+      .navbar.is-primary .navbar-start > a.navbar-item:focus, .docstring > section > a.navbar.docs-sourcelink .navbar-start > a.navbar-item:focus, .navbar.is-primary .navbar-start > a.navbar-item:hover, .docstring > section > a.navbar.docs-sourcelink .navbar-start > a.navbar-item:hover, .navbar.is-primary .navbar-start > a.navbar-item.is-active, .docstring > section > a.navbar.docs-sourcelink .navbar-start > a.navbar-item.is-active,
       .navbar.is-primary .navbar-start .navbar-link:focus,
-      .docstring > section footer > a.navbar .navbar-start .navbar-link:focus,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-start .navbar-link:focus,
       .navbar.is-primary .navbar-start .navbar-link:hover,
-      .docstring > section footer > a.navbar .navbar-start .navbar-link:hover,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-start .navbar-link:hover,
       .navbar.is-primary .navbar-start .navbar-link.is-active,
-      .docstring > section footer > a.navbar .navbar-start .navbar-link.is-active,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-start .navbar-link.is-active,
       .navbar.is-primary .navbar-end > a.navbar-item:focus,
-      .docstring > section footer > a.navbar .navbar-end > a.navbar-item:focus,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end > a.navbar-item:focus,
       .navbar.is-primary .navbar-end > a.navbar-item:hover,
-      .docstring > section footer > a.navbar .navbar-end > a.navbar-item:hover,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end > a.navbar-item:hover,
       .navbar.is-primary .navbar-end > a.navbar-item.is-active,
-      .docstring > section footer > a.navbar .navbar-end > a.navbar-item.is-active,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end > a.navbar-item.is-active,
       .navbar.is-primary .navbar-end .navbar-link:focus,
-      .docstring > section footer > a.navbar .navbar-end .navbar-link:focus,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end .navbar-link:focus,
       .navbar.is-primary .navbar-end .navbar-link:hover,
-      .docstring > section footer > a.navbar .navbar-end .navbar-link:hover,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end .navbar-link:hover,
       .navbar.is-primary .navbar-end .navbar-link.is-active,
-      .docstring > section footer > a.navbar .navbar-end .navbar-link.is-active {
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end .navbar-link.is-active {
         background-color: #39acda;
         color: #fff; }
-      .navbar.is-primary .navbar-start .navbar-link::after, .docstring > section footer > a.navbar .navbar-start .navbar-link::after,
+      .navbar.is-primary .navbar-start .navbar-link::after, .docstring > section > a.navbar.docs-sourcelink .navbar-start .navbar-link::after,
       .navbar.is-primary .navbar-end .navbar-link::after,
-      .docstring > section footer > a.navbar .navbar-end .navbar-link::after {
+      .docstring > section > a.navbar.docs-sourcelink .navbar-end .navbar-link::after {
         border-color: #fff; }
-      .navbar.is-primary .navbar-item.has-dropdown:focus .navbar-link, .docstring > section footer > a.navbar .navbar-item.has-dropdown:focus .navbar-link,
+      .navbar.is-primary .navbar-item.has-dropdown:focus .navbar-link, .docstring > section > a.navbar.docs-sourcelink .navbar-item.has-dropdown:focus .navbar-link,
       .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
-      .docstring > section footer > a.navbar .navbar-item.has-dropdown:hover .navbar-link,
+      .docstring > section > a.navbar.docs-sourcelink .navbar-item.has-dropdown:hover .navbar-link,
       .navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link,
-      .docstring > section footer > a.navbar .navbar-item.has-dropdown.is-active .navbar-link {
+      .docstring > section > a.navbar.docs-sourcelink .navbar-item.has-dropdown.is-active .navbar-link {
         background-color: #39acda;
         color: #fff; }
-      .navbar.is-primary .navbar-dropdown a.navbar-item.is-active, .docstring > section footer > a.navbar .navbar-dropdown a.navbar-item.is-active {
+      .navbar.is-primary .navbar-dropdown a.navbar-item.is-active, .docstring > section > a.navbar.docs-sourcelink .navbar-dropdown a.navbar-item.is-active {
         background-color: #4eb5de;
         color: #fff; } }
   .navbar.is-link {
@@ -6757,54 +6752,54 @@ label.panel-block {
       @media screen and (max-width: 768px) {
         .hero.is-dark.is-bold .navbar-menu, .content kbd.hero.is-bold .navbar-menu {
           background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%); } }
-  .hero.is-primary, .docstring > section footer > a.hero {
+  .hero.is-primary, .docstring > section > a.hero.docs-sourcelink {
     background-color: #4eb5de;
     color: #fff; }
-    .hero.is-primary a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current), .docstring > section footer > a.hero a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+    .hero.is-primary a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current), .docstring > section > a.hero.docs-sourcelink a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
     .hero.is-primary strong,
-    .docstring > section footer > a.hero strong {
+    .docstring > section > a.hero.docs-sourcelink strong {
       color: inherit; }
-    .hero.is-primary .title, .docstring > section footer > a.hero .title {
+    .hero.is-primary .title, .docstring > section > a.hero.docs-sourcelink .title {
       color: #fff; }
-    .hero.is-primary .subtitle, .docstring > section footer > a.hero .subtitle {
+    .hero.is-primary .subtitle, .docstring > section > a.hero.docs-sourcelink .subtitle {
       color: rgba(255, 255, 255, 0.9); }
-      .hero.is-primary .subtitle a:not(.button), .docstring > section footer > a.hero .subtitle a:not(.button),
+      .hero.is-primary .subtitle a:not(.button), .docstring > section > a.hero.docs-sourcelink .subtitle a:not(.button),
       .hero.is-primary .subtitle strong,
-      .docstring > section footer > a.hero .subtitle strong {
+      .docstring > section > a.hero.docs-sourcelink .subtitle strong {
         color: #fff; }
     @media screen and (max-width: 1044px) {
-      .hero.is-primary .navbar-menu, .docstring > section footer > a.hero .navbar-menu {
+      .hero.is-primary .navbar-menu, .docstring > section > a.hero.docs-sourcelink .navbar-menu {
         background-color: #4eb5de; } }
-    .hero.is-primary .navbar-item, .docstring > section footer > a.hero .navbar-item,
+    .hero.is-primary .navbar-item, .docstring > section > a.hero.docs-sourcelink .navbar-item,
     .hero.is-primary .navbar-link,
-    .docstring > section footer > a.hero .navbar-link {
+    .docstring > section > a.hero.docs-sourcelink .navbar-link {
       color: rgba(255, 255, 255, 0.7); }
-    .hero.is-primary a.navbar-item:hover, .docstring > section footer > a.hero a.navbar-item:hover, .hero.is-primary a.navbar-item.is-active, .docstring > section footer > a.hero a.navbar-item.is-active,
+    .hero.is-primary a.navbar-item:hover, .docstring > section > a.hero.docs-sourcelink a.navbar-item:hover, .hero.is-primary a.navbar-item.is-active, .docstring > section > a.hero.docs-sourcelink a.navbar-item.is-active,
     .hero.is-primary .navbar-link:hover,
-    .docstring > section footer > a.hero .navbar-link:hover,
+    .docstring > section > a.hero.docs-sourcelink .navbar-link:hover,
     .hero.is-primary .navbar-link.is-active,
-    .docstring > section footer > a.hero .navbar-link.is-active {
+    .docstring > section > a.hero.docs-sourcelink .navbar-link.is-active {
       background-color: #39acda;
       color: #fff; }
-    .hero.is-primary .tabs a, .docstring > section footer > a.hero .tabs a {
+    .hero.is-primary .tabs a, .docstring > section > a.hero.docs-sourcelink .tabs a {
       color: #fff;
       opacity: 0.9; }
-      .hero.is-primary .tabs a:hover, .docstring > section footer > a.hero .tabs a:hover {
+      .hero.is-primary .tabs a:hover, .docstring > section > a.hero.docs-sourcelink .tabs a:hover {
         opacity: 1; }
-    .hero.is-primary .tabs li.is-active a, .docstring > section footer > a.hero .tabs li.is-active a {
+    .hero.is-primary .tabs li.is-active a, .docstring > section > a.hero.docs-sourcelink .tabs li.is-active a {
       opacity: 1; }
-    .hero.is-primary .tabs.is-boxed a, .docstring > section footer > a.hero .tabs.is-boxed a, .hero.is-primary .tabs.is-toggle a, .docstring > section footer > a.hero .tabs.is-toggle a {
+    .hero.is-primary .tabs.is-boxed a, .docstring > section > a.hero.docs-sourcelink .tabs.is-boxed a, .hero.is-primary .tabs.is-toggle a, .docstring > section > a.hero.docs-sourcelink .tabs.is-toggle a {
       color: #fff; }
-      .hero.is-primary .tabs.is-boxed a:hover, .docstring > section footer > a.hero .tabs.is-boxed a:hover, .hero.is-primary .tabs.is-toggle a:hover, .docstring > section footer > a.hero .tabs.is-toggle a:hover {
+      .hero.is-primary .tabs.is-boxed a:hover, .docstring > section > a.hero.docs-sourcelink .tabs.is-boxed a:hover, .hero.is-primary .tabs.is-toggle a:hover, .docstring > section > a.hero.docs-sourcelink .tabs.is-toggle a:hover {
         background-color: rgba(10, 10, 10, 0.1); }
-    .hero.is-primary .tabs.is-boxed li.is-active a, .docstring > section footer > a.hero .tabs.is-boxed li.is-active a, .hero.is-primary .tabs.is-boxed li.is-active a:hover, .docstring > section footer > a.hero .tabs.is-boxed li.is-active a:hover, .hero.is-primary .tabs.is-toggle li.is-active a, .docstring > section footer > a.hero .tabs.is-toggle li.is-active a, .hero.is-primary .tabs.is-toggle li.is-active a:hover, .docstring > section footer > a.hero .tabs.is-toggle li.is-active a:hover {
+    .hero.is-primary .tabs.is-boxed li.is-active a, .docstring > section > a.hero.docs-sourcelink .tabs.is-boxed li.is-active a, .hero.is-primary .tabs.is-boxed li.is-active a:hover, .docstring > section > a.hero.docs-sourcelink .tabs.is-boxed li.is-active a:hover, .hero.is-primary .tabs.is-toggle li.is-active a, .docstring > section > a.hero.docs-sourcelink .tabs.is-toggle li.is-active a, .hero.is-primary .tabs.is-toggle li.is-active a:hover, .docstring > section > a.hero.docs-sourcelink .tabs.is-toggle li.is-active a:hover {
       background-color: #fff;
       border-color: #fff;
       color: #4eb5de; }
-    .hero.is-primary.is-bold, .docstring > section footer > a.hero.is-bold {
+    .hero.is-primary.is-bold, .docstring > section > a.hero.is-bold.docs-sourcelink {
       background-image: linear-gradient(141deg, #1bc7de 0%, #4eb5de 71%, #5fa9e7 100%); }
       @media screen and (max-width: 768px) {
-        .hero.is-primary.is-bold .navbar-menu, .docstring > section footer > a.hero.is-bold .navbar-menu {
+        .hero.is-primary.is-bold .navbar-menu, .docstring > section > a.hero.is-bold.docs-sourcelink .navbar-menu {
           background-image: linear-gradient(141deg, #1bc7de 0%, #4eb5de 71%, #5fa9e7 100%); } }
   .hero.is-link {
     background-color: #3273dc;
@@ -7103,7 +7098,7 @@ h1 .docs-heading-anchor, h2 .docs-heading-anchor, h3 .docs-heading-anchor, h4 .d
   visibility: hidden;
   vertical-align: middle;
   margin-left: 0.5em;
-  font-size: 0.8rem; }
+  font-size: 0.7rem; }
   h1 .docs-heading-anchor::before, h2 .docs-heading-anchor::before, h3 .docs-heading-anchor::before, h4 .docs-heading-anchor::before, h5 .docs-heading-anchor::before, h6 .docs-heading-anchor::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -7191,21 +7186,34 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
     background-color: rgba(0, 0, 0, 0.05); }
 
 .docstring {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  background-color: transparent;
+  border: 1px solid #dbdbdb;
+  box-shadow: 2px 2px 3px rgba(10, 10, 10, 0.1);
+  max-width: 100%; }
   .docstring > header {
-    color: #363636;
     display: flex;
     flex-grow: 1;
-    padding: 0.75rem; }
+    align-items: stretch;
+    padding: 0.75rem;
+    background-color: whitesmoke;
+    box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
+    box-shadow: none;
+    border-bottom: 1px solid #dbdbdb; }
   .docstring > section {
+    position: relative;
+    padding: 1.5rem;
     border-bottom: 1px solid #dbdbdb; }
     .docstring > section:last-child {
       border-bottom: none; }
-    .docstring > section footer {
-      margin-top: 0.5rem;
-      text-align: right; }
-    .docstring > section:hover > footer {
-      visibility: visible; }
+    .docstring > section > a.docs-sourcelink {
+      transition: opacity 0.3s;
+      opacity: 0;
+      position: absolute;
+      right: 0.75rem;
+      bottom: 0.75rem; }
+    .docstring > section:hover > a.docs-sourcelink {
+      opacity: 1; }
 
 .content pre {
   border: 1px solid #dbdbdb; }
@@ -7310,7 +7318,7 @@ h1:hover .docs-heading-anchor, h2:hover .docs-heading-anchor, h3:hover .docs-hea
 
 #documenter .docs-main section.footnotes {
   border-top: 1px solid #dbdbdb; }
-  #documenter .docs-main section.footnotes li .tag:first-child, #documenter .docs-main section.footnotes li .docstring > section footer > a:first-child, .docstring > section #documenter .docs-main section.footnotes li footer > a:first-child, #documenter .docs-main section.footnotes li .content kbd:first-child, .content #documenter .docs-main section.footnotes li kbd:first-child {
+  #documenter .docs-main section.footnotes li .tag:first-child, #documenter .docs-main section.footnotes li .docstring > section > a.docs-sourcelink:first-child, #documenter .docs-main section.footnotes li .content kbd:first-child, .content #documenter .docs-main section.footnotes li kbd:first-child {
     margin-right: 1em;
     margin-bottom: 0.4em; }
 

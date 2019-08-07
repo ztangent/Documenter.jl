@@ -1,11 +1,8 @@
+// Additional variables and overrides
+
 // While the docs claim that the navbar breakpoint is `mobile`, it actually is `desktop`.
 // Hence the need to override this variable.
 // $navbar-breakpoint: $tablet !default;
-
-// $documenter-sidebar-background: $primary-100 !default;
-// $documenter-sidebar-menu-active-background: $primary !default;
-
-$footer-padding: 1.5rem !default;
 
 $documenter-sidebar-title-width: 0.9 * $documenter-sidebar-width !default;
 $documenter-sidebar-menu-padding: 1rem !default;
@@ -42,3 +39,5 @@ $breadcrumb-item-disabled-color: $text-strong !default;
 $content-pre-padding: 0.7rem 0.5rem !default;
 
 $admonition-background: ('default': $grey-light, 'warning': #fff3c5) !default;
+
+$documenter-docstring-shadow: 2px 2px 3px rgba($black, 0.1) !default;

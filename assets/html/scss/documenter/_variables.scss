@@ -1,5 +1,6 @@
 // Variable definitions. Some are Documenter-specific, others are setting Bulma variables.
 
+
 // Colors
 // ------
 $primary: #4eb5de !default;
@@ -7,6 +8,8 @@ $primary: #4eb5de !default;
 // to make sure it always renders nicely, we'll just use transparent black color to make the
 // background of the <code> elements slightly darker.
 $code-background: rgba(0, 0, 0, 0.05);
+
+$documenter-docstring-background: transparent !default;
 
 // Helper functions
 // ----------------
@@ -22,6 +25,7 @@ $lightness-unit: 8% !default;
   @return adjust-color($color, $lightness: $factor*$lightness-unit);
 }
 
+
 // Fonts
 // -----
 // Declares the font family for the main text.
@@ -33,6 +37,7 @@ $family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
 // for the user. For uncommon fonts it is up to the user to also provide the necessary font
 // assets, e.g. via a CDN, in the makedocs() call.
 
+
 // Shadows
 // -------
 // Shadows are used to visually elevate UI elements that are "floating" (e.g. the sidebar
@@ -40,6 +45,7 @@ $family-sans-serif: 'Lato', 'Helvetica Neue', Arial, sans-serif !default;
 $shadow: #bbb !default;
 $shadow-size: 0.2rem !default;
 $shadow-blur: 0.4rem !default;
+
 
 // Layout
 // ------
@@ -51,6 +57,7 @@ $documenter-sidebar-width: 18rem !default;
 $documenter-main-padding-left: 1.3rem !default;
 $documenter-main-padding-right: 1rem !default;
 $documenter-main-padding: 1rem !default;
+
 // We'll override the Bulma $tablet width, which is the point at which the
 // layout switches between the mobile and tablet modes. Note: $tablet needs
 // to be in px, hence the unit conversion.

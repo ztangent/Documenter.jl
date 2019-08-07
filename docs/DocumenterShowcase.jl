@@ -4,6 +4,8 @@ This is the [`DocumenterShowcase`](@ref), which contains
 * [`DocumenterShowcase.foo`](@ref)
 * [`DocumenterShowcase.bar`](@ref)
 
+# Contents
+
 Docstrings can contain admonitions and other block-level nodes.
 
 !!! info

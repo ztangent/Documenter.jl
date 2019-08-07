@@ -1028,21 +1028,19 @@ function domify(ctx, navnode, node::Documents.DocsNode)
 end
 
 function domify_doc(ctx, navnode, md::Markdown.MD)
-    @tags a section footer
+    @tags a section footer div
     if haskey(md.meta, :results)
         # The `:results` field contains a vector of `Docs.DocStr` objects associated with
         # each markdown object. The `DocStr` contains data such as file and line info that
         # we need for generating correct source links.
         map(zip(md.content, md.meta[:results])) do md
             markdown, result = md
-            ret = section(domify(ctx, navnode, Writers.MarkdownWriter.dropheaders(markdown)))
+            ret = section(div(domify(ctx, navnode, Writers.MarkdownWriter.dropheaders(markdown))))
             # When a source link is available then print the link.
             if !ctx.settings.disable_git
                 url = Utilities.url(ctx.doc.internal.remote, ctx.doc.user.repo, result)
                 if url !== nothing
-                    push!(ret.nodes, footer(
-                        a[".docstring-source-link", :target=>"_blank", :href=>url]("source")
-                    ))
+                    push!(ret.nodes, a[".docs-sourcelink", :target=>"_blank", :href=>url]("source"))
                 end
             end
             return ret

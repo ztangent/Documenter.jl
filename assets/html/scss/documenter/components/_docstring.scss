@@ -1,45 +1,45 @@
+// The docstring element which reuses parts of the Bulma card component
 .docstring {
-  @extend .card;
   margin-bottom: 1em;
+  background-color: $documenter-docstring-background;
+  border: 1px solid $border;
+  box-shadow: $documenter-docstring-shadow;
+  max-width: 100%;
 
   > header {
-    @extend .card-header;
-
-    // background-color: $background;
-
-    // Same as .card-header-title, sans font-weight:
-    // align-items: center;
-    color: $card-header-color;
     display: flex;
     flex-grow: 1;
+    align-items: stretch;
     padding: $card-header-padding;
-    // padding: $card-header-padding $card-content-padding;
+
+    background-color: $background;
+    box-shadow: $card-header-shadow;
+    box-shadow: none;
+    border-bottom: 1px solid $border;
   }
 
   > section {
-    @extend .card-content;
+    position: relative;
+    padding: $card-content-padding;
+
     border-bottom: 1px solid $border;
     &:last-child {
       border-bottom: none;
     }
 
-    // TODO: FIX!
-    footer {
-      margin-top: 0.5rem;
-      text-align: right;
-      // float: right;
-      // position: relative;
-      // right: 0.7*$card-content-padding;
-      // top: 0.7*$card-content-padding;
-      // visibility: hidden;
-      > a {
-        @extend .tag;
-        @extend .is-primary;
-        @extend .is-size-7;
-      }
+    > a.docs-sourcelink {
+      transition: opacity 0.3s;
+      opacity: 0;
+      position: absolute;
+      right: $card-content-padding / 2;
+      bottom: $card-content-padding / 2;
+      @extend .tag;
+      @extend .is-primary;
+      @extend .is-size-7;
     }
-    &:hover > footer {
-      visibility: visible;
+
+    &:hover > a.docs-sourcelink {
+      opacity: 1;
     }
   }
 }
