@@ -269,7 +269,6 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     for theme in THEMES
         copy_asset("themes/$(theme).css", doc)
     end
-    copy_asset("devtools.js", doc)
     append!(ctx.local_assets, settings.assets)
 
     for page in keys(doc.blueprint.pages)

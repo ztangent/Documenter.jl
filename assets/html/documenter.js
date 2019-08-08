@@ -227,7 +227,7 @@ require(['jquery'], function($) {
 })
 
 // Modal settings dialog
-requirejs(['jquery'], function($, dev) {
+requirejs(['jquery'], function($) {
   $(document).ready(function() {
     var settings = $('#documenter-settings');
     $('#documenter-settings-button').click(function(){
@@ -241,19 +241,5 @@ requirejs(['jquery'], function($, dev) {
     $(document).keyup(function(e) {
       if (e.keyCode == 27) settings.removeClass('is-active');
     });
-  });
-});
-
-
-requirejs(['jquery', 'devtools'], function($, dev) {
-  // Manages the "developer tools" widget. Can be opened by pressing Ctrl+y.
-  $(document).ready(function() {
-    var devbox = dev.appendWidget($('body'));
-    devbox.registerThemeLink(document.getElementById('themecss'));
-  });
-  $(document).keypress(function(ev) {
-    if(ev.ctrlKey && ev.charCode == 25) {
-      $('jldebug-devtools').toggle();
-    }
   });
 });
