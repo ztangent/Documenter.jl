@@ -188,6 +188,7 @@ mutable struct HTMLContext
     logo :: String
     scripts :: Vector{String}
     documenter_js :: String
+    themeswap_js :: String
     search_js :: String
     search_index :: Vector{SearchRecord}
     search_index_js :: String
@@ -196,7 +197,7 @@ mutable struct HTMLContext
     footnotes :: Vector{Markdown.Footnote}
 end
 
-HTMLContext(doc, settings=HTML()) = HTMLContext(doc, settings, "", [], "", "", [], "", Documents.NavNode("search", "Search", nothing), [], [])
+HTMLContext(doc, settings=HTML()) = HTMLContext(doc, settings, "", [], "", "", "", [], "", Documents.NavNode("search", "Search", nothing), [], [])
 
 function SearchRecord(ctx::HTMLContext, navnode; loc="", title=nothing, category="page", text="")
     page_title = mdflatten(pagetitle(ctx, navnode))
@@ -253,9 +254,6 @@ function render(doc::Documents.Document, settings::HTML=HTML())
     ctx = HTMLContext(doc, settings)
     ctx.search_index_js = "search_index.js"
 
-    copy_asset("arrow.svg", doc)
-    copy_asset("themeswap.js", doc)
-
     for logoext in ["svg", "png", "webp", "gif", "jpg", "jpeg"]
         logo = joinpath("assets", "logo.$(logoext)")
         if isfile(joinpath(doc.user.build, logo))
@@ -264,6 +262,7 @@ function render(doc::Documents.Document, settings::HTML=HTML())
         end
     end
 
+    ctx.themeswap_js = copy_asset("themeswap.js", doc)
     ctx.documenter_js = copy_asset("documenter.js", doc)
     ctx.search_js = copy_asset("search.js", doc)
 
@@ -470,7 +469,7 @@ function render_head(ctx, navnode)
             (i == 1) && push!(e.attributes, Symbol("data-theme-primary") => "")
             return e
         end,
-        script[:src => relhref(src, "assets/themeswap.js")],
+        script[:src => relhref(src, ctx.themeswap_js)],
     )
 end
 
