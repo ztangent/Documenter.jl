@@ -26,8 +26,6 @@
 
 * ![Feature][badge-feature] Deployment is now more customizable and thus not as tied to Travis CI as before. ([#1147][github-1147], [#1171][github-1171], [#1180][github-1180])
 
-* ![Feature][badge-feature] Documenter now has builtin support for deploying from GitHub Actions. Documenter will autodetect the running system, unless explicitly specified. ([#1144][github-1144], [#1152][github-1152])
-
 * ![Enhancement][badge-enhancement] The handling of JS and CSS assets is now more customizable:
 
   * The `asset` function can now be used to declare remote JS and CSS assets in the `assets` keyword. ([#1108][github-1108])
@@ -45,6 +43,8 @@
 * ![Enhancement][badge-enhancement] If the TeX compilation fails for the PDF/LaTeX output, `makedocs` now throws an exception. ([#1166][github-1166])
 
 * ![Bugfix][badge-bugfix] `LaTeXWriter` now outputs valid LaTeX if an `@contents` block is nested by more than two levels, or if `@contents` or `@index` blocks do not contain any items. ([#1166][github-1166])
+
+* ![Experimental][badge-experimental] ![Feature][badge-feature] Documenter now has experimental built-in support for deploying with GitHub Actions. Documenter will autodetect the running system, unless explicitly specified. ([#1144][github-1144], [#1152][github-1152])
 
 ## Version `v0.23.4`
 

@@ -165,6 +165,19 @@ Follow the instructions that are printed out, namely:
 
 ### GitHub Actions
 
+!!! warning "Experimental feature"
+
+    GitHub Actions support is currently experimental and the design may change without warning.
+    If relying on this feature, Documenter should be pinned to a specific version in the
+    `[compat]` section in the documentation environment (e.g. `docs/Project.toml`).
+
+    The current design of this feature uses [the GitHub Actions authentication token
+    (`GITHUB_TOKEN`)](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)
+    when publishing documentation onto GitHub Pages. However, when using that token, the website
+    served to the user does not get rebuilt, making it look like the documentation build
+    did not succeed. See [issue #1177](https://github.com/JuliaDocs/Documenter.jl/issues/1177)
+    for more information.
+
 To run the documentation build from GitHub Actions you should add the following to your
 workflow configuration file:
 
